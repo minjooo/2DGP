@@ -24,9 +24,24 @@ def go_203_132():
         frame=(frame+1)%8
         delay(0.05)
 
-    pass
 def go_132_535():
-    pass
+    frame = 0
+    count = 0
+    x = 132
+    y = 243
+    gox = (535 - 132) / 100
+    goy = (470 - 243) / 100
+    while count <= 100:
+        clear_canvas()
+        grass.draw(400, 30)
+        character.clip_draw(frame * 100, 100, 100, 100, x, y)
+        update_canvas()
+        count += 1
+        x += gox
+        y += goy
+        frame = (frame + 1) % 8
+        delay(0.05)
+
 def go_535_477():
     pass
 def go_477_715():
@@ -46,7 +61,7 @@ def go_682_203():
     pass
 
 while True:
-    go_203_132()
+    # go_203_132()
     go_132_535()
     go_535_477()
     go_477_715()
