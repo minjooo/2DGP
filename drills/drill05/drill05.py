@@ -1,4 +1,5 @@
 from pico2d import *
+import math
 
 open_canvas()
 
@@ -55,10 +56,20 @@ def make_rectangle():
     # move_up()
     # move_left()
     # move_down()
-    move_from_right_to_center()
+    # move_from_right_to_center()
+    pass
 
 def make_circle():
-    pass
+    angle = 270
+    x,y=800//2,90
+    while angle < 630:
+        x=800//2 + 212 * math.cos(math.radians(angle))
+        y = 300 + 212 * math.sin(math.radians(angle))
+        angle+=1
+        clear_canvas_now()
+        grass.draw_now(800//2,30)
+        character.draw_now(x,y)
+        delay(0.01)
 
 while True:
     make_rectangle()
