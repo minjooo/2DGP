@@ -7,6 +7,7 @@ def handle_events():
     global running
     global hand_x, hand_y
     global x,y
+    global temp_y
     global gox,goy
     global cur_x,cur_y
     global count
@@ -20,8 +21,9 @@ def handle_events():
             running = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             count=0
-            gox = (x-cur_x) / 50
-            goy = (KPU_HEIGHT - 1 -event.y-cur_y) / 50
+            gox = (event.x-cur_x-25) / 50
+            temp_y = (KPU_HEIGHT - 1 -event.y+35)
+            goy=(temp_y-cur_y) / 50
     pass
 
 
@@ -36,6 +38,7 @@ cur_x, cur_y = KPU_WIDTH // 2, KPU_HEIGHT // 2
 hand_x,hand_y=0,0
 gox,goy=0,0
 count=0
+temp_y=0
 frame = 0
 hide_cursor()
 
@@ -50,9 +53,6 @@ while running:
         count += 1
         x += gox
         y += goy
-        cur_x=x
-        cur_y=y
-    elif count ==50:
         cur_x=x
         cur_y=y
     delay(0.02)
