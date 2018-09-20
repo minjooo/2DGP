@@ -8,6 +8,7 @@ def handle_events():
     global hand_x, hand_y
     global x,y
     global gox,goy
+    global cur_x,cur_y
     global count
     events = get_events()
     for event in events:
@@ -19,8 +20,8 @@ def handle_events():
             running = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             count=0
-            gox=x / 50
-            goy=(KPU_HEIGHT - 1 -event.y+50) / 50
+            gox = (x-cur_x) / 50
+            goy = (KPU_HEIGHT - 1 -event.y-cur_y) / 50
     pass
 
 
@@ -31,6 +32,7 @@ hand = load_image('hand_arrow.png')
 
 running = True
 x, y = KPU_WIDTH // 2, KPU_HEIGHT // 2
+cur_x, cur_y = KPU_WIDTH // 2, KPU_HEIGHT // 2
 hand_x,hand_y=0,0
 gox,goy=0,0
 count=0
@@ -44,10 +46,15 @@ while running:
     hand.draw(hand_x, hand_y)
     update_canvas()
     frame = (frame + 1) % 8
-    if count < 100:
-        count +=2
+    if count < 50:
+        count += 1
         x += gox
         y += goy
+        cur_x=x
+        cur_y=y
+    elif count ==50:
+        cur_x=x
+        cur_y=y
     delay(0.02)
     handle_events()
 
