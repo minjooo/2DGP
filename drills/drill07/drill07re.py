@@ -16,7 +16,8 @@ def move_character(p1,p2):
         t=i/100
         x=(1-t)*p1[0]+t*p2[0]
         y=(1-t)*p1[1]+t*p2[1]
-        draw_character(x,y)
+
+    draw_character(x, y)
 
 open_canvas(KPU_WIDTH, KPU_HEIGHT)
 kpu_ground = load_image('KPU_GROUND.png')
