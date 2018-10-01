@@ -92,16 +92,33 @@ open_canvas(KPU_WIDTH, KPU_HEIGHT)
 kpu_ground = load_image('KPU_GROUND.png')
 character = load_image('animation_sheet.png')
 
-def draw_character():
-    pass
 
 size=6
 points = [(random.randint(-500,500),random.randint(-350,350)) for i in range(size)]
 n=1
 
-while True:
-    draw_character(points[n-1], points[n])
-    n = (n + 1) % size
+global frame
 
+def draw_character(x,y):
+    character.clip_draw(frame*100,100*1,100,100,x,y)
+    pass
+def move_character(p1,p2):
+    for i in range(0, 100 + 1, 1):
+        t=i/100
+        x=(1-t)*p1[0]+t*p2[0]
+        y=(1-t)*p1[1]+t*p2[1]
+        draw_character(x,y)
+        frame=(frame+1)%8
+    pass
+
+frame=0
+
+while True:
+    clear_canvas()
+    kpu_ground.draw(KPU_WIDTH // 2, KPU_HEIGHT // 2)
+    move_character(points[n-1], points[n])
+    update_canvas()
+    delay(0.02)
+    n = (n + 1) % size
 
 turtle.done()
