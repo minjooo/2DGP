@@ -12,11 +12,11 @@ def draw_character(x,y):
     frame = (frame + 1) % 8
 
 def move_character (p1, p2):
+    global frame
     for i in range(0, 100 + 1, 10):
         t = i/100
         x = (1-t)*p1[0]+t*p2[0]
         y = (1-t)*p1[1]+t*p2[1]
-        global frame
         if where == 1:
             character.clip_draw(frame * 100, 100 * 1, 100, 100, x, y)
         else:
