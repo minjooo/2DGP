@@ -1,5 +1,10 @@
 from pico2d import *
 
+# 캔버스 크기 900*700
+#게임 오브잭트 클래스 자리
+
+
+
 def handle_events():
     global running
     events = get_events()
@@ -9,20 +14,12 @@ def handle_events():
         elif event.type==SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
 
-open_canvas()
-happy = load_image('run_happiness100.png')
-sad = load_image('run_sadness100.png')
+# 초키화 자리
+open_canvas(900,700)
 
-frame=0
-running = True
+running = False
 
-while running == True:
-    clear_canvas()
-    happy.clip_draw(frame*100,0,100,100,100,100)
-    sad.clip_draw(frame*100,0,100,100,230,100)
-    update_canvas()
-    frame=(frame+1)%8
-    delay(0.05)
-    handle_events()
+# 메인 루프 자리
 
+# 코드 종료 자리
 close_canvas()
