@@ -22,14 +22,14 @@ class Big_start:
         self.image = load_image('big_start.png')
 
     def draw(self):
-        self.image.draw(455,340)
+        self.image.draw(450,350)
 
 class Small_start:
     def __init__(self):
         self.image = load_image('small_start.png')
 
     def draw(self):
-        self.image.draw(455, 340)
+        self.image.draw(450, 350)
 
 def handle_events():
     global running
@@ -42,7 +42,7 @@ def handle_events():
             starting = False
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
-            if 415 < event.x < 495 and 320 < (700 - 1 - event.y) < 360:
+            if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
                 Big_cursor = True
             else:
                 Big_cursor = False
