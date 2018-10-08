@@ -158,7 +158,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.UPSIDE_DOWN">
+  <component name="RunManager" selected="Python.test">
     <configuration name="2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="project_UPSIDEDOWN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -229,8 +229,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.UPSIDE_DOWN" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.UPSIDE_DOWN" />
         <item itemvalue="Python.2" />
       </list>
     </recent_temporary>
