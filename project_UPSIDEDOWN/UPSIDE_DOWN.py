@@ -150,7 +150,7 @@ while starting:
 
     clear_canvas()
     startImage.draw()
-    if Big_cursor == True:
+    if Big_cursor:
         bigStart.draw()
     else:
         smallStart.draw()
