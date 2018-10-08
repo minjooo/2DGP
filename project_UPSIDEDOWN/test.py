@@ -12,16 +12,20 @@ def handle_events():
 open_canvas()
 happy = load_image('run_happiness100.png')
 sad = load_image('run_sadness100.png')
+Wsad = load_image('wait_sadness200.png')
 
 frame=0
+Wframe=0
 running = True
 
 while running == True:
     clear_canvas()
     happy.clip_draw(frame*100,0,100,100,100,100)
     sad.clip_draw(frame*100,0,100,100,230,100)
+    Wsad.clip_draw(Wframe*200,0,200,200,500,300)
     update_canvas()
     frame=(frame+1)%8
+    Wframe=(Wframe+1)%4
     delay(0.05)
     handle_events()
 
