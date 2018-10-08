@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UPSIDE_DOWN.py" beforeDir="false" afterPath="$PROJECT_DIR$/UPSIDE_DOWN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wait_happiness.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wait_happiness200.psd" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,22 +47,22 @@
     <session id="1770724258">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1716" />
+          <entry key="py" value="2437" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1716" />
+          <entry key="Python" value="2437" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -76,23 +79,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="80" column="17" lean-forward="true" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+            <state relative-caret-position="239">
+              <caret line="120" column="19" lean-forward="true" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
               <folding>
-                <marker date="1539023912045" expanded="true" signature="68:233" ph="..." />
-                <marker date="1539023912045" expanded="true" signature="550:682" ph="..." />
+                <marker date="1539027751531" expanded="true" signature="68:233" ph="..." />
+                <marker date="1539027751531" expanded="true" signature="550:1313" ph="..." />
+                <marker date="1539027751531" expanded="true" signature="864:912" ph="..." />
+                <marker date="1539027751531" expanded="true" signature="1021:1313" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
+            <state relative-caret-position="145">
               <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
             </state>
           </provider>
@@ -107,14 +112,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/2.py" />
-        <option value="$PROJECT_DIR$/UPSIDE_DOWN.py" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/UPSIDE_DOWN.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="886" />
-    <option name="width" value="1034" />
+    <option name="x" value="885" />
+    <option name="width" value="1035" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -157,7 +162,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.UPSIDE_DOWN">
     <configuration name="2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="project_UPSIDEDOWN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -228,8 +233,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.UPSIDE_DOWN" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.2" />
       </list>
     </recent_temporary>
@@ -248,10 +253,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="709" y="0" width="827" height="824" extended-state="0" />
+    <frame x="708" y="0" width="828" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25822785" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2579014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -282,21 +287,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2.py" />
-    <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="80" column="17" lean-forward="true" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
-          <folding>
-            <marker date="1539023912045" expanded="true" signature="68:233" ph="..." />
-            <marker date="1539023912045" expanded="true" signature="550:682" ph="..." />
-          </folding>
+        <state relative-caret-position="145">
+          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        <state relative-caret-position="239">
+          <caret line="120" column="19" lean-forward="true" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
+          <folding>
+            <marker date="1539027751531" expanded="true" signature="68:233" ph="..." />
+            <marker date="1539027751531" expanded="true" signature="550:1313" ph="..." />
+            <marker date="1539027751531" expanded="true" signature="864:912" ph="..." />
+            <marker date="1539027751531" expanded="true" signature="1021:1313" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

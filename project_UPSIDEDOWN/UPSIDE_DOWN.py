@@ -31,6 +31,30 @@ class Small_start:
     def draw(self):
         self.image.draw(450, 350)
 
+class Wait_happiness:
+    def __init__(self):
+        self.x, self.y = 200, 200
+        self.frame = 0
+        self.image = load_image('wait_happiness200.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 4
+
+    def draw(self):
+        self.image.clip_draw(self.frame*200, 0, 200, 200, self.x,self.y)
+
+class Wait_sadness:
+    def __init__(self):
+        self.x, self.y = 500, 200
+        self.frame = 0
+        self.image = load_image('wait_sadness200.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 4
+
+    def draw(self):
+        self.image.clip_draw(self.frame*200, 0, 200, 200, self.x, self.y)
+
 def handle_events():
     global running
     global starting
@@ -41,6 +65,7 @@ def handle_events():
         if event.type == SDL_QUIT:
             running = False
             starting = False
+            choosing = False
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
             if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
@@ -54,6 +79,7 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
             starting = False
+            choosing = False
 
 # 초키화 자리
 open_canvas(900, 700)
@@ -61,6 +87,8 @@ startImage = Start_Background()
 smallStart = Small_start()
 bigStart = Big_start()
 cursor = Cursor()
+wait_happy = Wait_happiness()
+wait_sad = Wait_sadness()
 hide_cursor()
 
 running = False
@@ -82,8 +110,17 @@ while starting:
     update_canvas()
 
 while choosing:
-    close_canvas()
-    pass
+    handle_events()
+
+    wait_happy.update()
+    wait_sad.update()
+
+    clear_canvas()
+    wait_happy.draw()
+    wait_sad.draw()
+    update_canvas()
+
+    delay(0.05)
 
 # 코드 종료 자리
 close_canvas()
