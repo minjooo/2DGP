@@ -130,6 +130,7 @@ startImage = Start_Background()
 smallStart = Small_start()
 bigStart = Big_start()
 cursor = Cursor()
+chooseImage = Choose_Background()
 wait_happy = Wait_happiness()
 wait_sad = Wait_sadness()
 run_happy300 = Run_happiness300()
@@ -165,6 +166,7 @@ while choosing:
     run_sad300.update()
 
     clear_canvas()
+    chooseImage.draw()
     if Big_happy:
         run_happy300.draw()
     else:
