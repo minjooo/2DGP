@@ -84,6 +84,7 @@ def handle_events():
     global starting
     global choosing
     global Big_cursor
+    global Big_happy
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -98,6 +99,10 @@ def handle_events():
                 else:
                     Big_cursor = False
             elif choosing:
+                if 150 < event.x <450 and 100 < (700 - 1 - event.y) < 450:
+                    Big_happy = True
+                else:
+                    Big_happy = False
                 pass
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if Big_cursor == True:
@@ -145,10 +150,18 @@ while choosing:
 
     wait_happy.update()
     wait_sad.update()
+    run_happy300.update()
+    run_sad300.update()
 
     clear_canvas()
-    wait_happy.draw()
-    wait_sad.draw()
+    if Big_happy:
+        run_happy300.draw()
+    else:
+        wait_happy.draw()
+    if Big_sad:
+        run_sad300.draw()
+    else:
+        wait_sad.draw()
     cursor.draw()
     update_canvas()
 
