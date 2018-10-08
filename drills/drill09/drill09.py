@@ -11,7 +11,7 @@ class Grass:
 
 class Boy:
     def __init__(self):
-        self.x, self.y = random.randint(100,500), 90
+        self.x, self.y = random.randint(100,700), 90
         self.frame = random.randint(0,7)
         self.image = load_image('run_animation.png')
 
@@ -22,15 +22,30 @@ class Boy:
     def draw(self):
         self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
 
-class Ball:
+class Big_Ball:
     def __init__(self):
-        self.x, self.y = 100, 600
+        self.x, self.y = random.randint(100,700), 600
+        self.speed = random.randint(3,8)
+        self.B_image = load_image('ball41X41.png')
 
     def update(self):
-        self.y -= 5
+        self.y -= self.speed
 
     def draw(self):
-        self.image.draw(self.x,self.y)
+        self.B_image.draw(self.x,self.y)
+
+class Small_Ball:
+    def __init__(self):
+        self.x, self.y = random.randint(100,700), 600
+        self.speed = random.randint(3, 8)
+        self.S_image = load_image('ball21X21.png')
+
+    def update(self):
+        self.y -= self.speed
+
+    def draw(self):
+        self.S_image.draw(self.x,self.y)
+
 
 def handle_events():
     global running
