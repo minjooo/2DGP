@@ -70,7 +70,7 @@ class Run_happiness300:
 class Run_sadness300:
     def __init__(self):
         self.x, self.y = 650, 300
-        self.frame = 0
+        self.frame = 1
         self.image = load_image('run_sadness300.png')
 
     def update(self):
@@ -85,6 +85,7 @@ def handle_events():
     global choosing
     global Big_cursor
     global Big_happy
+    global Big_sad
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -103,7 +104,10 @@ def handle_events():
                     Big_happy = True
                 else:
                     Big_happy = False
-                pass
+                if 500 < event.x < 800 and 100 < (700 - 1 - event.y) < 450:
+                    Big_sad = True
+                else:
+                    Big_sad = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if Big_cursor == True:
                 starting = False
