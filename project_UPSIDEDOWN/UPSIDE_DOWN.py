@@ -31,6 +31,13 @@ class Small_start:
     def draw(self):
         self.image.draw(450, 350)
 
+class Choose_Background:
+    def __init__(self):
+        self.image = load_image('choose.png')
+
+    def draw(self):
+        self.image.draw(450, 350)
+
 class Wait_happiness:
     def __init__(self):
         self.x, self.y = 300, 300
@@ -70,7 +77,7 @@ class Run_happiness300:
 class Run_sadness300:
     def __init__(self):
         self.x, self.y = 650, 300
-        self.frame = 1
+        self.frame = 2
         self.image = load_image('run_sadness300.png')
 
     def update(self):
