@@ -29,7 +29,7 @@ class Big_Ball:
         self.B_image = load_image('ball41X41.png')
 
     def update(self):
-        if self.y <= 20:
+        if self.y <= 80:
             pass
         else:
             self.y -= self.speed
@@ -44,7 +44,10 @@ class Small_Ball:
         self.S_image = load_image('ball21X21.png')
 
     def update(self):
-        self.y -= self.speed
+        if self.y <= 70:
+            pass
+        else:
+            self.y -= self.speed
 
     def draw(self):
         self.S_image.draw(self.x,self.y)
