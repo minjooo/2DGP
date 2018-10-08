@@ -68,10 +68,13 @@ def handle_events():
             choosing = False
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
-            if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
-                Big_cursor = True
-            else:
-                Big_cursor = False
+            if starting:
+                if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
+                    Big_cursor = True
+                else:
+                    Big_cursor = False
+            elif choosing:
+                pass
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if Big_cursor == True:
                 starting = False
@@ -94,7 +97,7 @@ hide_cursor()
 running = False
 starting = True
 choosing = False
-Big_cursor = False
+Big_cursor = False # start글씨 크게 나오게하는 bool값
 
 # 메인 루프 자리
 while starting:
@@ -118,6 +121,7 @@ while choosing:
     clear_canvas()
     wait_happy.draw()
     wait_sad.draw()
+    cursor.draw()
     update_canvas()
 
     delay(0.05)
