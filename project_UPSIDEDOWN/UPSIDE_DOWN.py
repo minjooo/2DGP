@@ -33,27 +33,51 @@ class Small_start:
 
 class Wait_happiness:
     def __init__(self):
-        self.x, self.y = 200, 200
+        self.x, self.y = 300, 300
         self.frame = 0
-        self.image = load_image('wait_happiness200.png')
+        self.image = load_image('wait_happiness300.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 4
 
     def draw(self):
-        self.image.clip_draw(self.frame*200, 0, 200, 200, self.x,self.y)
+        self.image.clip_draw(self.frame*300, 0, 300, 300, self.x,self.y)
 
 class Wait_sadness:
     def __init__(self):
-        self.x, self.y = 500, 200
+        self.x, self.y = 650, 300
         self.frame = 0
-        self.image = load_image('wait_sadness200.png')
+        self.image = load_image('wait_sadness300.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 4
 
     def draw(self):
-        self.image.clip_draw(self.frame*200, 0, 200, 200, self.x, self.y)
+        self.image.clip_draw(self.frame*300, 0, 300, 300, self.x, self.y)
+
+class Run_happiness300:
+    def __init__(self):
+        self.x, self.y =300, 300
+        self.frame = 0
+        self.image = load_image('run_happiness300.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 8
+
+    def draw(self):
+        self.image.clip_draw(self.frame*300, 0, 300, 300, self.x,self.y)
+
+class Run_sadness300:
+    def __init__(self):
+        self.x, self.y = 650, 300
+        self.frame = 0
+        self.image = load_image('run_sadness300.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 8
+
+    def draw(self):
+        self.image.clip_draw(self.frame * 300, 0, 300, 300, self.x, self.y)
 
 def handle_events():
     global running
@@ -92,12 +116,16 @@ bigStart = Big_start()
 cursor = Cursor()
 wait_happy = Wait_happiness()
 wait_sad = Wait_sadness()
+run_happy300 = Run_happiness300()
+run_sad300 = Run_sadness300()
 hide_cursor()
 
 running = False
 starting = True
 choosing = False
 Big_cursor = False # start글씨 크게 나오게하는 bool값
+Big_happy = False
+Big_sad = False
 
 # 메인 루프 자리
 while starting:
