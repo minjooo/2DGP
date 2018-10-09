@@ -200,7 +200,7 @@ def handle_events():
                 running = True
                 selected_character = 'sad'
         elif event.type == SDL_KEYDOWN:
-            if event.key == SDLK_DELETE:
+            if event.key == SDLK_DELETE and run_sad100.jump == False and run_happy100.jump == False:
                 if run_happy100.UP or run_sad100.UP:
                     run_happy100.UP = False
                     run_sad100.UP = False
@@ -288,7 +288,10 @@ while running:
     path.draw()
     if selected_character == 'happy':
         if run_happy100.jump:
-            pass
+            if run_happy100.UP:
+                run_happy100.draw_jump_up()
+            else:
+                run_happy100.draw_jump_down()
         else:
             if run_happy100.UP:
                 run_happy100.draw_up()
@@ -296,7 +299,10 @@ while running:
                 run_happy100.draw_down()
     elif selected_character == 'sad':
         if run_sad100.jump:
-            pass
+            if run_sad100.UP:
+                run_sad100.draw_jump_up()
+            else:
+                run_sad100.draw_jump_down()
         else:
             if run_sad100.UP:
                 run_sad100.draw_up()
