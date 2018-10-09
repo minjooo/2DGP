@@ -88,22 +88,28 @@ class Run_sadness300:
 
 class Running_Background:
     def __init__(self):
-        self.image = load_image('running_background.png')
+        self.image = load_image('running_BG.png')
 
     def draw(self):
         self.image.draw(450,350)
 
 class Run_happiness100:
     def __init__(self):
-        self.x, self.y = 200, 360
+        self.x_up, self.y_up = 200, 360
+        self.x_down, self.y_down = 200,240
+        self.UP = True
         self.frame = 0
-        self.image = load_image('run_happiness100.png')
+        self.image_up = load_image('run_happiness100.png')
+        self.image_down = load_image('run_happiness100_down.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 8
 
-    def draw(self):
-        self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
+    def draw_up(self):
+        self.image_up.clip_draw(self.frame * 100, 0, 100, 100, self.x_up, self.y_up)
+    def draw_down(self):
+        self.image_down.clip_draw(self.frame * 100, 0, 100, 100, self.x_down, self.y_down)
+
 
 class Run_sadness100:
     def __init__(self):
@@ -143,10 +149,6 @@ def handle_events():
             running = False
             starting = False
             choosing = False
-        elif event.type == SDLK_KP_SPACE:
-            pass
-        elif event.type == SDLK_KP_ENTER:
-            pass
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
             if starting:
@@ -175,6 +177,13 @@ def handle_events():
                 choosing = False
                 running = True
                 selected_character = 'sad'
+        elif event.type == SDLK_KP_SPACE:
+            pass
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_DELETE:
+            if run_happy100.UP:
+                run_happy100.UP = False
+            elif run_happy100.UP == False:
+                run_happy100.UP = True
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
             starting = False
@@ -252,7 +261,10 @@ while running:
     runningImage.draw()
     path.draw()
     if selected_character == 'happy':
-        run_happy100.draw()
+        if run_happy100.UP:
+            run_happy100.draw_up()
+        elif run_happy100.UP == False:
+            run_happy100.draw_down()
     elif selected_character == 'sad':
         run_sad100.draw()
     update_canvas()
