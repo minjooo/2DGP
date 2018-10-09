@@ -106,17 +106,18 @@ class Run_happiness100:
     def update(self):
         self.frame = (self.frame + 1) % 8
         if self.jump:
-            if self.hight < 100 and self.goup:
+            if self.goup:
                 self.hight += self.jump_speed[self.count_jump_speed]
                 self.count_jump_speed -= 1
-                if self.count_jump_speed == -10:
+                if self.count_jump_speed == -11:
                     self.goup = False
-            if self.hight > 0 and self.goup == False:
+            if self.goup == False:
                 self.hight -= self.jump_speed[self.count_jump_speed]
                 self.count_jump_speed += 1
-                if self.count_jump_speed == -1:
+                if self.count_jump_speed == 1:
                     self.goup = True
                     self.jump = False
+                    self.count_jump_speed = -1
 
     def draw_up(self):
         self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360)
