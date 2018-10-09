@@ -132,6 +132,7 @@ class Run_sadness100:
     def __init__(self):
         self.UP = True
         self.jump = False
+        self.goup = True
         self.hight = 0
         self.frame = 0
         self.image_up = load_image('run_sadness100.png')
@@ -142,7 +143,15 @@ class Run_sadness100:
     def update(self):
         self.frame = (self.frame + 1) % 8
         if self.jump:
-            pass
+            if self.hight < 100 and self.goup:
+                self.hight += 10
+                if self.hight == 100:
+                    self.goup = False
+            if self.hight > 0 and self.goup == False:
+                self.hight -= 10
+                if self.hight == 0:
+                    self.goup = True
+                    self.jump = False
 
     def draw_up(self):
         self.image_up.clip_draw(self.frame * 100 , 0, 100, 100, 200, 360)
