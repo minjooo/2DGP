@@ -40,7 +40,6 @@ class Choose_Background:
 
 class Wait_happiness:
     def __init__(self):
-        self.x, self.y = 300, 300
         self.frame = 0
         self.image = load_image('wait_happiness300.png')
 
@@ -48,11 +47,10 @@ class Wait_happiness:
         self.frame = (self.frame + 1) % 4
 
     def draw(self):
-        self.image.clip_draw(self.frame*300, 0, 300, 300, self.x,self.y)
+        self.image.clip_draw(self.frame*300, 0, 300, 300, 300, 300)
 
 class Wait_sadness:
     def __init__(self):
-        self.x, self.y = 650, 300
         self.frame = 0
         self.image = load_image('wait_sadness300.png')
 
@@ -60,11 +58,10 @@ class Wait_sadness:
         self.frame = (self.frame + 1) % 4
 
     def draw(self):
-        self.image.clip_draw(self.frame*300, 0, 300, 300, self.x, self.y)
+        self.image.clip_draw(self.frame*300, 0, 300, 300, 650, 300)
 
 class Run_happiness300:
     def __init__(self):
-        self.x, self.y =300, 300
         self.frame = 0
         self.image = load_image('run_happiness300.png')
 
@@ -72,11 +69,10 @@ class Run_happiness300:
         self.frame = (self.frame + 1) % 8
 
     def draw(self):
-        self.image.clip_draw(self.frame*300, 0, 300, 300, self.x,self.y)
+        self.image.clip_draw(self.frame*300, 0, 300, 300, 300, 300)
 
 class Run_sadness300:
     def __init__(self):
-        self.x, self.y = 650, 300
         self.frame = 2
         self.image = load_image('run_sadness300.png')
 
@@ -84,7 +80,7 @@ class Run_sadness300:
         self.frame = (self.frame + 1) % 8
 
     def draw(self):
-        self.image.clip_draw(self.frame * 300, 0, 300, 300, self.x, self.y)
+        self.image.clip_draw(self.frame * 300, 0, 300, 300, 650, 300)
 
 class Running_Background:
     def __init__(self):
