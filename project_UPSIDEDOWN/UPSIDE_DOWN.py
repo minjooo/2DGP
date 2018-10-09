@@ -98,6 +98,18 @@ class Run_happiness100:
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
 
+class Run_sadness100:
+    def __init__(self):
+        self.x, self.y = 200, 360
+        self.frame = 0
+        self.image = load_image('run_sadness100.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 8
+
+    def draw(self):
+        self.image.clip_draw(self.frame * 100 , 0, 100, 100, self.x, self.y)
+
 class Path:
     def __init__(self):
         self.x ,self.y = 450, 300
@@ -171,6 +183,7 @@ run_sad300 = Run_sadness300()
 selected_character = 'happy' #선택된 캐릭터 이름 저장
 path = Path()
 run_happy100 = Run_happiness100()
+run_sad100 = Run_sadness100()
 hide_cursor()
 
 running = False
@@ -221,10 +234,14 @@ while running:
 
     path.update()
     run_happy100.update()
+    run_sad100.update()
 
     clear_canvas()
     path.draw()
-    run_happy100.draw()
+    if selected_character == 'happy':
+        run_happy100.draw()
+    elif selected_character == 'sad':
+        run_sad100.draw()
     update_canvas()
 
     delay(0.05)
