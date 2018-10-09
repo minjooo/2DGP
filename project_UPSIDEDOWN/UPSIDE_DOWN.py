@@ -86,6 +86,22 @@ class Run_sadness300:
     def draw(self):
         self.image.clip_draw(self.frame * 300, 0, 300, 300, self.x, self.y)
 
+class Run_happiness100:
+    def __init__(self):
+        self.x, self.y = 200
+
+class Path:
+    def __init__(self):
+        self.x ,self.y = 450, 300
+        self.frame = 0
+        self.image = load_image('path1350.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 10
+
+    def draw(self):
+        self.image.clip_draw(self.frame * 45, 0, 900, 20, self.x, self.y)
+
 def handle_events():
     global running
     global starting
@@ -93,6 +109,7 @@ def handle_events():
     global Big_cursor
     global Big_happy
     global Big_sad
+    global selected_character
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -119,6 +136,14 @@ def handle_events():
             if Big_cursor == True:
                 starting = False
                 choosing = True
+            if Big_happy:
+                choosing = False
+                running = True
+                selected_character = 'happy'
+            if Big_sad:
+                choosing = False
+                running = True
+                selected_character = 'sad'
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
             starting = False
@@ -135,6 +160,8 @@ wait_happy = Wait_happiness()
 wait_sad = Wait_sadness()
 run_happy300 = Run_happiness300()
 run_sad300 = Run_sadness300()
+selected_character = 'happy' #선택된 캐릭터 이름 저장
+path = Path()
 hide_cursor()
 
 running = False
@@ -176,6 +203,17 @@ while choosing:
     else:
         wait_sad.draw()
     cursor.draw()
+    update_canvas()
+
+    delay(0.05)
+
+while running:
+    handle_events()
+
+    path.update()
+
+    clear_canvas()
+    path.draw()
     update_canvas()
 
     delay(0.05)

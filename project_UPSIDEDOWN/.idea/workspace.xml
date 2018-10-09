@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="" />
+    <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UPSIDE_DOWN.py" beforeDir="false" afterPath="$PROJECT_DIR$/UPSIDE_DOWN.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,58 +45,60 @@
     <session id="1770724258">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3374" />
+          <entry key="py" value="3986" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3374" />
+          <entry key="Python" value="3986" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="2" />
+          <entry key="py" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="2" />
+          <entry key="Python" value="3" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="890">
-              <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+            <state relative-caret-position="277">
+              <caret line="216" column="19" lean-forward="true" selection-start-line="216" selection-start-column="19" selection-end-line="216" selection-end-column="19" />
               <folding>
-                <marker date="1539031335387" expanded="true" signature="68:233" ph="..." />
-                <marker date="1539031335387" expanded="true" signature="550:2110" ph="..." />
-                <marker date="1539031335387" expanded="true" signature="706:833" ph="..." />
-                <marker date="1539031335387" expanded="true" signature="1015:1063" ph="..." />
-                <marker date="1539031335387" expanded="true" signature="1493:2110" ph="..." />
+                <marker date="1539065746647" expanded="true" signature="68:233" ph="..." />
+                <marker date="1539065746647" expanded="true" signature="550:2491" ph="..." />
+                <marker date="1539065746647" expanded="true" signature="706:833" ph="..." />
+                <marker date="1539065746647" expanded="true" signature="1015:1063" ph="..." />
+                <marker date="1539065746647" expanded="true" signature="1493:2491" ph="..." />
+                <marker date="1539065746647" expanded="true" signature="2199:2491" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="209">
               <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
@@ -108,14 +113,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/2.py" />
-        <option value="$PROJECT_DIR$/UPSIDE_DOWN.py" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/UPSIDE_DOWN.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="885" />
-    <option name="width" value="1035" />
+    <option name="x" value="620" />
+    <option name="width" value="1300" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -124,7 +129,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -136,6 +140,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -158,7 +163,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.UPSIDE_DOWN">
     <configuration name="2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="project_UPSIDEDOWN" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -229,8 +234,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.UPSIDE_DOWN" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.2" />
       </list>
     </recent_temporary>
@@ -249,10 +254,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="708" y="0" width="828" height="824" extended-state="0" />
+    <frame x="496" y="0" width="1040" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2579014" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20338982" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -275,32 +280,33 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/2.py" />
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/python 3.7/Lib/site-packages/pico2d/pico2d.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
-          <caret line="336" column="50" selection-start-line="336" selection-start-column="50" selection-end-line="336" selection-end-column="50" />
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2.py" />
     <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="890">
-          <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+        <state relative-caret-position="277">
+          <caret line="216" column="19" lean-forward="true" selection-start-line="216" selection-start-column="19" selection-end-line="216" selection-end-column="19" />
           <folding>
-            <marker date="1539031335387" expanded="true" signature="68:233" ph="..." />
-            <marker date="1539031335387" expanded="true" signature="550:2110" ph="..." />
-            <marker date="1539031335387" expanded="true" signature="706:833" ph="..." />
-            <marker date="1539031335387" expanded="true" signature="1015:1063" ph="..." />
-            <marker date="1539031335387" expanded="true" signature="1493:2110" ph="..." />
+            <marker date="1539065746647" expanded="true" signature="68:233" ph="..." />
+            <marker date="1539065746647" expanded="true" signature="550:2491" ph="..." />
+            <marker date="1539065746647" expanded="true" signature="706:833" ph="..." />
+            <marker date="1539065746647" expanded="true" signature="1015:1063" ph="..." />
+            <marker date="1539065746647" expanded="true" signature="1493:2491" ph="..." />
+            <marker date="1539065746647" expanded="true" signature="2199:2491" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
