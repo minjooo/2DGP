@@ -86,6 +86,13 @@ class Run_sadness300:
     def draw(self):
         self.image.clip_draw(self.frame * 300, 0, 300, 300, self.x, self.y)
 
+class Running_Background:
+    def __init__(self):
+        self.image = load_image('running_background.png')
+
+    def draw(self):
+        self.image.draw(450,350)
+
 class Run_happiness100:
     def __init__(self):
         self.x, self.y = 200, 360
