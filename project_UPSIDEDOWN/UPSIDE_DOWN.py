@@ -298,7 +298,7 @@ while choosing:
     cursor.draw()
     update_canvas()
 
-    delay(0.05)
+    delay(0.07)
 
 while running:
     handle_events()

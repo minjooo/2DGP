@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/UPSIDE_DOWN.py" beforeDir="false" afterPath="$PROJECT_DIR$/UPSIDE_DOWN.py" afterDir="false" />
-    </list>
+    <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="157" column="36" lean-forward="true" selection-start-line="157" selection-start-column="36" selection-end-line="157" selection-end-column="36" />
+            <state relative-caret-position="95">
+              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding>
                 <marker date="1539087065092" expanded="true" signature="68:233" ph="..." />
                 <marker date="1539087065092" expanded="true" signature="550:5506" ph="..." />
@@ -298,8 +296,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="157" column="36" lean-forward="true" selection-start-line="157" selection-start-column="36" selection-end-line="157" selection-end-column="36" />
+        <state relative-caret-position="95">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
             <marker date="1539087065092" expanded="true" signature="68:233" ph="..." />
             <marker date="1539087065092" expanded="true" signature="550:5506" ph="..." />
