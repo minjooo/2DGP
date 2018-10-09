@@ -13,6 +13,9 @@ open_canvas()
 happy = load_image('run_happiness100.png')
 sad = load_image('run_sadness100.png')
 p_marble = load_image('purple_marble40.png')
+card = load_image('card100.png')
+boyfriend = load_image('imaginary_boyfriend100.png')
+boyfriend_t = load_image('test_boyfriend.png')
 
 frame=0
 Wframe=0
@@ -23,6 +26,9 @@ while running == True:
     happy.clip_draw(frame*100,0,100,100,100,100)
     sad.clip_draw(frame*100,0,100,100,230,100)
     p_marble.draw(100,250)
+    card.draw(100,500)
+    boyfriend.draw(250, 350)
+    boyfriend_t.draw(400, 350)
     update_canvas()
     frame=(frame+1)%8
     Wframe=(Wframe+1)%4

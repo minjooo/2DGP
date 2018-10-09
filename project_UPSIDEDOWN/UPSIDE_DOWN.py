@@ -173,7 +173,7 @@ class Path:
     def __init__(self):
         self.x ,self.y = 450, 300
         self.frame = 0
-        self.image = load_image('path1350.png')
+        self.image = load_image('path1350_3.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 10
