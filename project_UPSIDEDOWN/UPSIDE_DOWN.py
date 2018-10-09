@@ -208,7 +208,7 @@ wait_happy = Wait_happiness()
 wait_sad = Wait_sadness()
 run_happy300 = Run_happiness300()
 run_sad300 = Run_sadness300()
-selected_character = 'happy' #선택된 캐릭터 이름 저장
+selected_character = 'none' #선택된 캐릭터 이름 저장
 runningImage = Running_Background()
 path = Path()
 run_happy100 = Run_happiness100()
@@ -274,7 +274,10 @@ while running:
         elif run_happy100.UP == False:
             run_happy100.draw_down()
     elif selected_character == 'sad':
-        run_sad100.draw()
+        if run_sad100.UP:
+            run_sad100.draw_up()
+        elif run_sad100.UP == False:
+            run_sad100.draw_down()
     update_canvas()
 
     delay(0.05)
