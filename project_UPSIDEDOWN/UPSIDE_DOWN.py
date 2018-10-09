@@ -95,8 +95,6 @@ class Running_Background:
 
 class Run_happiness100:
     def __init__(self):
-        self.x_up, self.y_up = 200, 360
-        self.x_down, self.y_down = 200,240
         self.UP = True
         self.frame = 0
         self.image_up = load_image('run_happiness100.png')
@@ -106,15 +104,13 @@ class Run_happiness100:
         self.frame = (self.frame + 1) % 8
 
     def draw_up(self):
-        self.image_up.clip_draw(self.frame * 100, 0, 100, 100, self.x_up, self.y_up)
+        self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360)
     def draw_down(self):
-        self.image_down.clip_draw(self.frame * 100, 0, 100, 100, self.x_down, self.y_down)
+        self.image_down.clip_draw(self.frame * 100, 0, 100, 100, 200, 240)
 
 
 class Run_sadness100:
     def __init__(self):
-        self.x_up, self.y_up = 200, 360
-        self.x_down, self.y_down = 200,240
         self.UP = True
         self.frame = 0
         self.image_up = load_image('run_sadness100.png')
@@ -124,9 +120,9 @@ class Run_sadness100:
         self.frame = (self.frame + 1) % 8
 
     def draw_up(self):
-        self.image_up.clip_draw(self.frame * 100 , 0, 100, 100, self.x_up, self.y_up)
+        self.image_up.clip_draw(self.frame * 100 , 0, 100, 100, 200, 360)
     def draw_down(self):
-        self.image_down.clip_draw(self.frame * 100 , 0, 100, 100, self.x_down, self.y_down)
+        self.image_down.clip_draw(self.frame * 100 , 0, 100, 100, 200, 240)
 
 
 class Path:
