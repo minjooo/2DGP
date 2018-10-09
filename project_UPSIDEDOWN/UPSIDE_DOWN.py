@@ -193,19 +193,18 @@ def handle_events():
                 choosing = False
                 running = True
                 selected_character = 'sad'
-        elif event.type == SDLK_KP_SPACE:
-            pass
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_DELETE:
-            if run_happy100.UP or run_sad100.UP:
-                run_happy100.UP = False
-                run_sad100.UP = False
-            elif run_happy100.UP == False or run_sad100.UP == False:
-                run_happy100.UP = True
-                run_sad100.UP = True
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            running = False
-            starting = False
-            choosing = False
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_DELETE:
+                if run_happy100.UP or run_sad100.UP:
+                    run_happy100.UP = False
+                    run_sad100.UP = False
+                elif run_happy100.UP == False or run_sad100.UP == False:
+                    run_happy100.UP = True
+                    run_sad100.UP = True
+            elif event.key == SDLK_ESCAPE:
+                running = False
+                starting = False
+                choosing = False
 
 # 초키화 자리
 open_canvas(900, 700)
