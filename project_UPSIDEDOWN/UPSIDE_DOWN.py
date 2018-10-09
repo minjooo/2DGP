@@ -143,6 +143,10 @@ def handle_events():
             running = False
             starting = False
             choosing = False
+        elif event.type == SDLK_KP_SPACE:
+            pass
+        elif event.type == SDLK_KP_ENTER:
+            pass
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
             if starting:
