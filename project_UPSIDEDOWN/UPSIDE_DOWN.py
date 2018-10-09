@@ -97,6 +97,7 @@ class Run_happiness100:
     def __init__(self):
         self.UP = True
         self.hight = 0
+        self.jump = False
         self.frame = 0
         self.image_up = load_image('run_happiness100.png')
         self.image_down = load_image('run_happiness100_down.png')
@@ -105,6 +106,8 @@ class Run_happiness100:
 
     def update(self):
         self.frame = (self.frame + 1) % 8
+        if self.jump:
+            pass
 
     def draw_up(self):
         self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360)
@@ -119,6 +122,7 @@ class Run_happiness100:
 class Run_sadness100:
     def __init__(self):
         self.UP = True
+        self.jump = False
         self.hight = 0
         self.frame = 0
         self.image_up = load_image('run_sadness100.png')
@@ -128,6 +132,8 @@ class Run_sadness100:
 
     def update(self):
         self.frame = (self.frame + 1) % 8
+        if self.jump:
+            pass
 
     def draw_up(self):
         self.image_up.clip_draw(self.frame * 100 , 0, 100, 100, 200, 360)
@@ -201,6 +207,9 @@ def handle_events():
                 elif run_happy100.UP == False or run_sad100.UP == False:
                     run_happy100.UP = True
                     run_sad100.UP = True
+            elif event.key == SDLK_j:
+                run_happy100.jump = True
+                run_sad100.jump = True
             elif event.key == SDLK_ESCAPE:
                 running = False
                 starting = False
@@ -278,15 +287,21 @@ while running:
     runningImage.draw()
     path.draw()
     if selected_character == 'happy':
-        if run_happy100.UP:
-            run_happy100.draw_up()
-        elif run_happy100.UP == False:
-            run_happy100.draw_down()
+        if run_happy100.jump:
+            pass
+        else:
+            if run_happy100.UP:
+                run_happy100.draw_up()
+            elif run_happy100.UP == False:
+                run_happy100.draw_down()
     elif selected_character == 'sad':
-        if run_sad100.UP:
-            run_sad100.draw_up()
-        elif run_sad100.UP == False:
-            run_sad100.draw_down()
+        if run_sad100.jump:
+            pass
+        else:
+            if run_sad100.UP:
+                run_sad100.draw_up()
+            elif run_sad100.UP == False:
+                run_sad100.draw_down()
     update_canvas()
 
     delay(0.05)
