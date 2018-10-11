@@ -1,5 +1,4 @@
 import random
-import pause_state
 import json
 import os
 
@@ -7,6 +6,7 @@ from pico2d import *
 
 import game_framework
 import title_state
+import main_state
 
 
 
@@ -19,6 +19,15 @@ font = None
 class Pause:
     def __init__(self):
         self.image = load_image('pause.png')
+        self.blink = False
+
+    def update(self):
+        if self.blink == False:
+            self.blink = True
+        else:
+            self.blink = False
+        delay(0.5)
+
 
     def draw(self):
         self.image.clip_draw(250,250,400,400,400,400)
@@ -88,10 +97,15 @@ def handle_events():
 
 def update():
     boy.update()
+    pause.update()
 
 
 def draw():
-    pause.draw()
+    clear_canvas()
+    main_state.grass.draw()
+    main_state.boy.draw()
+    if pause.blink:
+        pause.draw()
     update_canvas()
 
 
