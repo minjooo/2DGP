@@ -15,7 +15,15 @@ boy = None
 grass = None
 font = None
 
+class Pause:
+    def __init__(self):
+        self.image = load_image('pause.png')
 
+    def update(self):
+        pass
+
+    def draw(self):
+        self.image.draw(400,300)
 
 class Grass:
     def __init__(self):
@@ -46,10 +54,12 @@ class Boy:
 
 
 def enter():
-    global boy, grass, pause
+    global boy, grass, pause, pauseImage, showPause
     boy = Boy()
     grass = Grass()
+    pauseImage = Pause()
     pause = False
+    showPause = True
 
 
 def exit():
