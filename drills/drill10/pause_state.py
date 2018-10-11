@@ -10,11 +10,18 @@ import title_state
 
 
 
-name = "MainState"
+name = "PauseState"
 
 boy = None
 grass = None
 font = None
+
+class Pause:
+    def __init__(self):
+        self.image = load_image('pause.png')
+
+    def draw(self):
+        self.image.clip_draw(250,250,400,400,400,400)
 
 class Grass:
     def __init__(self):
@@ -45,15 +52,17 @@ class Boy:
 
 
 def enter():
-    global boy, grass
+    global boy, grass, pause
     boy = Boy()
     grass = Grass()
+    pause = Pause()
 
 
 def exit():
-    global boy, grass
+    global boy, grass, pause
     del(boy)
     del(grass)
+    del(pause)
 
 
 def pause():
@@ -74,7 +83,7 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.change_state(title_state)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
-            game_framework.push_state(pause_state)
+            game_framework.pop_state()
 
 
 def update():
@@ -83,8 +92,7 @@ def update():
 
 def draw():
     clear_canvas()
-    grass.draw()
-    boy.draw()
+    pause.draw()
     update_canvas()
 
 
