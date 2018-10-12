@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/game_framework.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,24 +75,41 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="537856341">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="141" column="63" selection-start-line="141" selection-start-column="63" selection-end-line="141" selection-end-column="63" />
-              <folding>
-                <marker date="1539100854449" expanded="true" signature="68:233" ph="..." />
-                <marker date="1539100854449" expanded="true" signature="550:5508" ph="..." />
-                <marker date="1539100854449" expanded="true" signature="706:833" ph="..." />
-                <marker date="1539100854449" expanded="true" signature="981:1029" ph="..." />
-                <marker date="1539100854449" expanded="true" signature="1414:5508" ph="..." />
-                <marker date="1539100854449" expanded="true" signature="1978:2108" ph="..." />
-                <marker date="1539100854449" expanded="true" signature="3692:5203" ph="..." />
-                <marker date="1539100854449" expanded="true" signature="5214:5508" ph="..." />
-              </folding>
+            <state relative-caret-position="133">
+              <caret line="7" column="47" lean-forward="true" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/game_framework.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1102">
+              <caret line="58" column="14" lean-forward="true" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -117,13 +134,14 @@
         <option value="$PROJECT_DIR$/2.py" />
         <option value="$PROJECT_DIR$/UPSIDE_DOWN.py" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/game_framework.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="580" />
-    <option name="width" value="1125" />
-    <option name="height" value="1030" />
+    <option name="x" value="638" />
+    <option name="width" value="1289" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -146,10 +164,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../drills/drill10" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\김민주\Desktop\STUDY\2D\2DGP\project_UPSIDEDOWN" />
       <recent name="C:\Users\minf0\Desktop\SD\G2\2 - 2\2DGP\use_git\project_UPSIDEDOWN" />
     </key>
   </component>
@@ -256,9 +275,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="464" y="0" width="900" height="824" extended-state="0" />
+    <frame x="570" y="24" width="1125" height="1030" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13441484" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13431463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -282,27 +302,11 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/2.py" />
-    <entry file="file://C:/python 3.7/Lib/site-packages/pico2d/pico2d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/python 3.7/Lib/site-packages/pico2d/pico2d.py" />
     <entry file="file://$PROJECT_DIR$/UPSIDE_DOWN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="141" column="63" selection-start-line="141" selection-start-column="63" selection-end-line="141" selection-end-column="63" />
-          <folding>
-            <marker date="1539100854449" expanded="true" signature="68:233" ph="..." />
-            <marker date="1539100854449" expanded="true" signature="550:5508" ph="..." />
-            <marker date="1539100854449" expanded="true" signature="706:833" ph="..." />
-            <marker date="1539100854449" expanded="true" signature="981:1029" ph="..." />
-            <marker date="1539100854449" expanded="true" signature="1414:5508" ph="..." />
-            <marker date="1539100854449" expanded="true" signature="1978:2108" ph="..." />
-            <marker date="1539100854449" expanded="true" signature="3692:5203" ph="..." />
-            <marker date="1539100854449" expanded="true" signature="5214:5508" ph="..." />
-          </folding>
+        <state relative-caret-position="133">
+          <caret line="7" column="47" lean-forward="true" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -310,6 +314,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_framework.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="58" column="14" lean-forward="true" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
         </state>
       </provider>
     </entry>
