@@ -1,107 +1,89 @@
-class GameState:
-    def __init__(self, state):
-        self.enter = state.enter
-        self.exit = state.exit
-        self.pause = state.pause
-        self.resume = state.resume
-        self.handle_events = state.handle_events
-        self.update = state.update
-        self.draw = state.draw
+import game_framework
+import choose_state
+from pico2d import *
 
+name = 'title_state'
+image = None
 
-
-class TestGameState:
-
-    def __init__(self, name):
-        self.name = name
-
-    def enter(self):
-        print("State [%s] Entered" % self.name)
-
-    def exit(self):
-        print("State [%s] Exited" % self.name)
-
-    def pause(self):
-        print("State [%s] Paused" % self.name)
-
-    def resume(self):
-        print("State [%s] Resumed" % self.name)
-
-    def handle_events(self):
-        print("State [%s] handle_events" % self.name)
-
-    def update(self):
-        print("State [%s] update" % self.name)
+class Cursor:
+    def __init__(self):
+        self.x, self.y = 0, 0
+        self.image = load_image('cursor80.png')
 
     def draw(self):
-        print("State [%s] draw" % self.name)
+        self.image.draw(self.x, self.y)
+
+class Start_Background:
+    def __init__(self):
+        self.image = load_image('start_image.png')
+
+    def draw(self):
+        self.image.draw(450,350)
+
+class Big_start:
+    def __init__(self):
+        self.image = load_image('big_start.png')
+
+    def draw(self):
+        self.image.draw(450,350)
+
+class Small_start:
+    def __init__(self):
+        self.image = load_image('small_start.png')
+
+    def draw(self):
+        self.image.draw(450, 350)
 
 
+def enter():
+    global start_select, cursor, start_bg, big_start, small_start
+    start_select = False
+    cursor = Cursor()
+    start_bg = Start_Background()
+    big_start = Big_start()
+    small_start = Small_start()
 
-running = None
-stack = None
+def exit():
+    global start_select, cursor, start_bg, big_start, small_start
+    del(cursor)
+    del(start_select)
+    del(start_bg)
+    del(big_start)
+    del(small_start)
 
+def handle_events():
+    global start_select
+    events = get_events()
+    for event in events:
+        if event.type == SDL_QUIT:
+            game_framework.quit()
+        elif event.type == SDL_MOUSEMOTION:
+            cursor.x, cursor.y = event.x, 700 - 1 - event.y
+            if starting:
+                if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
+                    start_select = True
+                else:
+                    start_select = False
+        elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
+            if start_select:
+                game_framework.change_state(choose_state)
+        else:
+            if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
+                gmae_framework.quit()
+            elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
+                game_framework.change_state(choose_state) #  일단 넣어놓은것 나중에 빼자
 
-def change_state(state):
-    global stack
-    if (len(stack) > 0):
-        # execute the current state's exit function
-        stack[-1].exit()
-        # remove the current state
-        stack.pop()
-    stack.append(state)
-    state.enter()
+def update():
+    pass
 
-
-
-def push_state(state):
-    global stack
-    if (len(stack) > 0):
-        stack[-1].pause()
-    stack.append(state)
-    state.enter()
-
-
-
-def pop_state():
-    global stack
-    if (len(stack) > 0):
-        # execute the current state's exit function
-        stack[-1].exit()
-        # remove the current state
-        stack.pop()
-
-    # execute resume function of the previous state
-    if (len(stack) > 0):
-        stack[-1].resume()
-
-
-
-def quit():
-    global running
-    running = False
-
-
-def run(start_state):
-    global running, stack
-    running = True
-    stack = [start_state]
-    start_state.enter()
-    while (running):
-        stack[-1].handle_events()
-        stack[-1].update()
-        stack[-1].draw()
-    # repeatedly delete the top of the stack
-    while (len(stack) > 0):
-        stack[-1].exit()
-        stack.pop()
+def draw():
+    clear_canvas()
+    start_bg.draw()
+    if start_select:
+        big_start.draw()
+    else:
+        small_start.draw()
+    cursor.draw()
+    update_canvas()
 
 
-def test_game_framework():
-    start_state = TestGameState('StartState')
-    run(start_state)
-
-
-
-if __name__ == '__main__':
-    test_game_framework()
