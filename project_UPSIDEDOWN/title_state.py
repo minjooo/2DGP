@@ -42,6 +42,7 @@ def enter():
     start_bg = Start_Background()
     big_start = Big_start()
     small_start = Small_start()
+    hide_cursor()
 
 def exit():
     global start_select, cursor, start_bg, big_start, small_start
@@ -53,23 +54,23 @@ def exit():
 
 def handle_events():
     global start_select
+    global cursor
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
-            if starting:
-                if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
-                    start_select = True
-                else:
-                    start_select = False
+            if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
+                start_select = True
+            else:
+                start_select = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if start_select:
                 game_framework.change_state(choose_state)
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
-                gmae_framework.quit()
+                game_framework.quit()
             elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
                 game_framework.change_state(choose_state) #  일단 넣어놓은것 나중에 빼자
 
