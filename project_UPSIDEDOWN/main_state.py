@@ -106,11 +106,12 @@ class Path:
 
 
 def enter():
-    global main_bg, run_happy, run_sad, path
+    global main_bg, run_happy, run_sad, path, selected_character
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
     path = Path()
+    selected_character = 'none'
 
 def exit():
     global main_bg, run_happy, run_sad, path
@@ -118,6 +119,7 @@ def exit():
     del(run_happy)
     del(run_sad)
     del(path)
+    del(selected_character)
 
 def handle_events():
     events = get_events()

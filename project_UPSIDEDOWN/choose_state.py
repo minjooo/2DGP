@@ -108,9 +108,11 @@ def handle_events():
                 choose_sad = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if choose_happy:
-                pass
+                main_state.selected_character = 'happy'
+                game_framework.change_state(main_state)
             elif choose_sad:
-                pass
+                main_state.selected_character = 'sad'
+                game_framework.change_state(main_state)
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.change_state(title_state)
