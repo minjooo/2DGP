@@ -106,19 +106,39 @@ class Path:
 
 
 def enter():
-    pass
+    global main_bg, run_happy, run_sad, path
+    main_bg = Running_Background()
+    run_happy = Run_happiness100()
+    run_sad = Run_sadness100()
+    path = Path()
 
 def exit():
-    pass
+    global main_bg, run_happy, run_sad, path
+    del(main_bg)
+    del(run_happy)
+    del(run_sad)
+    del(path)
 
 def handle_events():
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
-        else:
-            if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_ESCAPE:
                 game_framework.change_state(choose_state)
+            elif event.key == SDLK_SPACE:
+                pass
+            elif event.key == SDLK_DELETE and run_sad.jump == False and run_happy.jump == False:
+                if run_sad.UP and run_happy.UP:
+                    run_sad.UP == False
+                    run_happy.UP == False
+                else:
+                    run_sad.UP == True
+                    run_happy.UP == True
+            elif event.key == SDLK_SPACE:
+                run_sad.jump = True
+                run_happy.jump = True
 
 def update():
     pass
