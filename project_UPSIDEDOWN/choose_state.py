@@ -17,7 +17,6 @@ class Cursor:
 class Choose_Background:
     def __init__(self):
         self.image = load_image('choose.png')
-
     def draw(self):
         self.image.draw(450, 350)
 
@@ -117,10 +116,10 @@ def handle_events():
                 game_framework.change_state(title_state)
 
 def update():
-    Wait_happiness.update()
-    Wait_sadness.update()
-    Run_happiness300.update()
-    Run_sadness300.update()
+    wait_happy.update()
+    wait_sad.update()
+    run_happy.update()
+    run_sad.update()
 
 def draw():
     clear_canvas()
@@ -135,5 +134,6 @@ def draw():
         wait_sad.draw()
     cursor.draw()
     update_canvas()
+    delay(0.05)
 
 
