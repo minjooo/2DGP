@@ -158,6 +158,26 @@ class Path:
         self.image.clip_draw(self.frame * 45, 0, 900, 20, self.x, self.y)
 
 
+class Card:
+    image_up = None
+    image_down = None
+    def __init__(self):
+        self.x_up , self.y_up = 1000, 365
+        self.x_down, self.y_down = 1000,250
+        if Card.image_up == None:
+            Card.image_up = load_image('card100.png')
+        if Card.image_down == None:
+            Card.image_down = load_image('card100_down.png')
+
+    def update(self):
+        self.x_up -= 5
+        self.x_down -= 5
+
+    def draw_up(self):
+        pass
+    def draw_down(self):
+        pass
+
 def enter():
     global main_bg, run_happy, run_sad, path, number
     main_bg = Running_Background()
