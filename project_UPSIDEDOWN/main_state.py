@@ -15,15 +15,43 @@ class Running_Background:
 class Numbers:
     image = None
     def __init__(self):
-        self.number = 0
-        self.count = 0 # 몇자리 수인지
+        self.total_score = 0
+        self.score = 0
+        self.marble_number = 0
+        self.score100 = 0
+        self.score10 = 0
+        self.score1 = 0
         if Numbers.image == None:
             Numbers.image = load_image('number.png')
 
+    def update(self):
+        if self.score >= 100:
+            self.score100 = 0
+            while self.score < 100:
+                self.score -= 100
+                self.score100 += 1
+        if self.score >= 10:
+            self.score10 = 0
+            while self.score < 10:
+                self.score -=10
+                self.score10 += 1
+        self.score1 = self.score
+        self.score = 0
+
     def draw_score(self):
-        self.image.clip_draw(self.number*25,0,25,50,175+self.count*25,649)
+        if self.score100 != 0:
+            self.image.clip_draw(self.score100*25,0,25,50,175,649)
+        if self.score100 != 0 and self.score10 != 0:
+            self.image.clip_draw(self.score10*25,0,25,50,200,649)
+        if self.score != 0:
+            self.image.clip_draw(0, 0, 25, 50, 250, 649)
+            self.image.clip_draw(0, 0, 25, 50, 275, 649)
+            self.image.clip_draw(0, 0, 25, 50, 300, 649)
+
+        self.image.clip_draw(self.score1*25,0,25,50,225,649)
     def draw_marble_num(self):
-        self.image.clip_draw(self.number*25,0,25,50,670+self.count*25,649)
+        #self.image.clip_draw(self.number*25,0,25,50,670+self.marble_count*25,649)
+        pass
 
 class Run_happiness100:
     def __init__(self):
@@ -119,23 +147,19 @@ class Path:
 
 
 def enter():
-    global main_bg, run_happy, run_sad, path, score, marble_number, number
+    global main_bg, run_happy, run_sad, path, number
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
     path = Path()
-    score = 5
-    marble_number = 8
     number = Numbers()
 
 def exit():
-    global main_bg, run_happy, run_sad, path, score, marble_number, number
+    global main_bg, run_happy, run_sad, path, number
     del(main_bg)
     del(run_happy)
     del(run_sad)
     del(path)
-    del(score)
-    del(marble_number)
     del(number)
 
 def handle_events():
@@ -149,7 +173,10 @@ def handle_events():
             elif event.key == SDLK_SPACE:
                 run_sad.jump = True
                 run_happy.jump = True
-                pass
+            elif event.key == SDLK_s:
+                number.total_score += 1
+                number.score = number.total_score
+                number.update()
             elif event.key == SDLK_DELETE and run_sad.jump == False and run_happy.jump == False:
                 if run_sad.UP and run_happy.UP:
                     run_sad.UP = False
@@ -167,9 +194,7 @@ def draw():
     clear_canvas()
     main_bg.draw()
     path.draw()
-    #number.number = score
     number.draw_score()
-    #number.number = marble_number
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
         if run_sad.jump:
