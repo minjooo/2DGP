@@ -66,7 +66,7 @@ class Run_sadness300:
 
 
 def enter():
-    global cursor, choose_happy, choose_sad, choose_bg, wait_sad, wait_happy, run_sad, run_happy
+    global cursor, choose_happy, choose_sad, choose_bg, wait_sad, wait_happy, run_sad, run_happy, selected_character
     cursor = Cursor()
     choose_happy = False
     choose_sad = False
@@ -75,10 +75,11 @@ def enter():
     wait_happy = Wait_happiness()
     run_sad = Run_sadness300()
     run_happy = Run_happiness300()
+    selected_character = 'none'
 
 
 def exit():
-    global cursor, choose_happy, choose_sad, choose_bg, wait_sad, wait_happy, run_sad, run_happy
+    global cursor, choose_happy, choose_sad, choose_bg, wait_sad, wait_happy, run_sad, run_happy, selected_character
     del(cursor)
     del(choose_happy)
     del(choose_sad)
@@ -87,11 +88,13 @@ def exit():
     del(wait_happy)
     del(run_sad)
     del(run_happy)
+    del(selected_character)
 
 def handle_events():
     global cursor
     global choose_happy
     global choose_sad
+    global selected_character
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -108,11 +111,11 @@ def handle_events():
                 choose_sad = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if choose_happy:
-                main_state.selected_character = 'happy'
-                game_framework.change_state(main_state)
+                selected_character = 'happy'
+                game_framework.push_state(main_state)
             elif choose_sad:
-                main_state.selected_character = 'sad'
-                game_framework.change_state(main_state)
+                selected_character = 'sad'
+                game_framework.push_state(main_state)
         else:
             if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
                 game_framework.change_state(title_state)

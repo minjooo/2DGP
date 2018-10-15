@@ -106,12 +106,11 @@ class Path:
 
 
 def enter():
-    global main_bg, run_happy, run_sad, path, selected_character
+    global main_bg, run_happy, run_sad, path
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
     path = Path()
-    selected_character = 'none'
 
 def exit():
     global main_bg, run_happy, run_sad, path
@@ -119,7 +118,6 @@ def exit():
     del(run_happy)
     del(run_sad)
     del(path)
-    del(selected_character)
 
 def handle_events():
     events = get_events()
@@ -133,20 +131,47 @@ def handle_events():
                 pass
             elif event.key == SDLK_DELETE and run_sad.jump == False and run_happy.jump == False:
                 if run_sad.UP and run_happy.UP:
-                    run_sad.UP == False
-                    run_happy.UP == False
+                    run_sad.UP = False
+                    run_happy.UP = False
                 else:
-                    run_sad.UP == True
-                    run_happy.UP == True
+                    run_sad.UP = True
+                    run_happy.UP = True
             elif event.key == SDLK_SPACE:
                 run_sad.jump = True
                 run_happy.jump = True
 
 def update():
-    pass
+    run_sad.update()
+    run_happy.update()
+    path.update()
 
 def draw():
     clear_canvas()
+    main_bg.draw()
+    path.draw()
+    if choose_state.selected_character == 'sad':
+        if run_sad.jump:
+            if run_sad.UP:
+                run_sad.draw_jump_up()
+            else:
+                run_sad.draw_jump_down()
+        else:
+            if run_sad.UP:
+                run_sad.draw_up()
+            elif run_sad.UP == False:
+                run_sad.draw_down()
+    elif choose_state.selected_character == 'happy':
+        if run_happy.jump:
+            if run_happy.UP:
+                run_happy.draw_jump_up()
+            else:
+                run_happy.draw_jump_down()
+        else:
+            if run_happy.UP:
+                run_happy.draw_up()
+            elif run_happy.UP == False:
+                run_happy.draw_down()
     update_canvas()
+    delay(0.05)
 
 
