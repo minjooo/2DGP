@@ -17,14 +17,17 @@ class Numbers:
     def __init__(self):
         self.total_score = 0
         self.score = 0
+        self.total_marble_number = 0
         self.marble_number = 0
         self.score100 = 0
         self.score10 = 0
         self.score1 = 0
+        self.marble10 = 0
+        self.marble1 = 0
         if Numbers.image == None:
             Numbers.image = load_image('number.png')
 
-    def update(self):
+    def update_score(self):
         if self.score >= 100:
             self.score100 = 0
             while self.score >= 100:
@@ -37,6 +40,14 @@ class Numbers:
                 self.score10 += 1
         self.score1 = self.score
         self.score = 0
+    def update_marble(self):
+        if self.marble_number >= 10:
+            self.marble10 = 0
+            while self.marble_number >= 10:
+                self.marble_number -= 10
+                self.marble10 += 1
+        self.marble1 = self.marble_number
+        self.marble_number = 0
 
     def draw_score(self):
         if self.score100 != 0:
@@ -49,8 +60,9 @@ class Numbers:
             self.image.clip_draw(0, 0, 25, 50, 300, 649)
         self.image.clip_draw(self.score1*25,0,25,50,225,649)
     def draw_marble_num(self):
-        #self.image.clip_draw(self.number*25,0,25,50,670+self.marble_count*25,649)
-        pass
+        if self.marble10 != 0:
+            self.image.clip_draw(self.marble10*25,0,25,50,670,649)
+        self.image.clip_draw(self.marble1 * 25, 0, 25, 50, 695, 649)
 
 class Run_happiness100:
     def __init__(self):
@@ -175,7 +187,11 @@ def handle_events():
             elif event.key == SDLK_s:
                 number.total_score += 1
                 number.score = number.total_score
-                number.update()
+                number.update_score()
+            elif event.key == SDLK_m:
+                number.total_marble_number += 1
+                number.marble_number = number.total_marble_number
+                number.update_marble()
             elif event.key == SDLK_DELETE and run_sad.jump == False and run_happy.jump == False:
                 if run_sad.UP and run_happy.UP:
                     run_sad.UP = False
