@@ -170,8 +170,8 @@ class Card:
             Card.image_down = load_image('card100_down.png')
 
     def update(self):
-        self.x_up -= 15
-        self.x_down -= 15
+        self.x_up -= 12
+        self.x_down -= 12
 
     def draw_up(self):
         self.image_up.draw(self.x_up, 360)
