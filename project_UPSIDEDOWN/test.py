@@ -17,6 +17,7 @@ b_marble = load_image('blue_marble30.png')
 card = load_image('card100.png')
 boyfriend = load_image('imaginary_boyfriend100.png')
 broom = load_image('broom100.png')
+tray = load_image('trat_full.png')
 
 frame=0
 Wframe=0
@@ -31,6 +32,7 @@ while running == True:
     card.draw(100,500)
     boyfriend.draw(250, 350)
     broom.draw(400, 500)
+    tray.draw(350,350)
     update_canvas()
 
     frame=(frame+1)%8
