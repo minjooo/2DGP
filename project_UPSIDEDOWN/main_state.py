@@ -1,5 +1,6 @@
 import game_framework
 import choose_state
+import pause_state
 from pico2d import *
 
 name = 'main_state'
@@ -192,6 +193,8 @@ def handle_events():
                 number.total_marble_number += 1
                 number.marble_number = number.total_marble_number
                 number.update_marble()
+            elif event.key == SDLK_p:
+                game_framework.push_state(pause_state)
             elif event.key == SDLK_DELETE and run_sad.jump == False and run_happy.jump == False:
                 if run_sad.UP and run_happy.UP:
                     run_sad.UP = False
@@ -235,3 +238,9 @@ def draw():
                 run_happy.draw_down()
     update_canvas()
     delay(0.05)
+
+def pause():
+    pass
+
+def resume():
+    pass
