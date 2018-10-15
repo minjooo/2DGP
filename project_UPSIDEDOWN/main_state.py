@@ -7,7 +7,7 @@ image = None
 
 class Running_Background:
     def __init__(self):
-        self.image = load_image('running_BG.png')
+        self.image = load_image('running_BG_bar.png')
 
     def draw(self):
         self.image.draw(450,350)
@@ -136,7 +136,7 @@ def handle_events():
                 else:
                     run_sad.UP = True
                     run_happy.UP = True
-            elif event.key == SDLK_SPACE:
+            elif event.key == SDLK_j:
                 run_sad.jump = True
                 run_happy.jump = True
 
