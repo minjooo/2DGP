@@ -21,9 +21,9 @@ class Numbers:
             Numbers.image = load_image('number.png')
 
     def draw_score(self):
-        self.image.clip_draw(self.number*25,0,25,50,200+self.count*25,50)
+        self.image.clip_draw(self.number*25,0,25,50,175+self.count*25,649)
     def draw_marble_num(self):
-        self.image.clip_draw(self.number*25,0,25,50,750+self.count*25,50)
+        self.image.clip_draw(self.number*25,0,25,50,670+self.count*25,649)
 
 class Run_happiness100:
     def __init__(self):
@@ -119,18 +119,24 @@ class Path:
 
 
 def enter():
-    global main_bg, run_happy, run_sad, path
+    global main_bg, run_happy, run_sad, path, score, marble_number, number
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
     path = Path()
+    score = 5
+    marble_number = 8
+    number = Numbers()
 
 def exit():
-    global main_bg, run_happy, run_sad, path
+    global main_bg, run_happy, run_sad, path, score, marble_number
     del(main_bg)
     del(run_happy)
     del(run_sad)
     del(path)
+    del(score)
+    del(marble_number)
+    del(number)
 
 def handle_events():
     events = get_events()
@@ -162,6 +168,10 @@ def draw():
     clear_canvas()
     main_bg.draw()
     path.draw()
+    #number.number = score
+    number.draw_score()
+    #number.number = marble_number
+    number.draw_marble_num()
     if choose_state.selected_character == 'sad':
         if run_sad.jump:
             if run_sad.UP:
