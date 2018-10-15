@@ -12,6 +12,19 @@ class Running_Background:
     def draw(self):
         self.image.draw(450,350)
 
+class Numbers:
+    image = None
+    def __init__(self):
+        self.number = 0
+        self.count = 0 # 몇자리 수인지
+        if Numbers.image == None:
+            Numbers.image = load_image('number.png')
+
+    def draw_score(self):
+        self.image.clip_draw(self.number*25,0,25,50,200+self.count*25,50)
+    def draw_marble_num(self):
+        self.image.clip_draw(self.number*25,0,25,50,750+self.count*25,50)
+
 class Run_happiness100:
     def __init__(self):
         self.UP = True
