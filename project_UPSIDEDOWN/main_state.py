@@ -162,37 +162,39 @@ class Card:
     image_up = None
     image_down = None
     def __init__(self):
-        self.x_up , self.y_up = 1000, 365
-        self.x_down, self.y_down = 1000,250
+        self.x_up  = 1000
+        self.x_down = 1000
         if Card.image_up == None:
             Card.image_up = load_image('card100.png')
         if Card.image_down == None:
             Card.image_down = load_image('card100_down.png')
 
     def update(self):
-        self.x_up -= 5
-        self.x_down -= 5
+        self.x_up -= 15
+        self.x_down -= 15
 
     def draw_up(self):
-        pass
+        self.image_up.draw(self.x_up, 360)
     def draw_down(self):
-        pass
+        self.image_down.draw(self.x_down, 250)
 
 def enter():
-    global main_bg, run_happy, run_sad, path, number
+    global main_bg, run_happy, run_sad, path, number, card
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
     path = Path()
     number = Numbers()
+    card = Card()
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number
+    global main_bg, run_happy, run_sad, path, number, card
     del(main_bg)
     del(run_happy)
     del(run_sad)
     del(path)
     del(number)
+    del(card)
 
 def handle_events():
     events = get_events()
@@ -227,11 +229,13 @@ def update():
     run_sad.update()
     run_happy.update()
     path.update()
+    card.update()
 
 def draw():
     clear_canvas()
     main_bg.draw()
     path.draw()
+    card.draw_up()
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
