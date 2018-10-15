@@ -27,12 +27,12 @@ class Numbers:
     def update(self):
         if self.score >= 100:
             self.score100 = 0
-            while self.score < 100:
+            while self.score >= 100:
                 self.score -= 100
                 self.score100 += 1
         if self.score >= 10:
             self.score10 = 0
-            while self.score < 10:
+            while self.score >= 10:
                 self.score -=10
                 self.score10 += 1
         self.score1 = self.score
@@ -41,13 +41,12 @@ class Numbers:
     def draw_score(self):
         if self.score100 != 0:
             self.image.clip_draw(self.score100*25,0,25,50,175,649)
-        if self.score100 != 0 and self.score10 != 0:
+        if self.score10 != 0 or (self.score10 == 0 and self.score100 != 0):
             self.image.clip_draw(self.score10*25,0,25,50,200,649)
-        if self.score != 0:
+        if self.total_score != 0:
             self.image.clip_draw(0, 0, 25, 50, 250, 649)
             self.image.clip_draw(0, 0, 25, 50, 275, 649)
             self.image.clip_draw(0, 0, 25, 50, 300, 649)
-
         self.image.clip_draw(self.score1*25,0,25,50,225,649)
     def draw_marble_num(self):
         #self.image.clip_draw(self.number*25,0,25,50,670+self.marble_count*25,649)
