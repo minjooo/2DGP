@@ -129,7 +129,7 @@ def enter():
     number = Numbers()
 
 def exit():
-    global main_bg, run_happy, run_sad, path, score, marble_number
+    global main_bg, run_happy, run_sad, path, score, marble_number, number
     del(main_bg)
     del(run_happy)
     del(run_sad)
@@ -145,8 +145,10 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_ESCAPE:
-                game_framework.change_state(choose_state)
+                game_framework.pop_state()
             elif event.key == SDLK_SPACE:
+                run_sad.jump = True
+                run_happy.jump = True
                 pass
             elif event.key == SDLK_DELETE and run_sad.jump == False and run_happy.jump == False:
                 if run_sad.UP and run_happy.UP:
@@ -155,9 +157,6 @@ def handle_events():
                 else:
                     run_sad.UP = True
                     run_happy.UP = True
-            elif event.key == SDLK_j:
-                run_sad.jump = True
-                run_happy.jump = True
 
 def update():
     run_sad.update()

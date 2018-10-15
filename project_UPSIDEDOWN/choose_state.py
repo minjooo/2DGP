@@ -144,3 +144,6 @@ def draw():
 def pause():
     pass
 
+def resume():
+    pass
+
