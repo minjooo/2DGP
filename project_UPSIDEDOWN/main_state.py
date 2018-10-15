@@ -173,5 +173,3 @@ def draw():
                 run_happy.draw_down()
     update_canvas()
     delay(0.05)
-
-

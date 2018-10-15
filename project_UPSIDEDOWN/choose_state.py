@@ -141,4 +141,6 @@ def draw():
     update_canvas()
     delay(0.05)
 
+def pause():
+    pass
 
