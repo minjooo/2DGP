@@ -182,7 +182,7 @@ class Boyfriend:
     image_up = None
     image_down = None
     def __init__(self):
-        self.x_up  = 1400
+        self.x_up  = 1200
         self.x_down = 1400
         if Boyfriend.image_up == None:
             Boyfriend.image_up = load_image('imaginary_boyfriend100.png')
@@ -198,8 +198,29 @@ class Boyfriend:
     def draw_down(self):
         self.image_down.draw(self.x_down, 190)
 
+
+class Broom:
+    image_up = None
+    image_down = None
+    def __init__(self):
+        self.x_up  = 1600
+        self.x_down = 1700
+        if Broom.image_up == None:
+            Broom.image_up = load_image('broom100.png')
+        if Broom.image_down == None:
+            Broom.image_down = load_image('broom100_down.png')
+
+    def update(self):
+        self.x_up -= 12
+        self.x_down -= 12
+
+    def draw_up(self):
+        self.image_up.draw(self.x_up, 510)
+    def draw_down(self):
+        self.image_down.draw(self.x_down, 100)
+
 def enter():
-    global main_bg, run_happy, run_sad, path, number, card, boyfriend
+    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
@@ -207,9 +228,10 @@ def enter():
     number = Numbers()
     card = Card()
     boyfriend = Boyfriend()
+    broom = Broom()
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number, card, boyfriend
+    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom
     del(main_bg)
     del(run_happy)
     del(run_sad)
@@ -217,6 +239,7 @@ def exit():
     del(number)
     del(card)
     del(boyfriend)
+    del(broom)
 
 def handle_events():
     events = get_events()
@@ -253,6 +276,7 @@ def update():
     path.update()
     card.update()
     boyfriend.update()
+    broom.update()
 
 def draw():
     clear_canvas()
@@ -261,6 +285,8 @@ def draw():
     card.draw_up()
     boyfriend.draw_up()
     boyfriend.draw_down()
+    broom.draw_down()
+    broom.draw_up()
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
