@@ -291,13 +291,13 @@ class Tray:
         self.x -= 12
 
     def draw_empty_up(self):
-        pass
+        self.empty_image.draw(self.x, 360)
     def draw_full_up(self):
-        pass
+        self.full_image.draw(self.x, 360)
     def draw_empty_down(self):
-        pass
+        self.empty_image_down.draw(self.x, 240)
     def draw_full_down(self):
-        pass
+        self.full_image_down.draw(self.x, 240)
 
 
 def enter():
