@@ -278,14 +278,14 @@ class Tray:
     full_image_down = None
     def __init__(self):
         self.x = 950
-        if Tary.empty_image == None:
+        if Tray.empty_image == None:
             Tray.empty_image = load_image('tray100.png')
-        if Tary.full_image == None:
-            Tray.empty_image = load_image('tray100_full.png')
-        if Tary.empty_image_down == None:
-            Tray.empty_image = load_image('tray100_down.png')
-        if Tary.full_image_down == None:
-            Tray.empty_image = load_image('tray100_full_Down.png')
+        if Tray.full_image == None:
+            Tray.full_image = load_image('tray100_full.png')
+        if Tray.empty_image_down == None:
+            Tray.empty_image_down = load_image('tray100_down.png')
+        if Tray.full_image_down == None:
+            Tray.full_image_down = load_image('tray100_full_Down.png')
 
     def update(self):
         self.x -= 12
@@ -301,7 +301,7 @@ class Tray:
 
 
 def enter():
-    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble
+    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble, tray
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
@@ -311,9 +311,10 @@ def enter():
     boyfriend = Boyfriend()
     broom = Broom()
     marble = Marble()
+    tray = Tray()
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble
+    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble, tray
     del(main_bg)
     del(run_happy)
     del(run_sad)
@@ -323,6 +324,7 @@ def exit():
     del(boyfriend)
     del(broom)
     del(marble)
+    del(tray)
 
 def handle_events():
     events = get_events()
@@ -361,6 +363,7 @@ def update():
     boyfriend.update()
     broom.update()
     marble.update()
+    tray.update()
 
 def draw():
     clear_canvas()
@@ -373,6 +376,7 @@ def draw():
     broom.draw_up()
     marble.red_draw_up()
     marble.yellow_draw_down()
+    tray.draw_empty_down()
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
