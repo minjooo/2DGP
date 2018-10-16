@@ -271,6 +271,35 @@ class Marble:
     def yellow_draw_down(self):
         self.yellow_image_down.draw(self.x_up, 270)
 
+class Tray:
+    empty_image = None
+    full_image = None
+    empty_image_down = None
+    full_image_down = None
+    def __init__(self):
+        self.x = 950
+        if Tary.empty_image == None:
+            Tray.empty_image = load_image('tray100.png')
+        if Tary.full_image == None:
+            Tray.empty_image = load_image('tray100_full.png')
+        if Tary.empty_image_down == None:
+            Tray.empty_image = load_image('tray100_down.png')
+        if Tary.full_image_down == None:
+            Tray.empty_image = load_image('tray100_full_Down.png')
+
+    def update(self):
+        self.x -= 12
+
+    def draw_empty_up(self):
+        pass
+    def draw_full_up(self):
+        pass
+    def draw_empty_down(self):
+        pass
+    def draw_full_down(self):
+        pass
+
+
 def enter():
     global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble
     main_bg = Running_Background()
