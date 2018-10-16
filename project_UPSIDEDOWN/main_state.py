@@ -219,8 +219,60 @@ class Broom:
     def draw_down(self):
         self.image_down.draw(self.x_down, 100)
 
+
+class Marble:
+    red_image_up = None
+    blue_image_up = None
+    purple_image_up = None
+    yellow_image_up = None
+    red_image_down = None
+    blue_image_down = None
+    purple_image_down = None
+    yellow_image_down = None
+    def __init__(self):
+        self.x_up  = 1100
+        self.x_down = 1400
+        if Marble.red_image_up == None:
+            Marble.red_image_up = load_image('red_marble40.png')
+        if Marble.blue_image_up == None:
+            Marble.blue_image_up = load_image('blue_marble40.png')
+        if Marble.purple_image_up == None:
+            Marble.purple_image_up = load_image('purple_marble40.png')
+        if Marble.yellow_image_up == None:
+            Marble.yellow_image_up = load_image('yellow_marble40.png')
+        if Marble.red_image_down == None:
+            Marble.red_image_down = load_image('red_marble40_down.png')
+        if Marble.blue_image_down == None:
+            Marble.blue_image_down = load_image('blue_marble40_down.png')
+        if Marble.purple_image_down == None:
+            Marble.purple_image_down = load_image('purple_marble40_down.png')
+        if Marble.yellow_image_down == None:
+            Marble.yellow_image_down = load_image('yellow_marble40_down.png')
+
+    def update(self):
+        self.x_up -= 12
+        self.x_down -= 12
+
+    def red_draw_up(self):
+        self.red_image_up.draw(self.x_up, 330)
+    def blue_draw_up(self):
+        self.blue_image_up.draw(self.x_up, 330)
+    def purple_draw_up(self):
+        self.red_image_up.draw(self.x_up, 330)
+    def yellow_draw_up(self):
+        self.yellow_image_down.draw(self.x_up, 330)
+
+    def red_draw_down(self):
+        self.red_image_down.draw(self.x_up, 270)
+    def blue_draw_down(self):
+        self.blue_image_down.draw(self.x_up, 270)
+    def purple_draw_down(self):
+        self.purple_image_down.draw(self.x_up, 270)
+    def yellow_draw_down(self):
+        self.yellow_image_down.draw(self.x_up, 270)
+
 def enter():
-    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom
+    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
@@ -229,9 +281,10 @@ def enter():
     card = Card()
     boyfriend = Boyfriend()
     broom = Broom()
+    marble = Marble()
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom
+    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble
     del(main_bg)
     del(run_happy)
     del(run_sad)
@@ -240,6 +293,7 @@ def exit():
     del(card)
     del(boyfriend)
     del(broom)
+    del(marble)
 
 def handle_events():
     events = get_events()
@@ -277,6 +331,7 @@ def update():
     card.update()
     boyfriend.update()
     broom.update()
+    marble.update()
 
 def draw():
     clear_canvas()
@@ -287,6 +342,8 @@ def draw():
     boyfriend.draw_down()
     broom.draw_down()
     broom.draw_up()
+    marble.red_draw_up()
+    marble.yellow_draw_down()
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
