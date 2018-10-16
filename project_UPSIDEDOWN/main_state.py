@@ -178,23 +178,45 @@ class Card:
     def draw_down(self):
         self.image_down.draw(self.x_down, 250)
 
+class Boyfriend:
+    image_up = None
+    image_down = None
+    def __init__(self):
+        self.x_up  = 1400
+        self.x_down = 1400
+        if Boyfriend.image_up == None:
+            Boyfriend.image_up = load_image('imaginary_boyfriend100.png')
+        if Boyfriend.image_down == None:
+            Boyfriend.image_down = load_image('imaginary_boyfriend100_down.png')
+
+    def update(self):
+        self.x_up -= 12
+        self.x_down -= 12
+
+    def draw_up(self):
+        self.image_up.draw(self.x_up, 410)
+    def draw_down(self):
+        self.image_down.draw(self.x_down, 190)
+
 def enter():
-    global main_bg, run_happy, run_sad, path, number, card
+    global main_bg, run_happy, run_sad, path, number, card, boyfriend
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
     path = Path()
     number = Numbers()
     card = Card()
+    boyfriend = Boyfriend()
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number, card
+    global main_bg, run_happy, run_sad, path, number, card, boyfriend
     del(main_bg)
     del(run_happy)
     del(run_sad)
     del(path)
     del(number)
     del(card)
+    del(boyfriend)
 
 def handle_events():
     events = get_events()
@@ -230,12 +252,15 @@ def update():
     run_happy.update()
     path.update()
     card.update()
+    boyfriend.update()
 
 def draw():
     clear_canvas()
     main_bg.draw()
     path.draw()
     card.draw_up()
+    boyfriend.draw_up()
+    boyfriend.draw_down()
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
