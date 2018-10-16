@@ -9,11 +9,15 @@ def handle_events():
         elif event.type==SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
 
-f= open('map.txt', 'r')
+f = open('map.txt', 'r')
 u = f.readline()
 d = f.readline()
 up = u.split()
+for i in range(0, len(up)):
+    up[i] = int(up[i])
 down = d.split()
+for i in range(0, len(down)):
+    down[i] = int(down[i])
 f.close()
 
 print(up)

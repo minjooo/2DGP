@@ -5,6 +5,7 @@ from pico2d import *
 
 name = 'main_state'
 image = None
+up = None
 
 class Running_Background:
     def __init__(self):
@@ -317,18 +318,26 @@ def enter():
     u = f.readline()
     d = f.readline()
     up = u.split()
+    for i in range(0, len(up)):
+        up[i] = int(up[i])
     down = d.split()
+    for i in range(0, len(down)):
+        down[i] = int(down[i])
     f.close()
 
-    for n in up: # up 훑겠다
-        if up[n] == '0':
+    for i in range(0, len(up)): # up 훑겠다
+        n = up[i]
+        if n == 0:
             pass
-        elif up[n] == '1': # 카드
-            pass
-        elif up[n] == '2': # 남친
-            pass
-        elif up[n] == '3': # 빗자루
-            pass
+        elif n == 1: # 카드
+            Cards_up.append(Card())
+            Cards_up[-1].x_up = i * 100
+        elif n == 2: # 남친
+            Boyfriends_up.append(Boyfriend())
+            Boyfriends_up[-1].x_up = i * 100
+        elif n == 3: # 빗자루
+            Brooms_up.append(Broom())
+            Brooms_up[-1].x_up = i * 100
 
 
 
@@ -380,24 +389,28 @@ def update():
     run_sad.update()
     run_happy.update()
     path.update()
-    card.update()
-    boyfriend.update()
-    broom.update()
-    marble.update()
-    tray.update()
+    for i in Cards_up:
+        i.update()
+    for i in Boyfriends_up:
+        i.update()
+    for i in Brooms_up:
+        i.update()
+    #marble.update()
+    #tray.update()
 
 def draw():
     clear_canvas()
     main_bg.draw()
     path.draw()
-    card.draw_up()
-    boyfriend.draw_up()
-    boyfriend.draw_down()
-    broom.draw_down()
-    broom.draw_up()
-    marble.red_draw_up()
-    marble.yellow_draw_down()
-    tray.draw_empty_down()
+    for i in Cards_up:
+        i.draw_up()
+    for i in Boyfriends_up:
+        i.draw_up()
+    for i in Brooms_up:
+        i.draw_up()
+    #marble.red_draw_up()
+    #marble.yellow_draw_down()
+    #tray.draw_empty_down()
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
