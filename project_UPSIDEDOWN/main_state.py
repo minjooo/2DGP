@@ -59,7 +59,7 @@ class Numbers:
             self.image.clip_draw(0, 0, 25, 50, 250, 649)
             self.image.clip_draw(0, 0, 25, 50, 275, 649)
             self.image.clip_draw(0, 0, 25, 50, 300, 649)
-        self.image.clip_draw(self.score1*25,0,25,50,225,649)
+        self.image.clip_draw(self.score1*25, 0, 25, 50, 225, 649)
     def draw_marble_num(self):
         if self.marble10 != 0:
             self.image.clip_draw(self.marble10*25,0,25,50,670,649)
@@ -301,30 +301,51 @@ class Tray:
 
 
 def enter():
-    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble, tray
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, tray, up, down
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
     path = Path()
     number = Numbers()
-    card = Card()
-    boyfriend = Boyfriend()
-    broom = Broom()
-    marble = Marble()
+    Cards_up = []
+    Boyfriends_up = []
+    Brooms_up = []
+    Marbles_up = []
     tray = Tray()
 
+    f = open('map.txt', 'r')
+    u = f.readline()
+    d = f.readline()
+    up = u.split()
+    down = d.split()
+    f.close()
+
+    for n in up: # up 훑겠다
+        if up[n] == '0':
+            pass
+        elif up[n] == '1': # 카드
+            pass
+        elif up[n] == '2': # 남친
+            pass
+        elif up[n] == '3': # 빗자루
+            pass
+
+
+
 def exit():
-    global main_bg, run_happy, run_sad, path, number, card, boyfriend, broom, marble, tray
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, tray, up, down
     del(main_bg)
     del(run_happy)
     del(run_sad)
     del(path)
     del(number)
-    del(card)
-    del(boyfriend)
-    del(broom)
-    del(marble)
+    del(Cards_up)
+    del(Boyfriends_up)
+    del(Brooms_up)
+    del(Marbles_up)
     del(tray)
+    del(up)
+    del(down)
 
 def handle_events():
     events = get_events()
