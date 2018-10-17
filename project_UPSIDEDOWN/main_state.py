@@ -302,7 +302,7 @@ class Tray:
 
 
 def enter():
-    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, tray, up, down
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, tray, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
@@ -312,6 +312,10 @@ def enter():
     Boyfriends_up = []
     Brooms_up = []
     Marbles_up = []
+    Cards_down = []
+    Boyfriends_down = []
+    Brooms_down = []
+    Marbles_down = []
     tray = Tray()
 
     f = open('map.txt', 'r')
@@ -339,6 +343,20 @@ def enter():
             Brooms_up.append(Broom())
             Brooms_up[-1].x_up = i * 100
 
+    for i in range(0, len(down)): # down 훑겠다
+        n = down[i]
+        if n == 0:
+            pass
+        elif n == 1: # 카드
+            Cards_down.append(Card())
+            Cards_down[-1].x_down = i * 100
+        elif n == 2: # 남친
+            Boyfriends_down.append(Boyfriend())
+            Boyfriends_down[-1].x_down = i * 100
+        elif n == 3: # 빗자루
+            Brooms_down.append(Broom())
+            Brooms_down[-1].x_down = i * 100
+
 
 
 def exit():
@@ -352,6 +370,10 @@ def exit():
     del(Boyfriends_up)
     del(Brooms_up)
     del(Marbles_up)
+    del(Cards_down)
+    del(Boyfriends_down)
+    del(Brooms_down)
+    del(Marbles_down)
     del(tray)
     del(up)
     del(down)
@@ -395,8 +417,12 @@ def update():
         i.update()
     for i in Brooms_up:
         i.update()
-    #marble.update()
-    #tray.update()
+    for i in Cards_down:
+        i.update()
+    for i in Boyfriends_down:
+        i.update()
+    for i in Brooms_down:
+        i.update()
 
 def draw():
     clear_canvas()
@@ -408,9 +434,12 @@ def draw():
         i.draw_up()
     for i in Brooms_up:
         i.draw_up()
-    #marble.red_draw_up()
-    #marble.yellow_draw_down()
-    #tray.draw_empty_down()
+    for i in Cards_down:
+        i.draw_down()
+    for i in Boyfriends_down:
+        i.draw_down()
+    for i in Brooms_down:
+        i.draw_down()
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
