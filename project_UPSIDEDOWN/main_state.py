@@ -72,7 +72,7 @@ class Run_happiness100:
         self.hight = 0
         self.jump = False
         self.goup = True # 점프할 때 올라가는지 내려가는지 구분
-        self.jump_speed = [n for n in range(0, 30 + 1) if n % 5 == 0]
+        self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
         self.count_jump_speed = -1
         self.frame = 0
         self.image_up = load_image('run_happiness100.png')
@@ -86,7 +86,7 @@ class Run_happiness100:
             if self.goup:
                 self.hight += self.jump_speed[self.count_jump_speed]
                 self.count_jump_speed -= 1
-                if self.count_jump_speed == -7:
+                if self.count_jump_speed == -8:
                     self.goup = False
             if self.goup == False:
                 self.hight -= self.jump_speed[self.count_jump_speed]
@@ -111,7 +111,7 @@ class Run_sadness100:
         self.UP = True
         self.jump = False
         self.goup = True
-        self.jump_speed = [n for n in range(0, 30 + 1) if n % 5 == 0]
+        self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
         self.count_jump_speed = -1
         self.hight = 0
         self.frame = 0
@@ -126,7 +126,7 @@ class Run_sadness100:
             if self.goup:
                 self.hight += self.jump_speed[self.count_jump_speed]
                 self.count_jump_speed -= 1
-                if self.count_jump_speed == -7:
+                if self.count_jump_speed == -8:
                     self.goup = False
             if self.goup == False:
                 self.hight -= self.jump_speed[self.count_jump_speed]
