@@ -171,6 +171,7 @@ class Card:
     def __init__(self):
         self.x_up  = 1000
         self.x_down = 1000
+        self.check_y = False
         if Card.image_up == None:
             Card.image_up = load_image('card100.png')
         if Card.image_down == None:
@@ -191,6 +192,7 @@ class Boyfriend:
     def __init__(self):
         self.x_up  = 1200
         self.x_down = 1400
+        self.check_y = False
         if Boyfriend.image_up == None:
             Boyfriend.image_up = load_image('imaginary_boyfriend100.png')
         if Boyfriend.image_down == None:
@@ -212,6 +214,7 @@ class Broom:
     def __init__(self):
         self.x_up  = 1600
         self.x_down = 1700
+        self.check_y = False
         if Broom.image_up == None:
             Broom.image_up = load_image('broom100.png')
         if Broom.image_down == None:
@@ -240,6 +243,7 @@ class Marble:
         self.x_up  = 1100
         self.x_down = 1400
         self.color = 0;
+        self.check_y = False
         if Marble.red_image_up == None:
             Marble.red_image_up = load_image('red_marble40.png')
         if Marble.blue_image_up == None:
@@ -286,6 +290,7 @@ class Tray:
     full_image_down = None
     def __init__(self):
         self.x = 950
+        self.check_y = False
         if Tray.empty_image == None:
             Tray.empty_image = load_image('tray100.png')
         if Tray.full_image == None:
@@ -307,9 +312,13 @@ class Tray:
     def draw_full_down(self):
         self.full_image_down.draw(self.x, 240)
 
+def check_Crush():
+    pass
+
+
 
 def enter():
-    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, tray, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Tray_up, Tray_down, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
@@ -323,7 +332,8 @@ def enter():
     Boyfriends_down = []
     Brooms_down = []
     Marbles_down = []
-    tray = Tray()
+    Tray_up = []
+    Tray_down = []
 
     f = open('map.txt', 'r')
     u = f.readline()
@@ -353,6 +363,9 @@ def enter():
             Marbles_up.append(Marble())
             Marbles_up[-1].x_up = i * 100
             Marbles_up[-1].color = random.randint(1, 4 + 1)
+        elif n == 5: # 트레이다
+            Tray_up.append(Tray())
+            Tray_up[-1].x = i * 100
 
     for i in range(0, len(down)): # down 훑겠다
         n = down[i]
@@ -371,11 +384,15 @@ def enter():
             Marbles_down.append(Marble())
             Marbles_up[-1].x_down = i * 100
             Marbles_up[-1].color = random.randint(1, 4 + 1)
+        elif n == 5: # 트레이다
+            Tray_down.append(Tray())
+            Tray_down[-1].x = i * 100
+
 
 
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up,Cards_down, Boyfriends_down, Brooms_down, Marbles_down, tray, up, down
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up,Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, up, down
     del(main_bg)
     del(run_happy)
     del(run_sad)
@@ -389,7 +406,8 @@ def exit():
     del(Boyfriends_down)
     del(Brooms_down)
     del(Marbles_down)
-    del(tray)
+    del(Tray_up)
+    del(Tray_down)
     del(up)
     del(down)
 
@@ -449,6 +467,10 @@ def update():
             i.update()
         for i in Marbles_down:
             i.update()
+        for i in Tray_up:
+            i.update()
+        for i in Tray_down:
+            i.update()
 
 def draw():
     clear_canvas()
@@ -484,6 +506,10 @@ def draw():
             i.yellow_draw_down()
         elif i.color == 4:
             i.purple_draw_down()
+    for i in Tray_up:
+        i.draw_empty_up()
+    for i in Tray_down:
+        i.draw_empty_down()
 
     number.draw_score()
     number.draw_marble_num()
