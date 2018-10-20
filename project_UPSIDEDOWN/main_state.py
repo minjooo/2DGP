@@ -2,6 +2,7 @@ import game_framework
 import choose_state
 import pause_state
 from pico2d import *
+import random
 
 name = 'main_state'
 image = None
@@ -75,13 +76,13 @@ class Run_happiness100:
         self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
         self.count_jump_speed = -1
         self.frame = 0
+        self.time = 0
         self.image_up = load_image('run_happiness100.png')
         self.image_down = load_image('run_happiness100_down.png')
         self.image_jump_up = load_image('run_happiness100_jump.png')
         self.image_jump_down = load_image('run_happiness100_jump_down.png')
 
     def update(self):
-        self.frame = (self.frame + 1) % 8
         if self.jump:
             if self.goup:
                 self.hight += self.jump_speed[self.count_jump_speed]
@@ -95,6 +96,11 @@ class Run_happiness100:
                     self.goup = True
                     self.jump = False
                     self.count_jump_speed = -1
+        self.time += 1
+        if self.time == 20:
+            self.frame = (self.frame + 1) % 8
+            self.time = 0
+
 
     def draw_up(self):
         self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360)
@@ -177,7 +183,7 @@ class Card:
     def draw_up(self):
         self.image_up.draw(self.x_up, 360)
     def draw_down(self):
-        self.image_down.draw(self.x_down, 250)
+        self.image_down.draw(self.x_down, 240)
 
 class Boyfriend:
     image_up = None
@@ -233,6 +239,7 @@ class Marble:
     def __init__(self):
         self.x_up  = 1100
         self.x_down = 1400
+        self.color = 0;
         if Marble.red_image_up == None:
             Marble.red_image_up = load_image('red_marble40.png')
         if Marble.blue_image_up == None:
@@ -342,6 +349,10 @@ def enter():
         elif n == 3: # 빗자루
             Brooms_up.append(Broom())
             Brooms_up[-1].x_up = i * 100
+        elif n == 4: #구슬하고싶은데
+            Marbles_up.append(Marble())
+            Marbles_up[-1].x_up = i * 100
+            Marbles_up[-1].color = random.randint(1, 4 + 1)
 
     for i in range(0, len(down)): # down 훑겠다
         n = down[i]
@@ -356,11 +367,15 @@ def enter():
         elif n == 3: # 빗자루
             Brooms_down.append(Broom())
             Brooms_down[-1].x_down = i * 100
+        elif n == 4: #구슬하고싶은데
+            Marbles_down.append(Marble())
+            Marbles_up[-1].x_down = i * 100
+            Marbles_up[-1].color = random.randint(1, 4 + 1)
 
 
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, tray, up, down
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up,Cards_down, Boyfriends_down, Brooms_down, Marbles_down, tray, up, down
     del(main_bg)
     del(run_happy)
     del(run_sad)
@@ -407,22 +422,33 @@ def handle_events():
                     run_sad.UP = True
                     run_happy.UP = True
 
+
+FRAME_CYCLE = 10
+frame = 0
+
 def update():
-    run_sad.update()
-    run_happy.update()
-    path.update()
-    for i in Cards_up:
-        i.update()
-    for i in Boyfriends_up:
-        i.update()
-    for i in Brooms_up:
-        i.update()
-    for i in Cards_down:
-        i.update()
-    for i in Boyfriends_down:
-        i.update()
-    for i in Brooms_down:
-        i.update()
+    global frame
+    frame = (frame + 1) % FRAME_CYCLE
+    if 0 == frame:
+        run_sad.update()
+        run_happy.update()
+        path.update()
+        for i in Cards_up:
+            i.update()
+        for i in Boyfriends_up:
+            i.update()
+        for i in Brooms_up:
+            i.update()
+        for i in Cards_down:
+            i.update()
+        for i in Boyfriends_down:
+            i.update()
+        for i in Brooms_down:
+            i.update()
+        for i in Marbles_up:
+            i.update()
+        for i in Marbles_down:
+            i.update()
 
 def draw():
     clear_canvas()
@@ -440,6 +466,25 @@ def draw():
         i.draw_down()
     for i in Brooms_down:
         i.draw_down()
+    for i in Marbles_up:
+        if i.color == 1:
+            i.red_draw_up()
+        elif i.color == 2:
+            i.blue_draw_up()
+        elif i.color == 3:
+            i.yellow_draw_up()
+        elif i.color == 4:
+            i.purple_draw_up()
+    for i in Marbles_down:
+        if i.color == 1:
+            i.red_draw_down()
+        elif i.color == 2:
+            i.blue_draw_down()
+        elif i.color == 3:
+            i.yellow_draw_down()
+        elif i.color == 4:
+            i.purple_draw_down()
+
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
@@ -465,7 +510,6 @@ def draw():
             elif run_happy.UP == False:
                 run_happy.draw_down()
     update_canvas()
-    delay(0.05)
 
 def pause():
     pass
