@@ -1,95 +1,122 @@
 import game_framework
 import main_state
+import title_state
+import choose_state
 from pico2d import *
 
 name = 'end_state'
 image = None
 
-class Pause:
+class Ending:
     def __init__(self):
-        self.image = load_image('pause360.png')
+        self.image = load_image('gameover.png')
 
     def draw(self):
-        self.image.draw(450,350)
+        self.image.draw(450, 350)
+
+
+class Cursor:
+    def __init__(self):
+        self.x, self.y = 0, 0
+        self.image = load_image('cursor80.png')
+
+    def draw(self):
+        self.image.draw(self.x, self.y)
+
+class SmallReplay:
+    def __init__(self):
+        self.image = load_image('smallReplay.png')
+
+    def draw(self):
+        self.image.draw(450, 350)
+
+class BigReplay:
+    def __init__(self):
+        self.image = load_image('bigReplay.png')
+
+    def draw(self):
+        self.image.draw(450, 350)
+
+
+class SmallExit:
+    def __init__(self):
+        self.image = load_image('smallExit.png')
+
+    def draw(self):
+        self.image.draw(450, 350)
+
+
+class BigExit:
+    def __init__(self):
+        self.image = load_image('bigExit.png')
+
+    def draw(self):
+        self.image.draw(450, 350)
 
 def enter():
-    global pause
-    pause = Pause()
+    global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor
+    end = Ending()
+    smallReplay = SmallReplay()
+    smallExit = SmallExit()
+    bigReplay = BigReplay()
+    bigExit = BigExit()
+    chooseExit = False
+    chooseReplay = False
+    cursor = Cursor()
 
 def exit():
-    global pause
-    del(pause)
+    global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor
+    del(end)
+    del(smallExit)
+    del(smallReplay)
+    del(bigExit)
+    del(bigReplay)
+    del(chooseExit)
+    del(chooseReplay)
+    del(cursor)
 
 def handle_events():
+    global chooseReplay
+    global chooseExit
+    global cursor
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
+        elif event.type == SDL_MOUSEMOTION:
+            cursor.x, cursor.y = event.x, 700 - 1 - event.y
+            if 150 < event.x < 450 and 0 < (700 - 1 - event.y) < 100:
+                chooseReplay = True
+            else:
+                chooseReplay = False
+            if 600 < event.x < 800 and 0 < (700 - 1 - event.y) < 100:
+                chooseExit = True
+            else:
+                chooseExit = False
+        elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
+            if chooseReplay:
+                game_framework.change_state(choose_state)
+            elif chooseExit:
+                game_framework.quit()
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_ESCAPE:
-                game_framework.pop_state()
-            elif event.key == SDLK_p:
-                game_framework.pop_state()
+                game_framework.change_state(title_state)
 
 def update():
     pass
 
 def draw():
     clear_canvas()
-    main_state.main_bg.draw()
-    main_state.path.draw()
-    for i in main_state.Cards_up + main_state.Boyfriends_up + main_state.Brooms_up:
-        i.draw_up()
-    for i in main_state.Cards_down + main_state.Boyfriends_down + main_state.Brooms_down:
-        i.draw_down()
-    for i in main_state.Marbles_up:
-        if i.color == 1:
-            i.red_draw_up()
-        elif i.color == 2:
-            i.blue_draw_up()
-        elif i.color == 3:
-            i.yellow_draw_up()
-        elif i.color == 4:
-            i.purple_draw_up()
-    for i in main_state.Marbles_down:
-        if i.color == 1:
-            i.red_draw_down()
-        elif i.color == 2:
-            i.blue_draw_down()
-        elif i.color == 3:
-            i.yellow_draw_down()
-        elif i.color == 4:
-            i.purple_draw_down()
-    for i in main_state.Tray_up:
-        i.draw_empty_up()
-    for i in main_state.Tray_down:
-        i.draw_empty_down()
-
-    main_state.number.draw_score()
-    main_state.number.draw_marble_num()
-    if choose_state.selected_character == 'sad':
-        if main_state.run_sad.jump:
-            if main_state.run_sad.UP:
-                main_state.run_sad.draw_jump_up()
-            else:
-                main_state.run_sad.draw_jump_down()
-        else:
-            if main_state.run_sad.UP:
-                main_state.run_sad.draw_up()
-            elif main_state.run_sad.UP == False:
-                main_state.run_sad.draw_down()
-    elif choose_state.selected_character == 'happy':
-        if main_state.run_happy.jump:
-            if main_state.run_happy.UP:
-                main_state.run_happy.draw_jump_up()
-            else:
-                main_state.run_happy.draw_jump_down()
-        else:
-            if main_state.run_happy.UP:
-                main_state.run_happy.draw_up()
-            elif main_state.run_happy.UP == False:
-                main_state.run_happy.draw_down()
-    pause.draw()
+    end.draw()
+    if chooseReplay == True:
+        bigReplay.draw()
+    else:
+        smallReplay.draw()
+    if chooseExit == True:
+        bigExit.draw()
+    else:
+        smallExit.draw()
+    cursor.draw()
     update_canvas()
 
 def pause():
