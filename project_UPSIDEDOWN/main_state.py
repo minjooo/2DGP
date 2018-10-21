@@ -76,13 +76,13 @@ class Run_happiness100:
         self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
         self.count_jump_speed = -1
         self.frame = 0
-        self.time = 0
         self.image_up = load_image('run_happiness100.png')
         self.image_down = load_image('run_happiness100_down.png')
         self.image_jump_up = load_image('run_happiness100_jump.png')
         self.image_jump_down = load_image('run_happiness100_jump_down.png')
 
     def update(self):
+        self.frame = (self.frame + 1) % 8
         if self.jump:
             if self.goup:
                 self.hight += self.jump_speed[self.count_jump_speed]
@@ -96,10 +96,6 @@ class Run_happiness100:
                     self.goup = True
                     self.jump = False
                     self.count_jump_speed = -1
-        self.time += 1
-        if self.time == 20:
-            self.frame = (self.frame + 1) % 8
-            self.time = 0
 
 
     def draw_up(self):
@@ -171,7 +167,7 @@ class Card:
     def __init__(self):
         self.x_up  = 1000
         self.x_down = 1000
-        self.check_y = False
+        self.check = False
         if Card.image_up == None:
             Card.image_up = load_image('card100.png')
         if Card.image_down == None:
@@ -192,7 +188,7 @@ class Boyfriend:
     def __init__(self):
         self.x_up  = 1200
         self.x_down = 1400
-        self.check_y = False
+        self.check = False
         if Boyfriend.image_up == None:
             Boyfriend.image_up = load_image('imaginary_boyfriend100.png')
         if Boyfriend.image_down == None:
@@ -214,7 +210,7 @@ class Broom:
     def __init__(self):
         self.x_up  = 1600
         self.x_down = 1700
-        self.check_y = False
+        self.check = False
         if Broom.image_up == None:
             Broom.image_up = load_image('broom100.png')
         if Broom.image_down == None:
@@ -243,7 +239,7 @@ class Marble:
         self.x_up  = 1100
         self.x_down = 1400
         self.color = 0;
-        self.check_y = False
+        self.check = False
         if Marble.red_image_up == None:
             Marble.red_image_up = load_image('red_marble40.png')
         if Marble.blue_image_up == None:
@@ -290,7 +286,7 @@ class Tray:
     full_image_down = None
     def __init__(self):
         self.x = 950
-        self.check_y = False
+        self.check = False
         if Tray.empty_image == None:
             Tray.empty_image = load_image('tray100.png')
         if Tray.full_image == None:
@@ -313,7 +309,11 @@ class Tray:
         self.full_image_down.draw(self.x, 240)
 
 def check_Crush():
-    pass
+    for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
+        if i.x_up < 300 and i.x_up > 100:
+            i.check = True
+        else:
+            i.check = False
 
 
 
@@ -451,42 +451,16 @@ def update():
         run_sad.update()
         run_happy.update()
         path.update()
-        for i in Cards_up:
-            i.update()
-        for i in Boyfriends_up:
-            i.update()
-        for i in Brooms_up:
-            i.update()
-        for i in Cards_down:
-            i.update()
-        for i in Boyfriends_down:
-            i.update()
-        for i in Brooms_down:
-            i.update()
-        for i in Marbles_up:
-            i.update()
-        for i in Marbles_down:
-            i.update()
-        for i in Tray_up:
-            i.update()
-        for i in Tray_down:
+        for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
             i.update()
 
 def draw():
     clear_canvas()
     main_bg.draw()
     path.draw()
-    for i in Cards_up:
+    for i in Cards_up + Boyfriends_up + Brooms_up:
         i.draw_up()
-    for i in Boyfriends_up:
-        i.draw_up()
-    for i in Brooms_up:
-        i.draw_up()
-    for i in Cards_down:
-        i.draw_down()
-    for i in Boyfriends_down:
-        i.draw_down()
-    for i in Brooms_down:
+    for i in Cards_down + Boyfriends_down + Brooms_down:
         i.draw_down()
     for i in Marbles_up:
         if i.color == 1:
