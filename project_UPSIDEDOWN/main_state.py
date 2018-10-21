@@ -8,25 +8,6 @@ import random
 name = 'main_state'
 image = None
 
-main_bg = None
-run_happy = None
-run_sad = None
-path = None
-number = None
-Cards_up = None
-Boyfriends_up = None
-Brooms_up = None
-Marbles_up = None
-Tray_up = None
-Tray_down = None
-up = None
-down = None
-Cards_down = None
-Boyfriends_down = None
-Brooms_down = None
-Marbles_down = None
-is_crush = None
-
 
 class Running_Background:
     def __init__(self):
@@ -34,6 +15,7 @@ class Running_Background:
 
     def draw(self):
         self.image.draw(450,350)
+
 
 class Numbers:
     image = None
@@ -87,6 +69,7 @@ class Numbers:
             self.image.clip_draw(self.marble10*25,0,25,50,670,649)
         self.image.clip_draw(self.marble1 * 25, 0, 25, 50, 695, 649)
 
+
 class Run_happiness100:
     def __init__(self):
         self.UP = True
@@ -117,7 +100,6 @@ class Run_happiness100:
                     self.jump = False
                     self.count_jump_speed = -1
 
-
     def draw_up(self):
         self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360 + self.hight)
     def draw_down(self):
@@ -135,7 +117,7 @@ class Run_sadness100:
         self.goup = True
         self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
         self.count_jump_speed = -1
-        self.hight = 0
+        self.height = 0
         self.frame = 0
         self.image_up = load_image('run_sadness100.png')
         self.image_down = load_image('run_sadness100_down.png')
@@ -146,12 +128,12 @@ class Run_sadness100:
         self.frame = (self.frame + 1) % 8
         if self.jump:
             if self.goup:
-                self.hight += self.jump_speed[self.count_jump_speed]
+                self.height += self.jump_speed[self.count_jump_speed]
                 self.count_jump_speed -= 1
                 if self.count_jump_speed == -8:
                     self.goup = False
             if self.goup == False:
-                self.hight -= self.jump_speed[self.count_jump_speed]
+                self.height -= self.jump_speed[self.count_jump_speed]
                 self.count_jump_speed += 1
                 if self.count_jump_speed == 1:
                     self.goup = True
@@ -159,18 +141,18 @@ class Run_sadness100:
                     self.count_jump_speed = -1
 
     def draw_up(self):
-        self.image_up.clip_draw(self.frame * 100 , 0, 100, 100, 200, 360 + self.hight)
+        self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360 + self.height)
     def draw_down(self):
-        self.image_down.clip_draw(self.frame * 100 , 0, 100, 100, 200, 240 - self.hight)
+        self.image_down.clip_draw(self.frame * 100, 0, 100, 100, 200, 240 - self.height)
     def draw_jump_up(self):
-        self.image_jump_up.draw(200, 360 + self.hight)
+        self.image_jump_up.draw(200, 360 + self.height)
     def draw_jump_down(self):
-        self.image_jump_down.draw(200, 240 - self.hight)
+        self.image_jump_down.draw(200, 240 - self.height)
 
 
 class Path:
     def __init__(self):
-        self.x ,self.y = 450, 300
+        self.x, self.y = 450, 300
         self.frame = 0
         self.image = load_image('path1350_3.png')
 
@@ -200,7 +182,7 @@ class Card:
     def draw_up(self):
         self.image_up.draw(self.x_up, 360)
     def draw_down(self):
-        self.image_down.draw(self.x_down, 240)
+        self.image_down.draw(self.x_up, 240)
 
 class Boyfriend:
     image_up = None
@@ -221,7 +203,7 @@ class Boyfriend:
     def draw_up(self):
         self.image_up.draw(self.x_up, 410)
     def draw_down(self):
-        self.image_down.draw(self.x_down, 190)
+        self.image_down.draw(self.x_up, 190)
 
 
 class Broom:
@@ -243,7 +225,7 @@ class Broom:
     def draw_up(self):
         self.image_up.draw(self.x_up, 510)
     def draw_down(self):
-        self.image_down.draw(self.x_down, 100)
+        self.image_down.draw(self.x_up, 100)
 
 
 class Marble:
@@ -258,7 +240,7 @@ class Marble:
     def __init__(self):
         self.x_up  = 1100
         self.x_down = 1400
-        self.color = 0;
+        self.color = 0
         self.check = False
         if Marble.red_image_up == None:
             Marble.red_image_up = load_image('red_marble40.png')
@@ -326,21 +308,9 @@ class Tray:
     def draw_full_up(self):
         self.full_image.draw(self.x_up, 360)
     def draw_empty_down(self):
-        self.empty_image_down.draw(self.x_down, 240)
+        self.empty_image_down.draw(self.x_up, 240)
     def draw_full_down(self):
-        self.full_image_down.draw(self.x_down, 240)
-
-
-def collide(ch_x1, ch_x2, ch_y1, ch_y2, e_x1, e_x2, e_y1, e_y2):
-    if ch_x2 <e_x1:
-        return False
-    if e_x2 <ch_x1:
-        return False
-    if e_y2 < ch_y1:
-        return False
-    if ch_y2 < e_y1:
-        return False
-    return True
+        self.full_image_down.draw(self.x_up, 240)
 
 
 
@@ -401,46 +371,45 @@ def enter():
             pass
         elif n == 1: # 카드
             Cards_down.append(Card())
-            Cards_down[-1].x_down = i * 100
+            Cards_down[-1].x_up = i * 100
         elif n == 2: # 남친
             Boyfriends_down.append(Boyfriend())
-            Boyfriends_down[-1].x_down = i * 100
+            Boyfriends_down[-1].x_up = i * 100
         elif n == 3: # 빗자루
             Brooms_down.append(Broom())
-            Brooms_down[-1].x_down = i * 100
+            Brooms_down[-1].x_up = i * 100
         elif n == 4: #구슬하고싶은데
             Marbles_down.append(Marble())
-            Marbles_up[-1].x_down = i * 100
+            Marbles_up[-1].x_up = i * 100
             Marbles_up[-1].color = random.randint(1, 4 + 1)
         elif n == 5: # 트레이다
             Tray_down.append(Tray())
-            Tray_down[-1].x_down = i * 100
-
-
+            Tray_down[-1].x_up = i * 100
 
 
 def exit():
     global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up,Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, up, down, is_crush
-    del(main_bg)
-    del(run_happy)
-    del(run_sad)
-    del(path)
-    del(number)
-    del(Cards_up)
-    del(Boyfriends_up)
-    del(Brooms_up)
-    del(Marbles_up)
-    del(Cards_down)
-    del(Boyfriends_down)
-    del(Brooms_down)
-    del(Marbles_down)
-    del(Tray_up)
-    del(Tray_down)
-    del(up)
-    del(down)
-    del(is_crush)
+    del main_bg
+    del run_happy
+    del run_sad
+    del path
+    del number
+    del Cards_up
+    del Boyfriends_up
+    del Brooms_up
+    del Marbles_up
+    del Cards_down
+    del Boyfriends_down
+    del Brooms_down
+    del Marbles_down
+    del Tray_up
+    del Tray_down
+    del up
+    del down
+    del is_crush
 
 def handle_events():
+    global run_happy, run_sad, number
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
@@ -482,7 +451,8 @@ def update():
         path.update()
         for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
             i.update()
-    check_Crush()
+
+        check_Crush()
 
 def draw():
     clear_canvas()
@@ -539,7 +509,8 @@ def draw():
                 run_happy.draw_up()
             elif run_happy.UP == False:
                 run_happy.draw_down()
-    update_canvas()
+    if game_framework.stack[-1].name == name:
+        update_canvas()
 
 def pause():
     pass
@@ -547,8 +518,21 @@ def pause():
 def resume():
     pass
 
+
+def collide(ch_x1, ch_x2, ch_y1, ch_y2, e_x1, e_x2, e_y1, e_y2):
+    if ch_x2 < e_x1:
+        return False
+    if e_x2 < ch_x1:
+        return False
+    if e_y2 < ch_y1:
+        return False
+    if ch_y2 < e_y1:
+        return False
+    return True
+
+
 def check_Crush():
-    global run_happy, run_sad, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, is_crush
+    #global run_happy, run_sad, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, is_crush
     ups = Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up
     downs = Cards_down + Boyfriends_down + Brooms_down + Marbles_down + Tray_down
     for i in ups + downs:
@@ -557,19 +541,33 @@ def check_Crush():
         else:
             i.check = False
 
-    for i in ups: #충돌 계산 해줄곳 위
-        if i.check == True:
-            if run_happy.UP == True and run_sad.UP == True:
+    is_crush = False
+    if run_happy.UP == False or run_sad.UP == False:
+        for i in downs:  # 충돌 계산 해줄곳 아래
+            if i.check == True:
                 if type(i) == Card:
-                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50, i.x_up - 20, i.x_up + 30, 360, 420)
+                    is_crush = collide(170, 220, 240 - run_happy.hight - 50, 240 - run_happy.hight + 20,
+                                       i.x_up - 20, i.x_up + 30, 230, 290)
                 if type(i) == Boyfriend:
-                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50, i.x_up - 25, i.x_up + 25, 360, 560)
+                    is_crush = collide(170, 220, 240 - run_happy.hight - 50, 240 - run_happy.hight + 20,
+                                       i.x_up - 25, i.x_up + 25, 140, 290)
                 if type(i) == Broom:
-                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50, i.x_up - 20, i.x_up + 20, 462, 660)
+                    is_crush = collide(170, 220, 240 - run_happy.hight - 50, 240 - run_happy.hight + 20,
+                                       i.x_up - 20, i.x_up + 20, 0, 198)
                 if True == is_crush:
                     game_framework.change_state(end_state)
 
-    for i in downs: #충돌 계산 해줄곳 아래
-        if i.check == True:
-            if type(i) == Card:
-                pass
+    if run_happy.UP == True or run_sad.UP == True:
+        for i in ups:  # 충돌 계산 해줄곳 위
+            if i.check == True:
+                if type(i) == Card:
+                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50,
+                                       i.x_up - 20, i.x_up + 30, 360, 420)
+                if type(i) == Boyfriend:
+                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50,
+                                       i.x_up - 25, i.x_up + 25, 360, 560)
+                if type(i) == Broom:
+                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50,
+                                       i.x_up - 20, i.x_up + 20, 462, 660)
+                if True == is_crush:
+                    game_framework.change_state(end_state)
