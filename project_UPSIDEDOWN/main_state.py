@@ -311,6 +311,10 @@ class Tray:
     def draw_full_down(self):
         self.full_image_down.draw(self.x_down, 240)
 
+
+def collide():
+    pass
+
 def check_Crush():
     global run_happy, run_sad, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down
     ups = Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up
@@ -334,8 +338,6 @@ def check_Crush():
         if i.check == True:
             if type(i) == Card:
                 pass
-
-
 
 def enter():
     global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Tray_up, Tray_down, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down
