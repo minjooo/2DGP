@@ -317,7 +317,10 @@ def check_Crush():
     for i in Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up: #충돌 계산 해줄곳 위
         if i.check == true:
             if type(i) == type(Card):
-                pass
+                if run_happy.jump == True and run_sad.jump == True
+                    pass
+                else:
+                    pass
     for i in Cards_down + Boyfriends_down + Brooms_down + Marbles_down + Tray_down: #충돌 계산 해줄곳 아래
         if i.check == true:
             if type(i) == type(Card):
