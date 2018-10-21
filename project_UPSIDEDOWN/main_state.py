@@ -7,7 +7,26 @@ import random
 
 name = 'main_state'
 image = None
+
+main_bg = None
+run_happy = None
+run_sad = None
+path = None
+number = None
+Cards_up = None
+Boyfriends_up = None
+Brooms_up = None
+Marbles_up = None
+Tray_up = None
+Tray_down = None
 up = None
+down = None
+Cards_down = None
+Boyfriends_down = None
+Brooms_down = None
+Marbles_down = None
+is_crush = None
+
 
 class Running_Background:
     def __init__(self):
@@ -312,35 +331,21 @@ class Tray:
         self.full_image_down.draw(self.x_down, 240)
 
 
-def collide():
-    pass
+def collide(ch_x1, ch_x2, ch_y1, ch_y2, e_x1, e_x2, e_y1, e_y2):
+    if ch_x2 <e_x1:
+        return False
+    if e_x2 <ch_x1:
+        return False
+    if e_y2 < ch_y1:
+        return False
+    if ch_y2 < e_y1:
+        return False
+    return True
 
-def check_Crush():
-    global run_happy, run_sad, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down
-    ups = Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up
-    downs = Cards_down + Boyfriends_down + Brooms_down + Marbles_down + Tray_down
-    for i in ups + downs:
-        if i.x_up < 300 and i.x_up > 100:
-            i.check = True
-        else:
-            i.check = False
 
-    for i in ups: #충돌 계산 해줄곳 위
-        if i.check == True:
-            if type(i) == Card:
-                if run_happy.jump == True and run_sad.jump == True:
-                    pass
-                else:
-                    if (i.x_up - 200) < 25 + 30 or (200 - i.x_up) < 25 + 30:
-                        game_framework.change_state(end_state)
-
-    for i in downs: #충돌 계산 해줄곳 아래
-        if i.check == True:
-            if type(i) == Card:
-                pass
 
 def enter():
-    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Tray_up, Tray_down, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Tray_up, Tray_down, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, is_crush
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
@@ -356,6 +361,7 @@ def enter():
     Marbles_down = []
     Tray_up = []
     Tray_down = []
+    is_crush = False
 
     f = open('map.txt', 'r')
     u = f.readline()
@@ -414,7 +420,7 @@ def enter():
 
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up,Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, up, down
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up,Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, up, down, is_crush
     del(main_bg)
     del(run_happy)
     del(run_sad)
@@ -432,6 +438,7 @@ def exit():
     del(Tray_down)
     del(up)
     del(down)
+    del(is_crush)
 
 def handle_events():
     events = get_events()
@@ -539,3 +546,30 @@ def pause():
 
 def resume():
     pass
+
+def check_Crush():
+    global run_happy, run_sad, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, is_crush
+    ups = Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up
+    downs = Cards_down + Boyfriends_down + Brooms_down + Marbles_down + Tray_down
+    for i in ups + downs:
+        if i.x_up < 300 and i.x_up > 100:
+            i.check = True
+        else:
+            i.check = False
+
+    for i in ups: #충돌 계산 해줄곳 위
+        if i.check == True:
+            if run_happy.UP == True and run_sad.UP == True:
+                if type(i) == Card:
+                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50, i.x_up - 20, i.x_up + 30, 360, 420)
+                if type(i) == Boyfriend:
+                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50, i.x_up - 25, i.x_up + 25, 360, 560)
+                if type(i) == Broom:
+                    is_crush = collide(170, 220, 410 + run_happy.hight - 20, 410 + run_happy.hight + 50, i.x_up - 20, i.x_up + 20, 462, 660)
+                if True == is_crush:
+                    game_framework.change_state(end_state)
+
+    for i in downs: #충돌 계산 해줄곳 아래
+        if i.check == True:
+            if type(i) == Card:
+                pass
