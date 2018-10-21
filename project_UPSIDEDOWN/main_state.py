@@ -1,6 +1,7 @@
 import game_framework
 import choose_state
 import pause_state
+import end_state
 from pico2d import *
 import random
 
@@ -285,7 +286,8 @@ class Tray:
     empty_image_down = None
     full_image_down = None
     def __init__(self):
-        self.x = 950
+        self.x_up = 950
+        self.x_down = 950
         self.check = False
         if Tray.empty_image == None:
             Tray.empty_image = load_image('tray100.png')
@@ -297,16 +299,17 @@ class Tray:
             Tray.full_image_down = load_image('tray100_full_Down.png')
 
     def update(self):
-        self.x -= 12
+        self.x_up -= 12
+        self.x_down -=12
 
     def draw_empty_up(self):
-        self.empty_image.draw(self.x, 360)
+        self.empty_image.draw(self.x_up, 360)
     def draw_full_up(self):
-        self.full_image.draw(self.x, 360)
+        self.full_image.draw(self.x_up, 360)
     def draw_empty_down(self):
-        self.empty_image_down.draw(self.x, 240)
+        self.empty_image_down.draw(self.x_down, 240)
     def draw_full_down(self):
-        self.full_image_down.draw(self.x, 240)
+        self.full_image_down.draw(self.x_down, 240)
 
 def check_Crush():
     for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
@@ -314,15 +317,18 @@ def check_Crush():
             i.check = True
         else:
             i.check = False
+
     for i in Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up: #충돌 계산 해줄곳 위
-        if i.check == true:
-            if type(i) == type(Card):
-                if run_happy.jump == True and run_sad.jump == True
+        if i.check == True:
+            if type(i) == Card:
+                if run_happy.jump == True and run_sad.jump == True:
                     pass
                 else:
-                    pass
+                    if (200 - i.x_up) < 40 + 30:
+                        game_framework.change_state(end_state)
+
     for i in Cards_down + Boyfriends_down + Brooms_down + Marbles_down + Tray_down: #충돌 계산 해줄곳 아래
-        if i.check == true:
+        if i.check == True:
             if type(i) == type(Card):
                 pass
 
@@ -376,7 +382,7 @@ def enter():
             Marbles_up[-1].color = random.randint(1, 4 + 1)
         elif n == 5: # 트레이다
             Tray_up.append(Tray())
-            Tray_up[-1].x = i * 100
+            Tray_up[-1].x_up = i * 100
 
     for i in range(0, len(down)): # down 훑겠다
         n = down[i]
@@ -397,7 +403,7 @@ def enter():
             Marbles_up[-1].color = random.randint(1, 4 + 1)
         elif n == 5: # 트레이다
             Tray_down.append(Tray())
-            Tray_down[-1].x = i * 100
+            Tray_down[-1].x_down = i * 100
 
 
 
@@ -464,6 +470,7 @@ def update():
         path.update()
         for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
             i.update()
+    check_Crush()
 
 def draw():
     clear_canvas()
