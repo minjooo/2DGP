@@ -100,9 +100,9 @@ class Run_happiness100:
 
 
     def draw_up(self):
-        self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360)
+        self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360 + self.hight)
     def draw_down(self):
-        self.image_down.clip_draw(self.frame * 100, 0, 100, 100, 200, 240)
+        self.image_down.clip_draw(self.frame * 100, 0, 100, 100, 200, 240 - self.hight)
     def draw_jump_up(self):
         self.image_jump_up.draw(200, 360 + self.hight)
     def draw_jump_down(self):
@@ -140,9 +140,9 @@ class Run_sadness100:
                     self.count_jump_speed = -1
 
     def draw_up(self):
-        self.image_up.clip_draw(self.frame * 100 , 0, 100, 100, 200, 360)
+        self.image_up.clip_draw(self.frame * 100 , 0, 100, 100, 200, 360 + self.hight)
     def draw_down(self):
-        self.image_down.clip_draw(self.frame * 100 , 0, 100, 100, 200, 240)
+        self.image_down.clip_draw(self.frame * 100 , 0, 100, 100, 200, 240 - self.hight)
     def draw_jump_up(self):
         self.image_jump_up.draw(200, 360 + self.hight)
     def draw_jump_down(self):
@@ -312,24 +312,27 @@ class Tray:
         self.full_image_down.draw(self.x_down, 240)
 
 def check_Crush():
-    for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
+    global run_happy, run_sad, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down
+    ups = Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up
+    downs = Cards_down + Boyfriends_down + Brooms_down + Marbles_down + Tray_down
+    for i in ups + downs:
         if i.x_up < 300 and i.x_up > 100:
             i.check = True
         else:
             i.check = False
 
-    for i in Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up: #충돌 계산 해줄곳 위
+    for i in ups: #충돌 계산 해줄곳 위
         if i.check == True:
             if type(i) == Card:
                 if run_happy.jump == True and run_sad.jump == True:
                     pass
                 else:
-                    if (200 - i.x_up) < 40 + 30:
+                    if (i.x_up - 200) < 25 + 30 or (200 - i.x_up) < 25 + 30:
                         game_framework.change_state(end_state)
 
-    for i in Cards_down + Boyfriends_down + Brooms_down + Marbles_down + Tray_down: #충돌 계산 해줄곳 아래
+    for i in downs: #충돌 계산 해줄곳 아래
         if i.check == True:
-            if type(i) == type(Card):
+            if type(i) == Card:
                 pass
 
 
