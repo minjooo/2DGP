@@ -281,6 +281,7 @@ class Tray:
     full_image_down = None
     def __init__(self):
         self.x = None
+        self.full = False
         self.check = False
         if Tray.empty_image == None:
             Tray.empty_image = load_image('tray100.png')
@@ -475,9 +476,15 @@ def draw():
             elif i.color == 4:
                 i.purple_draw_down()
     for i in Tray_up:
-        i.draw_empty_up()
+        if i.full == False:
+            i.draw_empty_up()
+        else:
+            i.draw_full_up()
     for i in Tray_down:
-        i.draw_empty_down()
+        if i.full == False:
+            i.draw_empty_down()
+        else:
+            i.draw_full_down()
 
     number.draw_score()
     number.draw_marble_num()
@@ -556,6 +563,11 @@ def check_Crush():
                             number.total_marble_number += 1
                             number.marble_number = number.total_marble_number
                             number.update_marble()
+                if type(i) == Tray:
+                    if i.full == False:
+                        i.full = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
+                                         i.x - 30, i.x + 30, 310, 400)
+
 
     if run_happy.UP == False or run_sad.UP == False:
         for i in downs:  # 충돌 계산 해줄곳 아래
@@ -577,6 +589,11 @@ def check_Crush():
                             number.total_marble_number += 1
                             number.marble_number = number.total_marble_number
                             number.update_marble()
+                if type(i) == Tray:
+                    if i.full == False:
+                        i.full = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
+                                         i.x - 30, i.x + 30, 200, 290)
+
 
     if True == is_crush:
         game_framework.change_state(end_state)
