@@ -83,6 +83,7 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
+            return
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
             if 150 < event.x < 450 and 0 < (700 - 1 - event.y) < 100:
@@ -96,11 +97,14 @@ def handle_events():
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if chooseReplay:
                 game_framework.change_state(choose_state)
+                return
             elif chooseExit:
                 game_framework.quit()
+                return
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_ESCAPE:
                 game_framework.change_state(title_state)
+                return
 
 def update():
     pass
