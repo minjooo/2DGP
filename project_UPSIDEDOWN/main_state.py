@@ -413,14 +413,6 @@ def handle_events():
             elif event.key == SDLK_SPACE:
                 run_sad.jump = True
                 run_happy.jump = True
-            elif event.key == SDLK_s:
-                number.total_score += 1
-                number.score = number.total_score
-                number.update_score()
-            elif event.key == SDLK_m:
-                number.total_marble_number += 1
-                number.marble_number = number.total_marble_number
-                number.update_marble()
             elif event.key == SDLK_p:
                 game_framework.push_state(pause_state)
             elif event.key == SDLK_DELETE and run_sad.jump == False and run_happy.jump == False:
@@ -567,6 +559,13 @@ def check_Crush():
                     if i.full == False:
                         i.full = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
                                          i.x - 30, i.x + 30, 310, 400)
+                        if i.full == True:
+                            number.total_score = number.total_marble_number
+                            number.score = number.total_score
+                            number.total_marble_number = 0
+                            number.update_score()
+                            number.update_marble()
+
 
 
     if run_happy.UP == False or run_sad.UP == False:
@@ -593,6 +592,12 @@ def check_Crush():
                     if i.full == False:
                         i.full = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
                                          i.x - 30, i.x + 30, 200, 290)
+                        if i.full == True:
+                            number.total_score = number.total_marble_number
+                            number.score = number.total_score
+                            number.total_marble_number = 0
+                            number.update_score()
+                            number.update_marble()
 
 
     if True == is_crush:
