@@ -219,7 +219,7 @@ class Broom:
     def draw_up(self):
         self.image_up.draw(self.x, 510)
     def draw_down(self):
-        self.image_down.draw(self.x, 100)
+        self.image_down.draw(self.x, 90)
 
 
 class Marble:
@@ -593,7 +593,7 @@ def check_Crush():
                         i.full = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
                                          i.x - 30, i.x + 30, 200, 290)
                         if i.full == True:
-                            number.total_score = number.total_marble_number
+                            number.total_score += number.total_marble_number
                             number.score = number.total_score
                             number.total_marble_number = 0
                             number.update_score()
