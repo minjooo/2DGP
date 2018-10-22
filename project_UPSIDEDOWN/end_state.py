@@ -7,9 +7,38 @@ from pico2d import *
 name = 'end_state'
 image = None
 
-class score:
+class Score:
+    image = None
     def __init__(self):
-        pass
+        self.score100 = 0
+        self.score10 = 0
+        self.score1 = 0
+        self.score = 0
+        if Score.image == None:
+            Score.image = load_image('orangeNumber.png')
+
+
+    def draw(self):
+        if self.score >= 100:
+            self.score100 = 0
+            while self.score >= 100:
+                self.score -= 100
+                self.score100 += 1
+        if self.score >= 10:
+            self.score10 = 0
+            while self.score >= 10:
+                self.score -=10
+                self.score10 += 1
+        self.score1 = self.score
+        if self.score100 != 0:
+            self.image.clip_draw(self.score100 * 50, 0, 50, 100, 500, 300)
+        if self.score10 != 0 or (self.score10 == 0 and self.score100 != 0):
+            self.image.clip_draw(self.score10 * 50, 0, 50, 100, 550, 300)
+        if self.score != 0:
+            self.image.clip_draw(0, 0, 50, 100, 650, 300)
+            self.image.clip_draw(0, 0, 50, 100, 700, 300)
+            self.image.clip_draw(0, 0, 50, 100, 750, 300)
+        self.image.clip_draw(self.score1 * 50, 0, 50, 100, 600, 300)
 
 class Ending:
     def __init__(self):
@@ -80,6 +109,8 @@ def enter():
     chooseReplay = False
     cursor = Cursor()
     crying = Crying()
+    score = Score()
+    score.score = main_state.number.total_score
 
 def exit():
     global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
@@ -141,6 +172,7 @@ def draw():
         bigExit.draw()
     else:
         smallExit.draw()
+    score.draw()
     cursor.draw()
     update_canvas()
 

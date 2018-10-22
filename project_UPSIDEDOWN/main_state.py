@@ -601,6 +601,4 @@ def check_Crush():
 
 
     if True == is_crush:
-        end_state.score = number.total_score
-        game_framework.change_state(end_state)
-        return
+        game_framework.push_state(end_state)
