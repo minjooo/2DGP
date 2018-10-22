@@ -136,11 +136,11 @@ def handle_events():
             return
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
-            if 150 < event.x < 450 and 0 < (700 - 1 - event.y) < 100:
+            if 150 < event.x < 450 and 50 < (700 - 1 - event.y) < 150:
                 chooseReplay = True
             else:
                 chooseReplay = False
-            if 600 < event.x < 800 and 0 < (700 - 1 - event.y) < 100:
+            if 600 < event.x < 800 and 50 < (700 - 1 - event.y) < 150:
                 chooseExit = True
             else:
                 chooseExit = False
