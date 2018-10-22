@@ -7,12 +7,28 @@ from pico2d import *
 name = 'end_state'
 image = None
 
+class score:
+    def __init__(self):
+        pass
+
 class Ending:
     def __init__(self):
-        self.image = load_image('gameover.png')
+        self.image = load_image('gameover2.png')
 
     def draw(self):
         self.image.draw(450, 350)
+
+
+class Crying:
+    def __init__(self):
+        self.frame = 0
+        self.image = load_image('crying_sadness200.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 4
+
+    def draw(self):
+        self.image.clip_draw(self.frame * 264, 0, 264, 294, 280, 350);
 
 
 class Cursor:
@@ -54,7 +70,7 @@ class BigExit:
         self.image.draw(450, 350)
 
 def enter():
-    global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor
+    global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
     end = Ending()
     smallReplay = SmallReplay()
     smallExit = SmallExit()
@@ -63,9 +79,10 @@ def enter():
     chooseExit = False
     chooseReplay = False
     cursor = Cursor()
+    crying = Crying()
 
 def exit():
-    global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor
+    global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
     del(end)
     del(smallExit)
     del(smallReplay)
@@ -74,6 +91,8 @@ def exit():
     del(chooseExit)
     del(chooseReplay)
     del(cursor)
+    del(crying)
+    del(score)
 
 def handle_events():
     global chooseReplay
@@ -107,11 +126,13 @@ def handle_events():
                 return
 
 def update():
-    pass
+    crying.update()
+    delay(0.05)
 
 def draw():
     clear_canvas()
     end.draw()
+    crying.draw()
     if chooseReplay == True:
         bigReplay.draw()
     else:
