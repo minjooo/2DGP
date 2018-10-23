@@ -316,6 +316,7 @@ class FollowingMarbles:
     yellow_image_down_f = None
     def __init__(self):
         self.order = 0 #순서 저장할꺼임 1개,2개,3개 이렇게 구슬 다 반납하면 0으로
+        self.num = 0
         self.color = 0
         self.hight = 0
         self.jump = False
@@ -357,22 +358,22 @@ class FollowingMarbles:
 
 
     def red_draw_up_f(self):
-        self.red_image_up_f.draw(165 - (self.order * 45), 330)
+        self.red_image_up_f.draw(165 - (self.num * 45), 330)
     def blue_draw_up_f(self):
-        self.blue_image_up_f.draw(165 - (self.order * 45), 330)
+        self.blue_image_up_f.draw(165 - (self.num * 45), 330)
     def purple_draw_up_f(self):
-        self.purple_image_up_f.draw(165 - (self.order * 45), 330)
+        self.purple_image_up_f.draw(165 - (self.num * 45), 330)
     def yellow_draw_up(self):
-        self.yellow_image_up_f.draw(165 - (self.order * 45), 330)
+        self.yellow_image_up_f.draw(165 - (self.num * 45), 330)
 
     def red_draw_down_f(self):
-        self.red_image_down_f.draw(165 - (self.order * 45), 270)
+        self.red_image_down_f.draw(165 - (self.num * 45), 270)
     def blue_draw_down_f(self):
-        self.blue_image_down_f.draw(165 - (self.order * 45), 270)
+        self.blue_image_down_f.draw(165 - (self.num * 45), 270)
     def purple_draw_down_f(self):
-        self.purple_image_down_f.draw(165 - (self.order * 45), 270)
+        self.purple_image_down_f.draw(165 - (self.num * 45), 270)
     def yellow_draw_down_f(self):
-        self.yellow_image_down_f.draw(165 - (self.order * 45), 270)
+        self.yellow_image_down_f.draw(165 - (self.num * 45), 270)
 
 
 
@@ -513,6 +514,10 @@ def update():
         check_Crush()
         for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
             i.update()
+        if number.total_marble_number > 2:
+            following_marbles.order = 3
+        else:
+            following_marbles.order = number.total_marble_number
 
 
 def draw():
@@ -555,7 +560,9 @@ def draw():
             i.draw_full_down()
     if following_marbles.order != 0:
         if choose_state.selected_character == 'sad':
-            pass
+            for following_marbles.num in range(1, following_marbles.order + 1):
+                following_marbles.blue_draw_up_f()
+                #following_marbles.order -= 1
         elif choose_state.selected_character == 'happy':
             pass
 
@@ -620,7 +627,7 @@ def check_Crush():
             if i.check == True:
                 if type(i) == Card:
                     is_crush = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
-                                       i.x - 20, i.x + 30, 310, 370)
+                                       i.x - 25, i.x + 25, 310, 370)
                 if type(i) == Boyfriend:
                     is_crush = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
                                        i.x - 25, i.x + 25, 310, 510)
@@ -652,7 +659,7 @@ def check_Crush():
             if i.check == True:
                 if type(i) == Card:
                     is_crush = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
-                                       i.x - 20, i.x + 30, 230, 290)
+                                       i.x - 25, i.x + 25, 230, 290)
                 if type(i) == Boyfriend:
                     is_crush = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
                                        i.x - 25, i.x + 25, 140, 290)
