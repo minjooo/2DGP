@@ -358,22 +358,22 @@ class FollowingMarbles:
 
 
     def red_draw_up_f(self):
-        self.red_image_up_f.draw(165 - (self.num * 45), 330)
+        self.red_image_up_f.draw(165 - (self.num * 45), 360 + self.hight)
     def blue_draw_up_f(self):
-        self.blue_image_up_f.draw(165 - (self.num * 45), 330)
+        self.blue_image_up_f.draw(165 - (self.num * 45), 360 + self.hight)
     def purple_draw_up_f(self):
-        self.purple_image_up_f.draw(165 - (self.num * 45), 330)
-    def yellow_draw_up(self):
-        self.yellow_image_up_f.draw(165 - (self.num * 45), 330)
+        self.purple_image_up_f.draw(165 - (self.num * 45), 360 + self.hight)
+    def yellow_draw_up_f(self):
+        self.yellow_image_up_f.draw(165 - (self.num * 45), 360 + self.hight)
 
     def red_draw_down_f(self):
-        self.red_image_down_f.draw(165 - (self.num * 45), 270)
+        self.red_image_down_f.draw(165 - (self.num * 45), 240 - self.hight)
     def blue_draw_down_f(self):
-        self.blue_image_down_f.draw(165 - (self.num * 45), 270)
+        self.blue_image_down_f.draw(165 - (self.num * 45), 240 - self.hight)
     def purple_draw_down_f(self):
-        self.purple_image_down_f.draw(165 - (self.num * 45), 270)
+        self.purple_image_down_f.draw(165 - (self.num * 45), 240 - self.hight)
     def yellow_draw_down_f(self):
-        self.yellow_image_down_f.draw(165 - (self.num * 45), 270)
+        self.yellow_image_down_f.draw(165 - (self.num * 45), 240 - self.hight)
 
 
 
@@ -560,12 +560,20 @@ def draw():
             i.draw_full_down()
     if following_marbles.order != 0:
         if choose_state.selected_character == 'sad':
-            for following_marbles.num in range(1, following_marbles.order + 1):
-                following_marbles.blue_draw_up_f()
-                #following_marbles.order -= 1
-        elif choose_state.selected_character == 'happy':
-            pass
+            if run_happy.UP:
+                for following_marbles.num in range(1, following_marbles.order + 1):
+                    following_marbles.blue_draw_up_f()
+            else:
+                for following_marbles.num in range(1, following_marbles.order + 1):
+                    following_marbles.blue_draw_down_f()
 
+        elif choose_state.selected_character == 'happy':
+            if run_happy.UP:
+                for following_marbles.num in range(1, following_marbles.order + 1):
+                    following_marbles.yellow_draw_up_f()
+            else:
+                for following_marbles.num in range(1, following_marbles.order + 1):
+                    following_marbles.yellow_draw_down_f()
     number.draw_score()
     number.draw_marble_num()
     if choose_state.selected_character == 'sad':
