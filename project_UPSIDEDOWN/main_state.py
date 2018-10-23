@@ -306,16 +306,16 @@ class Tray:
 
 
 class FollowingMarbles:
-    red_image_up = None
-    blue_image_up = None
-    purple_image_up = None
-    yellow_image_up = None
-    red_image_down = None
-    blue_image_down = None
-    purple_image_down = None
-    yellow_image_down = None
+    red_image_up_f = None
+    blue_image_up_f = None
+    purple_image_up_f = None
+    yellow_image_up_f = None
+    red_image_down_f = None
+    blue_image_down_f = None
+    purple_image_down_f = None
+    yellow_image_down_f = None
     def __init__(self):
-        self.order = 0 #순서 저장할꺼임 1,2,3 이렇게 구슬 다 반납하면 0으로
+        self.order = 0 #순서 저장할꺼임 1개,2개,3개 이렇게 구슬 다 반납하면 0으로
         self.color = 0
         self.hight = 0
         self.jump = False
@@ -323,22 +323,22 @@ class FollowingMarbles:
         self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
         self.count_jump_speed = -1
         self.height = 0
-        if Marble.red_image_up == None:
-            Marble.red_image_up = load_image('red_marble30.png')
-        if Marble.blue_image_up == None:
-            Marble.blue_image_up = load_image('blue_marble30.png')
-        if Marble.purple_image_up == None:
-            Marble.purple_image_up = load_image('purple_marble30.png')
-        if Marble.yellow_image_up == None:
-            Marble.yellow_image_up = load_image('yellow_marble30.png')
-        if Marble.red_image_down == None:
-            Marble.red_image_down = load_image('red_marble30_down.png')
-        if Marble.blue_image_down == None:
-            Marble.blue_image_down = load_image('blue_marble30_down.png')
-        if Marble.purple_image_down == None:
-            Marble.purple_image_down = load_image('purple_marble30_down.png')
-        if Marble.yellow_image_down == None:
-            Marble.yellow_image_down = load_image('yellow_marble30_down.png')
+        if FollowingMarbles.red_image_up_f == None:
+            FollowingMarbles.red_image_up_f = load_image('red_marble30.png')
+        if FollowingMarbles.blue_image_up_f == None:
+            FollowingMarbles.blue_image_up_f = load_image('blue_marble30.png')
+        if FollowingMarbles.purple_image_up_f == None:
+            FollowingMarbles.purple_image_up_f = load_image('purple_marble30.png')
+        if FollowingMarbles.yellow_image_up_f == None:
+            FollowingMarbles.yellow_image_up_f = load_image('yellow_marble30.png')
+        if FollowingMarbles.red_image_down_f == None:
+            FollowingMarbles.red_image_down_f = load_image('red_marble30_down.png')
+        if FollowingMarbles.blue_image_down_f == None:
+            FollowingMarbles.blue_image_down_f = load_image('blue_marble30_down.png')
+        if FollowingMarbles.purple_image_down_f == None:
+            FollowingMarbles.purple_image_down_f = load_image('purple_marble30_down.png')
+        if FollowingMarbles.yellow_image_down_f == None:
+            FollowingMarbles.yellow_image_down_f = load_image('yellow_marble30_down.png')
 
     def update(self):
         if self.jump:
@@ -355,23 +355,24 @@ class FollowingMarbles:
                     self.jump = False
                     self.count_jump_speed = -1
 
-    def red_draw_up(self):
-        self.red_image_up.draw(self.x, 330)
-    def blue_draw_up(self):
-        self.blue_image_up.draw(self.x, 330)
-    def purple_draw_up(self):
-        self.purple_image_up.draw(self.x, 330)
-    def yellow_draw_up(self):
-        self.yellow_image_up.draw(self.x, 330)
 
-    def red_draw_down(self):
-        self.red_image_down.draw(self.x, 270)
-    def blue_draw_down(self):
-        self.blue_image_down.draw(self.x, 270)
-    def purple_draw_down(self):
-        self.purple_image_down.draw(self.x, 270)
-    def yellow_draw_down(self):
-        self.yellow_image_down.draw(self.x, 270)
+    def red_draw_up_f(self):
+        self.red_image_up_f.draw(165 - (self.order * 45), 330)
+    def blue_draw_up_f(self):
+        self.blue_image_up_f.draw(165 - (self.order * 45), 330)
+    def purple_draw_up_f(self):
+        self.purple_image_up_f.draw(165 - (self.order * 45), 330)
+    def yellow_draw_up(self):
+        self.yellow_image_up_f.draw(165 - (self.order * 45), 330)
+
+    def red_draw_down_f(self):
+        self.red_image_down_f.draw(165 - (self.order * 45), 270)
+    def blue_draw_down_f(self):
+        self.blue_image_down_f.draw(165 - (self.order * 45), 270)
+    def purple_draw_down_f(self):
+        self.purple_image_down_f.draw(165 - (self.order * 45), 270)
+    def yellow_draw_down_f(self):
+        self.yellow_image_down_f.draw(165 - (self.order * 45), 270)
 
 
 
@@ -379,7 +380,7 @@ class FollowingMarbles:
 
 
 def enter():
-    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Tray_up, Tray_down, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, is_crush
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Tray_up, Tray_down, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, following_marbles, is_crush
     main_bg = Running_Background()
     run_happy = Run_happiness100()
     run_sad = Run_sadness100()
@@ -395,6 +396,7 @@ def enter():
     Marbles_down = []
     Tray_up = []
     Tray_down = []
+    following_marbles = FollowingMarbles()
     is_crush = False
 
     f = open('map.txt', 'r')
@@ -452,7 +454,7 @@ def enter():
 
 
 def exit():
-    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up,Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, up, down, is_crush
+    global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up,Cards_down, Boyfriends_down, Brooms_down, Marbles_down, Tray_up, Tray_down, up, down,following_marbles,  is_crush
     del main_bg
     del run_happy
     del run_sad
@@ -470,6 +472,7 @@ def exit():
     del Tray_down
     del up
     del down
+    del(following_marbles)
     del is_crush
 
 def handle_events():
@@ -506,6 +509,7 @@ def update():
         run_sad.update()
         run_happy.update()
         path.update()
+        following_marbles.update()
         check_Crush()
         for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
             i.update()
@@ -549,6 +553,11 @@ def draw():
             i.draw_empty_down()
         else:
             i.draw_full_down()
+    if following_marbles.order != 0:
+        if choose_state.selected_character == 'sad':
+            pass
+        elif choose_state.selected_character == 'happy':
+            pass
 
     number.draw_score()
     number.draw_marble_num()
