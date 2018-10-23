@@ -315,8 +315,9 @@ class FollowingMarbles:
     purple_image_down = None
     yellow_image_down = None
     def __init__(self):
-        self.x = None
+        self.order = 0 #순서 저장할꺼임 1,2,3 이렇게 구슬 다 반납하면 0으로
         self.color = 0
+        self.hight = 0
         self.jump = False
         self.goup = True
         self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
@@ -340,10 +341,41 @@ class FollowingMarbles:
             Marble.yellow_image_down = load_image('yellow_marble30_down.png')
 
     def update(self):
-        pass
+        if self.jump:
+            if self.goup:
+                self.hight += self.jump_speed[self.count_jump_speed]
+                self.count_jump_speed -= 1
+                if self.count_jump_speed == -8:
+                    self.goup = False
+            if self.goup == False:
+                self.hight -= self.jump_speed[self.count_jump_speed]
+                self.count_jump_speed += 1
+                if self.count_jump_speed == 1:
+                    self.goup = True
+                    self.jump = False
+                    self.count_jump_speed = -1
 
-    def draw(self):
-        pass
+    def red_draw_up(self):
+        self.red_image_up.draw(self.x, 330)
+    def blue_draw_up(self):
+        self.blue_image_up.draw(self.x, 330)
+    def purple_draw_up(self):
+        self.purple_image_up.draw(self.x, 330)
+    def yellow_draw_up(self):
+        self.yellow_image_up.draw(self.x, 330)
+
+    def red_draw_down(self):
+        self.red_image_down.draw(self.x, 270)
+    def blue_draw_down(self):
+        self.blue_image_down.draw(self.x, 270)
+    def purple_draw_down(self):
+        self.purple_image_down.draw(self.x, 270)
+    def yellow_draw_down(self):
+        self.yellow_image_down.draw(self.x, 270)
+
+
+
+
 
 
 def enter():
