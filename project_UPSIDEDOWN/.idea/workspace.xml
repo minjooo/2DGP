@@ -44,7 +44,7 @@
     <session id="1770724258">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
+          <entry key="project.closed" value="19" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
@@ -60,12 +60,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="13387" />
+          <entry key="py" value="13391" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="13387" />
+          <entry key="Python" value="13391" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -200,11 +200,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="575" column="58" lean-forward="true" selection-start-line="575" selection-start-column="58" selection-end-line="575" selection-end-column="58" />
+            <state relative-caret-position="306">
+              <caret line="572" column="44" selection-start-line="572" selection-start-column="44" selection-end-line="572" selection-end-column="44" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1540297396041" expanded="true" signature="10016:13168" ph="..." />
+                <marker date="1540297511320" expanded="true" signature="10016:13170" ph="..." />
               </folding>
             </state>
           </provider>
@@ -490,14 +490,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12491738" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30638298" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30638298" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44113475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -642,11 +641,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main_state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="575" column="58" lean-forward="true" selection-start-line="575" selection-start-column="58" selection-end-line="575" selection-end-column="58" />
+        <state relative-caret-position="306">
+          <caret line="572" column="44" selection-start-line="572" selection-start-column="44" selection-end-line="572" selection-end-column="44" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1540297396041" expanded="true" signature="10016:13168" ph="..." />
+            <marker date="1540297511320" expanded="true" signature="10016:13170" ph="..." />
           </folding>
         </state>
       </provider>
