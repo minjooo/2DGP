@@ -305,6 +305,46 @@ class Tray:
         self.full_image_down.draw(self.x, 240)
 
 
+class FollowingMarbles:
+    red_image_up = None
+    blue_image_up = None
+    purple_image_up = None
+    yellow_image_up = None
+    red_image_down = None
+    blue_image_down = None
+    purple_image_down = None
+    yellow_image_down = None
+    def __init__(self):
+        self.x = None
+        self.color = 0
+        self.jump = False
+        self.goup = True
+        self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
+        self.count_jump_speed = -1
+        self.height = 0
+        if Marble.red_image_up == None:
+            Marble.red_image_up = load_image('red_marble30.png')
+        if Marble.blue_image_up == None:
+            Marble.blue_image_up = load_image('blue_marble30.png')
+        if Marble.purple_image_up == None:
+            Marble.purple_image_up = load_image('purple_marble30.png')
+        if Marble.yellow_image_up == None:
+            Marble.yellow_image_up = load_image('yellow_marble30.png')
+        if Marble.red_image_down == None:
+            Marble.red_image_down = load_image('red_marble30_down.png')
+        if Marble.blue_image_down == None:
+            Marble.blue_image_down = load_image('blue_marble30_down.png')
+        if Marble.purple_image_down == None:
+            Marble.purple_image_down = load_image('purple_marble30_down.png')
+        if Marble.yellow_image_down == None:
+            Marble.yellow_image_down = load_image('yellow_marble30_down.png')
+
+    def update(self):
+        pass
+
+    def draw(self):
+        pass
+
 
 def enter():
     global main_bg, run_happy, run_sad, path, number, Cards_up, Boyfriends_up, Brooms_up, Marbles_up, Tray_up, Tray_down, up, down, Cards_down, Boyfriends_down, Brooms_down, Marbles_down, is_crush
@@ -434,10 +474,10 @@ def update():
         run_sad.update()
         run_happy.update()
         path.update()
+        check_Crush()
         for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
             i.update()
 
-        check_Crush()
 
 def draw():
     clear_canvas()
@@ -525,7 +565,6 @@ def collide(ch_x1, ch_x2, ch_y1, ch_y2, e_x1, e_x2, e_y1, e_y2):
 
 
 def check_Crush():
-
     ups = Cards_up + Boyfriends_up + Brooms_up + Marbles_up + Tray_up
     downs = Cards_down + Boyfriends_down + Brooms_down + Marbles_down + Tray_down
     is_crush = False
@@ -567,7 +606,6 @@ def check_Crush():
                             number.update_marble()
 
 
-
     if run_happy.UP == False or run_sad.UP == False:
         for i in downs:  # 충돌 계산 해줄곳 아래
             if i.check == True:
@@ -598,7 +636,6 @@ def check_Crush():
                             number.total_marble_number = 0
                             number.update_score()
                             number.update_marble()
-
 
     if True == is_crush:
         game_framework.push_state(end_state)
