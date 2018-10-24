@@ -500,24 +500,24 @@ def handle_events():
                     run_happy.UP = True
 
 
-FRAME_CYCLE = 10
-frame = 0
+#FRAME_CYCLE = 10
+#frame = 0
 
 def update():
-    global frame
-    frame = (frame + 1) % FRAME_CYCLE
-    if 0 == frame:
-        run_sad.update()
-        run_happy.update()
-        path.update()
-        following_marbles.update()
-        check_Crush()
-        for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
-            i.update()
-        if number.total_marble_number > 2:
-            following_marbles.order = 3
-        else:
-            following_marbles.order = number.total_marble_number
+    #global frame
+    #frame = (frame + 1) % FRAME_CYCLE
+    #if 0 == frame:
+    run_sad.update()
+    run_happy.update()
+    path.update()
+    following_marbles.update()
+    check_Crush()
+    for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
+        i.update()
+    if number.total_marble_number > 2:
+        following_marbles.order = 3
+    else:
+        following_marbles.order = number.total_marble_number
 
 
 def draw():
