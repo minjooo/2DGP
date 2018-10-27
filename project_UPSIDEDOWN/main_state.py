@@ -73,7 +73,7 @@ class Run_happiness100:
     def __init__(self):
         self.point = 0
         self.UP = True
-        self.hight = 0
+        self.height = 0
         self.jump = False
         self.goup = True # 점프할 때 올라가는지 내려가는지 구분
         self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
@@ -81,47 +81,6 @@ class Run_happiness100:
         self.frame = 0
         self.image = load_image('run_happiness100.png')
         self.image_jump = load_image('run_happiness100_jump.png')
-
-    def update(self):
-        self.frame = (self.frame + 1) % 8
-        if self.jump:
-            if self.goup:
-                self.hight += self.jump_speed[self.count_jump_speed]
-                self.count_jump_speed -= 1
-                if self.count_jump_speed == -8:
-                    self.goup = False
-            if self.goup == False:
-                self.hight -= self.jump_speed[self.count_jump_speed]
-                self.count_jump_speed += 1
-                if self.count_jump_speed == 1:
-                    self.goup = True
-                    self.jump = False
-                    self.count_jump_speed = -1
-
-    def draw_up(self):
-        self.image.clip_draw(self.frame * 100, 0, 100, 100, 200, 360)
-    def draw_down(self):
-        self.image.clip_composite_draw(self.frame * 100, 0, 100, 100, 0,'v', 200, 240, 100, 100)
-    def draw_jump_up(self):
-        self.image_jump.draw(200, 360 + self.hight)
-    def draw_jump_down(self):
-        self.image_jump.clip_composite_draw(self.frame * 100, 0, 100, 100, 0,'v', 200, 240 - self.hight, 100, 100)
-
-
-class Run_sadness100:
-    def __init__(self):
-        self.point = 0
-        self.UP = True
-        self.jump = False
-        self.goup = True
-        self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
-        self.count_jump_speed = -1
-        self.height = 0
-        self.frame = 0
-        self.image_up = load_image('run_sadness100.png')
-        self.image_down = load_image('run_sadness100_down.png')
-        self.image_jump_up = load_image('run_sadness100_jump.png')
-        self.image_jump_down = load_image('run_sadness100_jump_down.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 8
@@ -140,13 +99,53 @@ class Run_sadness100:
                     self.count_jump_speed = -1
 
     def draw_up(self):
-        self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360 + self.height)
+        self.image.clip_draw(self.frame * 100 , 0, 100, 100, 200, 360)
     def draw_down(self):
-        self.image_down.clip_draw(self.frame * 100, 0, 100, 100, 200, 240 - self.height)
+        self.image.clip_composite_draw(self.frame * 100, 0, 100, 100, 0, 'v', 200, 240, 100, 100)
     def draw_jump_up(self):
-        self.image_jump_up.draw(200, 360 + self.height)
+        self.image_jump.draw(200, 360 + self.height)
     def draw_jump_down(self):
-        self.image_jump_down.draw(200, 240 - self.height)
+        self.image_jump.clip_composite_draw(0, 0, 100, 100, 0, 'v', 200, 240 - self.height, 100, 100)
+
+
+class Run_sadness100:
+    def __init__(self):
+        self.point = 0
+        self.UP = True
+        self.jump = False
+        self.goup = True
+        self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
+        self.count_jump_speed = -1
+        self.height = 0
+        self.frame = 0
+        self.image = load_image('run_sadness100.png')
+        self.image_jump = load_image('run_sadness100_jump.png')
+
+    def update(self):
+        self.frame = (self.frame + 1) % 8
+        if self.jump:
+            if self.goup:
+                self.height += self.jump_speed[self.count_jump_speed]
+                self.count_jump_speed -= 1
+                if self.count_jump_speed == -8:
+                    self.goup = False
+            if self.goup == False:
+                self.height -= self.jump_speed[self.count_jump_speed]
+                self.count_jump_speed += 1
+                if self.count_jump_speed == 1:
+                    self.goup = True
+                    self.jump = False
+                    self.count_jump_speed = -1
+
+    def draw_up(self):
+        self.image.clip_draw(self.frame * 100, 0, 100, 100, 200, 360 + self.height)
+    def draw_down(self):
+        self.image.clip_composite_draw(self.frame * 100, 0, 100, 100, 0, 'v', 200, 240, 100, 100)
+    def draw_jump_up(self):
+        self.image_jump.draw(200, 360 + self.height)
+    def draw_jump_down(self):
+        self.image_jump.clip_composite_draw(0, 0, 100, 100, 0, 'v', 200, 240 - self.height, 100, 100)
+
 
 
 class Path:
@@ -632,17 +631,17 @@ def check_Crush():
         for i in ups:  # 충돌 계산 해줄곳 위
             if i.check == True:
                 if type(i) == Card:
-                    is_crush = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
+                    is_crush = collide(170, 220, 360 + run_happy.height - 10, 360 + run_happy.height + 40,
                                        i.x - 25, i.x + 25, 310, 370)
                 if type(i) == Boyfriend:
-                    is_crush = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
+                    is_crush = collide(170, 220, 360 + run_happy.height - 10, 360 + run_happy.height + 40,
                                        i.x - 25, i.x + 25, 310, 510)
                 if type(i) == Broom:
-                    is_crush = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
+                    is_crush = collide(170, 220, 360 + run_happy.height - 10, 360 + run_happy.height + 40,
                                        i.x - 20, i.x + 20, 419, 610)
                 if type(i) == Marble:
                     if i.eated == False:
-                        i.eated = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
+                        i.eated = collide(170, 220, 360 + run_happy.height - 10, 360 + run_happy.height + 40,
                                           i.x - 15, i.x + 15, 310, 350)
                         if i.eated == True:
                             number.total_marble_number += 1
@@ -650,7 +649,7 @@ def check_Crush():
                             number.update_marble()
                 if type(i) == Tray:
                     if i.full == False:
-                        i.full = collide(170, 220, 360 + run_happy.hight - 10, 360 + run_happy.hight + 40,
+                        i.full = collide(170, 220, 360 + run_happy.height - 10, 360 + run_happy.height + 40,
                                          i.x - 30, i.x + 30, 310, 400)
                         if i.full == True:
                             number.total_score = number.total_marble_number
@@ -664,17 +663,17 @@ def check_Crush():
         for i in downs:  # 충돌 계산 해줄곳 아래
             if i.check == True:
                 if type(i) == Card:
-                    is_crush = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
+                    is_crush = collide(170, 220, 240 - run_happy.height - 40, 240 - run_happy.height + 10,
                                        i.x - 25, i.x + 25, 230, 290)
                 if type(i) == Boyfriend:
-                    is_crush = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
+                    is_crush = collide(170, 220, 240 - run_happy.height - 40, 240 - run_happy.height + 10,
                                        i.x - 25, i.x + 25, 140, 290)
                 if type(i) == Broom:
-                    is_crush = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
+                    is_crush = collide(170, 220, 240 - run_happy.height - 40, 240 - run_happy.height + 10,
                                        i.x - 20, i.x + 20, 0, 191)
                 if type(i) == Marble:
                     if i.eated == False:
-                        i.eated = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
+                        i.eated = collide(170, 220, 240 - run_happy.height - 40, 240 - run_happy.height + 10,
                                           i.x - 15, i.x + 15, 250, 290)
                         if i.eated == True:
                             number.total_marble_number += 1
@@ -682,7 +681,7 @@ def check_Crush():
                             number.update_marble()
                 if type(i) == Tray:
                     if i.full == False:
-                        i.full = collide(170, 220, 240 - run_happy.hight - 40, 240 - run_happy.hight + 10,
+                        i.full = collide(170, 220, 240 - run_happy.height - 40, 240 - run_happy.height + 10,
                                          i.x - 30, i.x + 30, 200, 290)
                         if i.full == True:
                             number.total_score += number.total_marble_number
