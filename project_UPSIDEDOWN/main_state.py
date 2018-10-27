@@ -79,10 +79,8 @@ class Run_happiness100:
         self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
         self.count_jump_speed = -1
         self.frame = 0
-        self.image_up = load_image('run_happiness100.png')
-        self.image_down = load_image('run_happiness100_down.png')
-        self.image_jump_up = load_image('run_happiness100_jump.png')
-        self.image_jump_down = load_image('run_happiness100_jump_down.png')
+        self.image = load_image('run_happiness100.png')
+        self.image_jump = load_image('run_happiness100_jump.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 8
@@ -101,13 +99,13 @@ class Run_happiness100:
                     self.count_jump_speed = -1
 
     def draw_up(self):
-        self.image_up.clip_draw(self.frame * 100, 0, 100, 100, 200, 360 + self.hight)
+        self.image.clip_draw(self.frame * 100, 0, 100, 100, 200, 360)
     def draw_down(self):
-        self.image_down.clip_draw(self.frame * 100, 0, 100, 100, 200, 240 - self.hight)
+        self.image.clip_composite_draw(self.frame * 100, 0, 100, 100, 0,'v', 200, 240, 100, 100)
     def draw_jump_up(self):
-        self.image_jump_up.draw(200, 360 + self.hight)
+        self.image_jump.draw(200, 360 + self.hight)
     def draw_jump_down(self):
-        self.image_jump_down.draw(200, 240 - self.hight)
+        self.image_jump.clip_composite_draw(self.frame * 100, 0, 100, 100, 0,'v', 200, 240 - self.hight, 100, 100)
 
 
 class Run_sadness100:
