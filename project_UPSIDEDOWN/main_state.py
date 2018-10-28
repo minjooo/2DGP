@@ -193,23 +193,20 @@ class Boyfriend:
 
 
 class Broom:
-    image_up = None
-    image_down = None
+    image = None
     def __init__(self):
         self.x = None
         self.check = False
-        if Broom.image_up == None:
-            Broom.image_up = load_image('broom100.png')
-        if Broom.image_down == None:
-            Broom.image_down = load_image('broom100_down.png')
+        if Broom.image == None:
+            Broom.image = load_image('broom100.png')
 
     def update(self):
         self.x -= 12
 
     def draw_up(self):
-        self.image_up.draw(self.x, 510)
+        self.image.draw(self.x, 510)
     def draw_down(self):
-        self.image_down.draw(self.x, 90)
+        self.image.clip_composite_draw(0, 0, 100, 200, 0, 'v', self.x, 90, 100, 200)
 
 
 class Marble:
