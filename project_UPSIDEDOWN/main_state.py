@@ -161,23 +161,20 @@ class Path:
 
 
 class Card:
-    image_up = None
-    image_down = None
+    image = None
     def __init__(self):
         self.x = None
         self.check = False
-        if Card.image_up == None:
-            Card.image_up = load_image('card100.png')
-        if Card.image_down == None:
-            Card.image_down = load_image('card100_down.png')
+        if Card.image == None:
+            Card.image = load_image('card100.png')
 
     def update(self):
         self.x -= 12
 
     def draw_up(self):
-        self.image_up.draw(self.x, 360)
+        self.image.draw(self.x, 360)
     def draw_down(self):
-        self.image_down.draw(self.x, 240)
+        self.image.clip_composite_draw(0,0,100,100,0,'v',self.x,240,100,100)
 
 class Boyfriend:
     image_up = None

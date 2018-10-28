@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_state.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,10 +44,10 @@
     <session id="1770724258">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.4" value="2" />
@@ -57,7 +56,7 @@
           <entry key="project.open.time.7" value="5" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -166,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UpsideDown.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+            <state relative-caret-position="57">
+              <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -190,8 +189,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/choose_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="64" column="88" lean-forward="true" selection-start-line="64" selection-end-line="65" />
+            <state relative-caret-position="1159">
+              <caret line="64" column="88" selection-start-line="64" selection-end-line="65" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -202,8 +201,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="142" column="54" selection-start-line="142" selection-start-column="54" selection-end-line="142" selection-end-column="54" />
+            <state relative-caret-position="261">
+              <caret line="143" column="27" lean-forward="true" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <marker date="1540618885906" expanded="true" signature="9813:12967" ph="..." />
@@ -248,7 +247,7 @@
         <entry file="file://$PROJECT_DIR$/end_state.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="665">
-              <caret line="39" column="57" lean-forward="true" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
+              <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -296,8 +295,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="791" />
-    <option name="width" value="1129" />
+    <option name="x" value="790" />
+    <option name="width" value="1130" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -499,7 +498,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29929078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29929078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44113475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -569,10 +568,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/UpsideDown.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/title_state.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="62" column="59" selection-start-line="62" selection-start-column="59" selection-end-line="62" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/choose_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="64" column="88" selection-start-line="64" selection-end-line="65" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
@@ -608,7 +627,7 @@
     <entry file="file://$PROJECT_DIR$/end_state.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
-          <caret line="39" column="57" lean-forward="true" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
+          <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
@@ -622,30 +641,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UpsideDown.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/choose_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="64" column="88" lean-forward="true" selection-start-line="64" selection-end-line="65" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main_state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="142" column="54" selection-start-line="142" selection-start-column="54" selection-end-line="142" selection-end-column="54" />
+        <state relative-caret-position="261">
+          <caret line="143" column="27" lean-forward="true" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <marker date="1540618885906" expanded="true" signature="9813:12967" ph="..." />
