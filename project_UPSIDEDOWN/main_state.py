@@ -174,26 +174,22 @@ class Card:
     def draw_up(self):
         self.image.draw(self.x, 360)
     def draw_down(self):
-        self.image.clip_composite_draw(0,0,100,100,0,'v',self.x,240,100,100)
+        self.image.clip_composite_draw(0, 0, 100, 100, 0, 'v', self.x, 240, 100, 100)
 
 class Boyfriend:
-    image_up = None
-    image_down = None
+    image = None
     def __init__(self):
         self.x = None
         self.check = False
-        if Boyfriend.image_up == None:
-            Boyfriend.image_up = load_image('imaginary_boyfriend100.png')
-        if Boyfriend.image_down == None:
-            Boyfriend.image_down = load_image('imaginary_boyfriend100_down.png')
-
+        if Boyfriend.image == None:
+            Boyfriend.image = load_image('imaginary_boyfriend100.png')
     def update(self):
         self.x -= 12
 
     def draw_up(self):
-        self.image_up.draw(self.x, 410)
+        self.image.draw(self.x, 410)
     def draw_down(self):
-        self.image_down.draw(self.x,190)
+        self.image.clip_composite_draw(0, 0, 100, 200, 0, 'v', self.x, 190, 100, 200)
 
 
 class Broom:
