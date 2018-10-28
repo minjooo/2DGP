@@ -210,56 +210,44 @@ class Broom:
 
 
 class Marble:
-    red_image_up = None
-    blue_image_up = None
-    purple_image_up = None
-    yellow_image_up = None
-    red_image_down = None
-    blue_image_down = None
-    purple_image_down = None
-    yellow_image_down = None
+    red_image = None
+    blue_image = None
+    purple_image = None
+    yellow_image = None
     def __init__(self):
         self.x = None
         self.color = 0
         self.eated = False
         self.check = False
-        if Marble.red_image_up == None:
-            Marble.red_image_up = load_image('red_marble40.png')
-        if Marble.blue_image_up == None:
-            Marble.blue_image_up = load_image('blue_marble40.png')
-        if Marble.purple_image_up == None:
-            Marble.purple_image_up = load_image('purple_marble40.png')
-        if Marble.yellow_image_up == None:
-            Marble.yellow_image_up = load_image('yellow_marble40.png')
-        if Marble.red_image_down == None:
-            Marble.red_image_down = load_image('red_marble40_down.png')
-        if Marble.blue_image_down == None:
-            Marble.blue_image_down = load_image('blue_marble40_down.png')
-        if Marble.purple_image_down == None:
-            Marble.purple_image_down = load_image('purple_marble40_down.png')
-        if Marble.yellow_image_down == None:
-            Marble.yellow_image_down = load_image('yellow_marble40_down.png')
+        if Marble.red_image == None:
+            Marble.red_image = load_image('red_marble40.png')
+        if Marble.blue_image == None:
+            Marble.blue_image = load_image('blue_marble40.png')
+        if Marble.purple_image == None:
+            Marble.purple_image = load_image('purple_marble40.png')
+        if Marble.yellow_image == None:
+            Marble.yellow_image = load_image('yellow_marble40.png')
 
     def update(self):
         self.x -= 12
 
     def red_draw_up(self):
-        self.red_image_up.draw(self.x, 330)
+        self.red_image.draw(self.x, 330)
     def blue_draw_up(self):
-        self.blue_image_up.draw(self.x, 330)
+        self.blue_image.draw(self.x, 330)
     def purple_draw_up(self):
-        self.purple_image_up.draw(self.x, 330)
+        self.purple_image.draw(self.x, 330)
     def yellow_draw_up(self):
-        self.yellow_image_up.draw(self.x, 330)
+        self.yellow_image.draw(self.x, 330)
 
     def red_draw_down(self):
-        self.red_image_down.draw(self.x, 270)
+        self.red_image.clip_composite_draw(0, 0, 40, 40, 0, 'v', self.x, 270, 40, 40)
     def blue_draw_down(self):
-        self.blue_image_down.draw(self.x, 270)
+        self.blue_image.clip_composite_draw(0, 0, 40, 40, 0, 'v', self.x, 270, 40, 40)
     def purple_draw_down(self):
-        self.purple_image_down.draw(self.x, 270)
+        self.purple_image.clip_composite_draw(0, 0, 40, 40, 0, 'v', self.x, 270, 40, 40)
     def yellow_draw_down(self):
-        self.yellow_image_down.draw(self.x, 270)
+        self.yellow_image.clip_composite_draw(0, 0, 40, 40, 0, 'v', self.x, 270, 40, 40)
 
 class Tray:
     empty_image = None
