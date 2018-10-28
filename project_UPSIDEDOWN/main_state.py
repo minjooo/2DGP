@@ -252,8 +252,6 @@ class Marble:
 class Tray:
     empty_image = None
     full_image = None
-    empty_image_down = None
-    full_image_down = None
     def __init__(self):
         self.x = None
         self.full = False
@@ -262,10 +260,6 @@ class Tray:
             Tray.empty_image = load_image('tray100.png')
         if Tray.full_image == None:
             Tray.full_image = load_image('tray100_full.png')
-        if Tray.empty_image_down == None:
-            Tray.empty_image_down = load_image('tray100_down.png')
-        if Tray.full_image_down == None:
-            Tray.full_image_down = load_image('tray100_full_Down.png')
 
     def update(self):
         self.x -= 12
@@ -275,9 +269,9 @@ class Tray:
     def draw_full_up(self):
         self.full_image.draw(self.x, 360)
     def draw_empty_down(self):
-        self.empty_image_down.draw(self.x, 240)
+        self.empty_image.clip_composite_draw(0, 0, 100, 100, 0, 'v', self.x, 240, 100, 100)
     def draw_full_down(self):
-        self.full_image_down.draw(self.x, 240)
+        self.full_image.clip_composite_draw(0, 0, 100, 100, 0, 'v', self.x, 240, 100, 100)
 
 
 class FollowingMarbles:
