@@ -131,10 +131,10 @@ class SleepState:
         if boy.up == False:
             if boy.dir == 1:
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592*(0.5 - boy.angle), '', boy.x - 25,
-                                              boy.y - 25, 100, 100)
+                                              boy.y - 25 + boy.angle * 100, 100, 100)
             else:
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592*(0.5 - boy.angle), '', boy.x + 25,
-                                              boy.y - 25, 100, 100)
+                                              boy.y - 25 + boy.angle * 100, 100, 100)
         else:
             pass
 
