@@ -1,6 +1,7 @@
 import game_framework
 import time
 import math
+import random
 from pico2d import *
 from ball import Ball
 
@@ -113,6 +114,7 @@ class SleepState:
         boy.frame = 0
         boy.up = False
         boy.angle = 0
+        boy.ghostAngle = 0.0
 
     @staticmethod
     def exit(boy, event):
@@ -121,14 +123,20 @@ class SleepState:
     @staticmethod
     def do(boy):
         boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
-        if boy.angle >= 0.5:
+        if boy.angle >= 0.5 and boy.up == False:
             boy.up = True
+            boy.time = get_time()
         else:
             boy.angle += 0.01
+        if boy.up == True :
+            if get_time() - boy.time >= 0.05:
+                boy.ghostAngle += 36
+                boy.time = get_time()
 
     @staticmethod
     def draw(boy):
         if boy.up == False:
+            boy.image.opacify((random.randint(2, 7)) / 10)
             if boy.dir == 1:
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592*(0.5 - boy.angle), '', boy.x - 25,
                                               boy.y - 25 + boy.angle * 100, 100, 100)
@@ -136,8 +144,14 @@ class SleepState:
                 boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592*(0.5 - boy.angle), '', boy.x + 25,
                                               boy.y - 25 + boy.angle * 100, 100, 100)
         else:
-            pass
+            boy.image.opacify((random.randint(2, 7)) / 10)
+            if boy.dir == 1:
+                boy.image.clip_draw(int(boy.frame) * 100, 300, 100, 100, boy.x + (100 * math.cos(math.radians(boy.ghostAngle))), boy.y + 10 + (100 * math.sin(math.radians(boy.ghostAngle))))
+            else:
+                boy.image.clip_draw(int(boy.frame) * 100, 200, 100, 100, boy.x + (100 * math.cos(math.radians(boy.ghostAngle))), boy.y + 10 + (100 * math.sin(math.radians(boy.ghostAngle))))
+                pass
 
+        boy.image.opacify(1.0)
         if boy.dir == 1:
             boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
         else:
