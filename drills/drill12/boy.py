@@ -1,9 +1,11 @@
 import game_framework
 import time
+import math
 from pico2d import *
 from ball import Ball
 
 import game_world
+
 
 # Boy Run Speed
 # fill expressions correctly
@@ -109,6 +111,8 @@ class SleepState:
     @staticmethod
     def enter(boy, event):
         boy.frame = 0
+        boy.up = False
+        boy.angle = 0
 
     @staticmethod
     def exit(boy, event):
@@ -117,9 +121,23 @@ class SleepState:
     @staticmethod
     def do(boy):
         boy.frame = (boy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 8
+        if boy.angle >= 0.5:
+            boy.up = True
+        else:
+            boy.angle += 0.01
 
     @staticmethod
     def draw(boy):
+        if boy.up == False:
+            if boy.dir == 1:
+                boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592*(0.5 - boy.angle), '', boy.x - 25,
+                                              boy.y - 25, 100, 100)
+            else:
+                boy.image.clip_composite_draw(int(boy.frame) * 100, 200, 100, 100, -3.141592*(0.5 - boy.angle), '', boy.x + 25,
+                                              boy.y - 25, 100, 100)
+        else:
+            pass
+
         if boy.dir == 1:
             boy.image.clip_composite_draw(int(boy.frame) * 100, 300, 100, 100, 3.141592 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
         else:
