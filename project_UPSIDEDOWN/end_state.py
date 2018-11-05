@@ -4,41 +4,18 @@ import title_state
 import choose_state
 from pico2d import *
 
+
+from Cursor import Cursor
+from Score import Score
+from Crying import Crying
+from SmallExit import SmallExit
+from SmallReplay import SmallReplay
+from BigReplay import BigReplay
+from BigExit import BigExit
+
 name = 'end_state'
 image = None
 
-class Score:
-    image = None
-    def __init__(self):
-        self.score100 = 0
-        self.score10 = 0
-        self.score1 = 0
-        self.score = 0
-        if Score.image == None:
-            Score.image = load_image('resources\\orangeNumber.png')
-
-
-    def draw(self):
-        if self.score >= 100:
-            self.score100 = 0
-            while self.score >= 100:
-                self.score -= 100
-                self.score100 += 1
-        if self.score >= 10:
-            self.score10 = 0
-            while self.score >= 10:
-                self.score -=10
-                self.score10 += 1
-        self.score1 = self.score
-        if self.score100 != 0:
-            self.image.clip_draw(self.score100 * 50, 0, 50, 100, 500, 300)
-        if self.score10 != 0 or (self.score10 == 0 and self.score100 != 0):
-            self.image.clip_draw(self.score10 * 50, 0, 50, 100, 550, 300)
-        if self.score != 0:
-            self.image.clip_draw(0, 0, 50, 100, 650, 300)
-            self.image.clip_draw(0, 0, 50, 100, 700, 300)
-            self.image.clip_draw(0, 0, 50, 100, 750, 300)
-        self.image.clip_draw(self.score1 * 50, 0, 50, 100, 600, 300)
 
 class Ending:
     def __init__(self):
@@ -47,56 +24,6 @@ class Ending:
     def draw(self):
         self.image.draw(450, 350)
 
-
-class Crying:
-    def __init__(self):
-        self.frame = 0
-        self.image = load_image('resources\\crying_sadness200.png')
-
-    def update(self):
-        self.frame = (self.frame + 1) % 4
-
-    def draw(self):
-        self.image.clip_draw(self.frame * 264, 0, 264, 294, 280, 350);
-
-
-class Cursor:
-    def __init__(self):
-        self.x, self.y = 0, 0
-        self.image = load_image('resources\\cursor80.png')
-
-    def draw(self):
-        self.image.draw(self.x, self.y)
-
-class SmallReplay:
-    def __init__(self):
-        self.image = load_image('resources\\smallReplay.png')
-
-    def draw(self):
-        self.image.draw(450, 350)
-
-class BigReplay:
-    def __init__(self):
-        self.image = load_image('resources\\bigReplay.png')
-
-    def draw(self):
-        self.image.draw(450, 350)
-
-
-class SmallExit:
-    def __init__(self):
-        self.image = load_image('resources\\smallExit.png')
-
-    def draw(self):
-        self.image.draw(450, 350)
-
-
-class BigExit:
-    def __init__(self):
-        self.image = load_image('resources\\bigExit.png')
-
-    def draw(self):
-        self.image.draw(450, 350)
 
 def enter():
     global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score

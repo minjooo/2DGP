@@ -2,54 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Cursor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Run_happiness300.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Wait_happiness.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Wait_sadness.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game_world.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BigExit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BigReplay.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Big_start.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Boyfriend.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Card.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Crying.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FollowingMarbles.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Marble.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Numbers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Path.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Run_happiness100.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Run_sadness100.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Score.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SmallExit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SmallReplay.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Small_start.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tray.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bigExit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bigReplay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/big_start.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blue_marble30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blue_marble40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/broom100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/card100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/choose.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/choose_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/choose_state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crying_sadness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crying_sadness200.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cursor80.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/end_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/end_state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameover2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imaginary_boyfriend100.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/number.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/orangeNumber.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/path1350.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/path1350_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/path1350_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pause360.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/purple_marble30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/purple_marble40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/red_marble30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/red_marble40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_happiness100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_happiness100_jump.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_sadness100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_sadness100_jump.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/running_BG_bar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallExit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smallReplay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/small_start.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/start_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/title_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/title_state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tray100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tray100_full.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wait_happiness300.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wait_sadness300.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yellow_marble30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yellow_marble40.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,22 +85,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="13968" />
+          <entry key="py" value="14102" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="13968" />
+          <entry key="Python" value="14102" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="23" />
+          <entry key="py" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="23" />
+          <entry key="Python" value="44" />
         </counts>
       </usages-collector>
     </session>
@@ -202,15 +178,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/game_framework.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="101" selection-start-line="101" selection-end-line="101" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UpsideDown.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
@@ -222,45 +189,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/choose_state.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Run_happiness300.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="14" column="94" selection-start-line="14" selection-start-column="94" selection-end-line="14" selection-end-column="94" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/title_state.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-48">
-              <caret line="33" column="57" lean-forward="true" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4750">
-              <caret line="319" column="71" lean-forward="true" selection-start-line="319" selection-start-column="71" selection-end-line="319" selection-end-column="71" />
+            <state relative-caret-position="110">
+              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1541410082291" expanded="true" signature="9036:11654" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/title_state.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Small_start.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Big_start.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -268,8 +234,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/end_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="135" column="18" lean-forward="true" selection-start-line="135" selection-start-column="18" selection-end-line="135" selection-end-column="18" />
+            <state relative-caret-position="494">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/choose_state.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -301,13 +279,32 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/game_framework.py" />
         <option value="$PROJECT_DIR$/Cursor.py" />
-        <option value="$PROJECT_DIR$/main_state.py" />
-        <option value="$PROJECT_DIR$/end_state.py" />
-        <option value="$PROJECT_DIR$/title_state.py" />
         <option value="$PROJECT_DIR$/Wait_happiness.py" />
         <option value="$PROJECT_DIR$/Wait_sadness.py" />
         <option value="$PROJECT_DIR$/Run_happiness300.py" />
+        <option value="$PROJECT_DIR$/Run_sadness300.py" />
+        <option value="$PROJECT_DIR$/Numbers.py" />
+        <option value="$PROJECT_DIR$/Run_happiness100.py" />
+        <option value="$PROJECT_DIR$/Run_sadness100.py" />
+        <option value="$PROJECT_DIR$/Path.py" />
+        <option value="$PROJECT_DIR$/Card.py" />
+        <option value="$PROJECT_DIR$/Broom.py" />
+        <option value="$PROJECT_DIR$/Boyfriend.py" />
+        <option value="$PROJECT_DIR$/Marble.py" />
+        <option value="$PROJECT_DIR$/Tray.py" />
+        <option value="$PROJECT_DIR$/FollowingMarbles.py" />
+        <option value="$PROJECT_DIR$/main_state.py" />
+        <option value="$PROJECT_DIR$/Score.py" />
+        <option value="$PROJECT_DIR$/Crying.py" />
+        <option value="$PROJECT_DIR$/SmallExit.py" />
+        <option value="$PROJECT_DIR$/SmallReplay.py" />
+        <option value="$PROJECT_DIR$/BigReplay.py" />
+        <option value="$PROJECT_DIR$/BigExit.py" />
+        <option value="$PROJECT_DIR$/end_state.py" />
         <option value="$PROJECT_DIR$/choose_state.py" />
+        <option value="$PROJECT_DIR$/Big_start.py" />
+        <option value="$PROJECT_DIR$/Small_start.py" />
+        <option value="$PROJECT_DIR$/title_state.py" />
       </list>
     </option>
   </component>
@@ -511,12 +508,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12491738" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12491738" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29219857" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29219857" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44113475" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -625,30 +622,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/end_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="135" column="18" lean-forward="true" selection-start-line="135" selection-start-column="18" selection-end-line="135" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/game_framework.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="101" selection-start-line="101" selection-end-line="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/title_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="33" column="57" lean-forward="true" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -658,16 +635,6 @@
           <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UpsideDown.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -682,17 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4750">
-          <caret line="319" column="71" lean-forward="true" selection-start-line="319" selection-start-column="71" selection-end-line="319" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1541410082291" expanded="true" signature="9036:11654" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Run_happiness300.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -700,10 +656,186 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/choose_state.py">
+    <entry file="file://$PROJECT_DIR$/Run_sadness300.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpsideDown.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Numbers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Run_happiness100.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Run_sadness100.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Path.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="67" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Card.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Broom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="84" selection-start-line="19" selection-start-column="84" selection-end-line="19" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boyfriend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Marble.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="42" column="88" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tray.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="27" column="90" selection-start-line="27" selection-start-column="90" selection-end-line="27" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FollowingMarbles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="61" column="118" selection-start-line="61" selection-start-column="118" selection-end-line="61" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Score.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crying.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmallExit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BigReplay.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BigExit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SmallReplay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/end_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/choose_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Big_start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Small_start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/title_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
