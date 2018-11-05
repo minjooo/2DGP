@@ -10,7 +10,7 @@ image = None
 
 class Running_Background:
     def __init__(self):
-        self.image = load_image('running_BG_bar.png')
+        self.image = load_image('resources\\running_BG_bar.png')
 
     def draw(self):
         self.image.draw(450,350)
@@ -29,7 +29,7 @@ class Numbers:
         self.marble10 = 0
         self.marble1 = 0
         if Numbers.image == None:
-            Numbers.image = load_image('number.png')
+            Numbers.image = load_image('resources\\number.png')
 
     def update_score(self):
         if self.score >= 100:
@@ -79,8 +79,8 @@ class Run_happiness100:
         self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
         self.count_jump_speed = -1
         self.frame = 0
-        self.image = load_image('run_happiness100.png')
-        self.image_jump = load_image('run_happiness100_jump.png')
+        self.image = load_image('resources\\run_happiness100.png')
+        self.image_jump = load_image('resources\\run_happiness100_jump.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 8
@@ -118,8 +118,8 @@ class Run_sadness100:
         self.count_jump_speed = -1
         self.height = 0
         self.frame = 0
-        self.image = load_image('run_sadness100.png')
-        self.image_jump = load_image('run_sadness100_jump.png')
+        self.image = load_image('resources\\run_sadness100.png')
+        self.image_jump = load_image('resources\\run_sadness100_jump.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 8
@@ -151,7 +151,7 @@ class Run_sadness100:
 class Path:
     def __init__(self):
         self.frame = 0
-        self.image = load_image('path1350_3.png')
+        self.image = load_image('resources\\path1350_3.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 10
@@ -166,7 +166,7 @@ class Card:
         self.x = None
         self.check = False
         if Card.image == None:
-            Card.image = load_image('card100.png')
+            Card.image = load_image('resources\\card100.png')
 
     def update(self):
         self.x -= 12
@@ -182,7 +182,7 @@ class Boyfriend:
         self.x = None
         self.check = False
         if Boyfriend.image == None:
-            Boyfriend.image = load_image('imaginary_boyfriend100.png')
+            Boyfriend.image = load_image('resources\\imaginary_boyfriend100.png')
     def update(self):
         self.x -= 12
 
@@ -198,7 +198,7 @@ class Broom:
         self.x = None
         self.check = False
         if Broom.image == None:
-            Broom.image = load_image('broom100.png')
+            Broom.image = load_image('resources\\broom100.png')
 
     def update(self):
         self.x -= 12
@@ -220,13 +220,13 @@ class Marble:
         self.eated = False
         self.check = False
         if Marble.red_image == None:
-            Marble.red_image = load_image('red_marble40.png')
+            Marble.red_image = load_image('resources\\red_marble40.png')
         if Marble.blue_image == None:
-            Marble.blue_image = load_image('blue_marble40.png')
+            Marble.blue_image = load_image('resources\\blue_marble40.png')
         if Marble.purple_image == None:
-            Marble.purple_image = load_image('purple_marble40.png')
+            Marble.purple_image = load_image('resources\\purple_marble40.png')
         if Marble.yellow_image == None:
-            Marble.yellow_image = load_image('yellow_marble40.png')
+            Marble.yellow_image = load_image('resources\\yellow_marble40.png')
 
     def update(self):
         self.x -= 12
@@ -257,9 +257,9 @@ class Tray:
         self.full = False
         self.check = False
         if Tray.empty_image == None:
-            Tray.empty_image = load_image('tray100.png')
+            Tray.empty_image = load_image('resources\\tray100.png')
         if Tray.full_image == None:
-            Tray.full_image = load_image('tray100_full.png')
+            Tray.full_image = load_image('resources\\tray100_full.png')
 
     def update(self):
         self.x -= 12
@@ -290,13 +290,13 @@ class FollowingMarbles:
         self.count_jump_speed = -1
         self.height = 0
         if FollowingMarbles.red_image_f == None:
-            FollowingMarbles.red_image_f = load_image('red_marble30.png')
+            FollowingMarbles.red_image_f = load_image('resources\\red_marble30.png')
         if FollowingMarbles.blue_image_f == None:
-            FollowingMarbles.blue_image_f = load_image('blue_marble30.png')
+            FollowingMarbles.blue_image_f = load_image('resources\\blue_marble30.png')
         if FollowingMarbles.purple_image_f == None:
-            FollowingMarbles.purple_image_f = load_image('purple_marble30.png')
+            FollowingMarbles.purple_image_f = load_image('resources\\purple_marble30.png')
         if FollowingMarbles.yellow_image_f == None:
-            FollowingMarbles.yellow_image_f = load_image('yellow_marble30.png')
+            FollowingMarbles.yellow_image_f = load_image('resources\\yellow_marble30.png')
 
     def update(self):
         if self.jump:

@@ -2,34 +2,29 @@ import game_framework
 import choose_state
 from pico2d import *
 
+
+from Cursor import Cursor
+
 name = 'title_state'
 image = None
 
-class Cursor:
-    def __init__(self):
-        self.x, self.y = 0, 0
-        self.image = load_image('cursor80.png')
-
-    def draw(self):
-        self.image.draw(self.x, self.y)
-
 class Start_Background:
     def __init__(self):
-        self.image = load_image('start_image.png')
+        self.image = load_image('resources\\start_image.png')
 
     def draw(self):
         self.image.draw(450,350)
 
 class Big_start:
     def __init__(self):
-        self.image = load_image('big_start.png')
+        self.image = load_image('resources\\big_start.png')
 
     def draw(self):
         self.image.draw(450,350)
 
 class Small_start:
     def __init__(self):
-        self.image = load_image('small_start.png')
+        self.image = load_image('resources\small_start.png')
 
     def draw(self):
         self.image.draw(450, 350)

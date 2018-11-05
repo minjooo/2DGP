@@ -15,7 +15,7 @@ class Score:
         self.score1 = 0
         self.score = 0
         if Score.image == None:
-            Score.image = load_image('orangeNumber.png')
+            Score.image = load_image('resources\\orangeNumber.png')
 
 
     def draw(self):
@@ -42,7 +42,7 @@ class Score:
 
 class Ending:
     def __init__(self):
-        self.image = load_image('gameover2.png')
+        self.image = load_image('resources\\gameover2.png')
 
     def draw(self):
         self.image.draw(450, 350)
@@ -51,7 +51,7 @@ class Ending:
 class Crying:
     def __init__(self):
         self.frame = 0
-        self.image = load_image('crying_sadness200.png')
+        self.image = load_image('resources\\crying_sadness200.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 4
@@ -63,21 +63,21 @@ class Crying:
 class Cursor:
     def __init__(self):
         self.x, self.y = 0, 0
-        self.image = load_image('cursor80.png')
+        self.image = load_image('resources\\cursor80.png')
 
     def draw(self):
         self.image.draw(self.x, self.y)
 
 class SmallReplay:
     def __init__(self):
-        self.image = load_image('smallReplay.png')
+        self.image = load_image('resources\\smallReplay.png')
 
     def draw(self):
         self.image.draw(450, 350)
 
 class BigReplay:
     def __init__(self):
-        self.image = load_image('bigReplay.png')
+        self.image = load_image('resources\\bigReplay.png')
 
     def draw(self):
         self.image.draw(450, 350)
@@ -85,7 +85,7 @@ class BigReplay:
 
 class SmallExit:
     def __init__(self):
-        self.image = load_image('smallExit.png')
+        self.image = load_image('resources\\smallExit.png')
 
     def draw(self):
         self.image.draw(450, 350)
@@ -93,7 +93,7 @@ class SmallExit:
 
 class BigExit:
     def __init__(self):
-        self.image = load_image('bigExit.png')
+        self.image = load_image('resources\\bigExit.png')
 
     def draw(self):
         self.image.draw(450, 350)

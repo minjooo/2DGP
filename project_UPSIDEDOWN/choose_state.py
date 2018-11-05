@@ -2,67 +2,25 @@ import game_framework
 import title_state
 import main_state
 from pico2d import *
+import game_world
+
+from Cursor import Cursor
+from Wait_happiness import Wait_happiness
+from Wait_sadness import Wait_sadness
+from Run_happiness300 import Run_happiness300
+from Run_sadness300 import Run_sadness300
 
 name = 'choose_state'
 image = None
 
-class Cursor:
-    def __init__(self):
-        self.x, self.y = 0, 0
-        self.image = load_image('cursor80.png')
 
-    def draw(self):
-        self.image.draw(self.x, self.y)
 
 class Choose_Background:
     def __init__(self):
-        self.image = load_image('choose.png')
+        self.image = load_image('resources\\choose.png')
     def draw(self):
         self.image.draw(450, 350)
 
-class Wait_happiness:
-    def __init__(self):
-        self.frame = 0
-        self.image = load_image('wait_happiness300.png')
-
-    def update(self):
-        self.frame = (self.frame + 1) % 4
-
-    def draw(self):
-        self.image.clip_draw(self.frame*300, 0, 300, 300, 300, 300)
-
-class Wait_sadness:
-    def __init__(self):
-        self.frame = 0
-        self.image = load_image('wait_sadness300.png')
-
-    def update(self):
-        self.frame = (self.frame + 1) % 4
-
-    def draw(self):
-        self.image.clip_draw(self.frame*300, 0, 300, 300, 650, 300)
-
-class Run_happiness300:
-    def __init__(self):
-        self.frame = 0
-        self.image = load_image('run_happiness100.png')
-
-    def update(self):
-        self.frame = (self.frame + 1) % 8
-
-    def draw(self):
-        self.image.clip_composite_draw(self.frame*100, 0, 100, 100, 0, '', 300, 300, 300, 300)
-
-class Run_sadness300:
-    def __init__(self):
-        self.frame = 2
-        self.image = load_image('run_sadness100.png')
-
-    def update(self):
-        self.frame = (self.frame + 1) % 8
-
-    def draw(self):
-        self.image.clip_composite_draw(self.frame*100, 0, 100, 100, 0, '', 650, 300, 300, 300)
 
 
 def enter():
