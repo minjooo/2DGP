@@ -5,14 +5,14 @@ from pico2d import *
 import game_world
 
 from Cursor import Cursor
-from Wait_happiness import Wait_happiness
-from Wait_sadness import Wait_sadness
-from Run_happiness300 import Run_happiness300
+#from Wait_happiness import Wait_happiness
+from Run_happiness300 import Choose_happiness300
+
 from Run_sadness300 import Run_sadness300
+from Wait_sadness import Wait_sadness
 
 name = 'choose_state'
 image = None
-
 
 
 class Choose_Background:
@@ -22,35 +22,26 @@ class Choose_Background:
         self.image.draw(450, 350)
 
 
-
 def enter():
-    global cursor, choose_happy, choose_sad, choose_bg, wait_sad, wait_happy, run_sad, run_happy, selected_character
+    global cursor, choose_sad, choose_bg, wait_sad,  run_sad, happy, selected_character
     cursor = Cursor()
-    choose_happy = False
     choose_sad = False
     choose_bg = Choose_Background()
     wait_sad = Wait_sadness()
-    wait_happy = Wait_happiness()
+    #wait_happy = Wait_happiness()
     run_sad = Run_sadness300()
-    run_happy = Run_happiness300()
+    happy = Choose_happiness300()
     selected_character = 'none'
+
+    #game_world.add_object(choose_bg, 0)
+    game_world.add_object(happy, 0)
 
 
 def exit():
-    global cursor, choose_happy, choose_sad, choose_bg, wait_sad, wait_happy, run_sad, run_happy, selected_character
-    del(cursor)
-    del(choose_happy)
-    del(choose_sad)
-    del(choose_bg)
-    del(wait_sad)
-    del(wait_happy)
-    del(run_sad)
-    del(run_happy)
-    del(selected_character)
+    game_world.clear()
 
 def handle_events():
     global cursor
-    global choose_happy
     global choose_sad
     global selected_character
     events = get_events()
@@ -58,47 +49,21 @@ def handle_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
             return
-        elif event.type == SDL_MOUSEMOTION:
-            cursor.x, cursor.y = event.x, 700 - 1 - event.y
-            if 150 < event.x < 450 and 100 < (700 - 1 - event.y) < 450:
-                choose_happy = True
-            else:
-                choose_happy = False
-            if 500 < event.x < 800 and 100 < (700 - 1 - event.y) < 450:
-                choose_sad = True
-            else:
-                choose_sad = False
-        elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
-            if choose_happy:
-                selected_character = 'happy'
-                game_framework.push_state(main_state)
-                return
-            elif choose_sad:
-                selected_character = 'sad'
-                game_framework.push_state(main_state)
-                return
+        elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
+            game_framework.change_state(title_state)
         else:
-            if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
-                game_framework.change_state(title_state)
-                return
+            happy.handle_event(event)
+            return
 
 def update():
-    wait_happy.update()
-    wait_sad.update()
-    run_happy.update()
-    run_sad.update()
+    for game_object in game_world.all_objects():
+        game_object.update()
 
 def draw():
     clear_canvas()
     choose_bg.draw()
-    if choose_happy:
-        run_happy.draw()
-    else:
-        wait_happy.draw()
-    if choose_sad:
-        run_sad.draw()
-    else:
-        wait_sad.draw()
+    for game_object in game_world.all_objects():
+        game_object.draw()
     cursor.draw()
     update_canvas()
     delay(0.05)

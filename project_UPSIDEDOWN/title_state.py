@@ -4,6 +4,8 @@ from pico2d import *
 
 
 from Cursor import Cursor
+from Big_start import Big_start
+from Small_start import Small_start
 
 name = 'title_state'
 image = None
@@ -14,20 +16,6 @@ class Start_Background:
 
     def draw(self):
         self.image.draw(450,350)
-
-class Big_start:
-    def __init__(self):
-        self.image = load_image('resources\\big_start.png')
-
-    def draw(self):
-        self.image.draw(450,350)
-
-class Small_start:
-    def __init__(self):
-        self.image = load_image('resources\small_start.png')
-
-    def draw(self):
-        self.image.draw(450, 350)
 
 
 def enter():
