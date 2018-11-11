@@ -4,6 +4,7 @@ import title_state
 import choose_state
 from pico2d import *
 
+import game_world
 
 from Cursor import Cursor
 from Score import Score
@@ -73,6 +74,7 @@ def handle_events():
                 chooseExit = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if chooseReplay:
+                game_world.clear()
                 game_framework.change_state(choose_state)
                 return
             elif chooseExit:

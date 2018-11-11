@@ -1,14 +1,10 @@
 from pico2d import *
 
-from Cursor import Cursor
-import main_state
-import game_framework
-import game_world
+import choose_state
 
-MOUSE_STUCK, MOUSE_UNSTUCK, RIGHT_DOWN = range(3)
+MOUSE_STUCK, MOUSE_UNSTUCK = range(2)
 
 key_event_table = {
-    (SDL_KEYDOWN, SDLK_RIGHT) : RIGHT_DOWN
 }
 
 class IdleState:
@@ -34,12 +30,11 @@ class RunState:
 
     @staticmethod
     def enter(sad, event):
-        pass
+        choose_state.selected_character = 'sad'
 
     @staticmethod
     def exit(sad, event):
-        if event == RIGHT_DOWN:
-            game_framework.push_state(main_state)
+        choose_state.selected_character = 'none'
 
 
     @staticmethod
@@ -54,8 +49,8 @@ class RunState:
 
 
 next_state_table = {
-    IdleState: {MOUSE_STUCK: RunState, MOUSE_UNSTUCK: IdleState, RIGHT_DOWN: IdleState},
-    RunState: {MOUSE_STUCK: RunState, MOUSE_UNSTUCK: IdleState, RIGHT_DOWN: RunState}
+    IdleState: {MOUSE_STUCK: RunState, MOUSE_UNSTUCK: IdleState},
+    RunState: {MOUSE_STUCK: RunState, MOUSE_UNSTUCK: IdleState}
 }
 
 class Choose_sadness300:

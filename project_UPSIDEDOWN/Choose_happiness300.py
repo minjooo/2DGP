@@ -1,9 +1,6 @@
 from pico2d import *
 
-from Cursor import Cursor
-import main_state
-import game_framework
-import game_world
+import choose_state
 
 MOUSE_STUCK, MOUSE_UNSTUCK = range(2)
 
@@ -33,11 +30,11 @@ class RunState:
 
     @staticmethod
     def enter(happy, event):
-        pass
+        choose_state.selected_character = 'happy'
 
     @staticmethod
     def exit(happy, event):
-        pass
+        choose_state.selected_character = 'none'
 
     @staticmethod
     def do(happy):

@@ -18,3 +18,4 @@ class Cursor:
     def handle_event(self, event):
         if event.type == SDL_MOUSEMOTION:
             self.x, self.y = event.x, 700 - 1 - event.y
+

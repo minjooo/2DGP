@@ -5,6 +5,7 @@ from pico2d import *
 import game_world
 
 from Cursor import Cursor
+import Choose_happiness300
 from Choose_happiness300 import Choose_happiness300
 from Choose_sadness300 import Choose_sadness300
 
@@ -45,6 +46,9 @@ def handle_events():
             return
         elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
             game_framework.change_state(title_state)
+        elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
+            if selected_character != 'none':
+                game_framework.push_state(main_state)
         else:
             for game_object in game_world.all_objects():
                 game_object.handle_event(event)
