@@ -29,6 +29,7 @@ def enter():
 
     game_world.add_object(happy, 0)
     game_world.add_object(sad, 0)
+    game_world.add_object(cursor, 1)
 
 
 def exit():
@@ -45,8 +46,8 @@ def handle_events():
         elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
             game_framework.change_state(title_state)
         else:
-            happy.handle_event(event)
-            sad.handle_event(event)
+            for game_object in game_world.all_objects():
+                game_object.handle_event(event)
             return
 
 def update():
@@ -58,7 +59,6 @@ def draw():
     choose_bg.draw()
     for game_object in game_world.all_objects():
         game_object.draw()
-    cursor.draw()
     update_canvas()
     delay(0.05)
 
