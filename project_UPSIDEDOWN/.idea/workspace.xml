@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Choose_happiness300.py" beforeDir="false" afterPath="$PROJECT_DIR$/Choose_happiness300.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Choose_sadness300.py" beforeDir="false" afterPath="$PROJECT_DIR$/Choose_sadness300.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cursor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cursor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/choose_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/choose_state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/end_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/end_state.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_world.py" beforeDir="false" afterPath="$PROJECT_DIR$/game_world.py" afterDir="false" />
-    </list>
+    <list default="true" id="aedb1092-47b7-42d3-b958-a528e7a92dda" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,8 +167,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/choose_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+            <state relative-caret-position="152">
+              <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <marker date="1541949898639" expanded="true" signature="801:826" ph="..." />
@@ -776,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/choose_state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        <state relative-caret-position="152">
+          <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <marker date="1541949898639" expanded="true" signature="801:826" ph="..." />
