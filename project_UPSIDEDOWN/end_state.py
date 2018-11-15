@@ -38,7 +38,7 @@ def enter():
     cursor = Cursor()
     crying = Crying()
     score = Score()
-    score.score = main_state.number.total_score
+    score.score = main_state.number.score
 
 def exit():
     global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score

@@ -161,10 +161,10 @@ def update():
     check_Crush()
     for i in Cards_up + Boyfriends_up + Brooms_up + Cards_down + Boyfriends_down + Brooms_down + Marbles_up + Marbles_down + Tray_up + Tray_down:
         i.update()
-    if number.total_marble_number > 2:
+    if number.marble_number > 2:
         following_marbles.order = 3
     else:
-        following_marbles.order = number.total_marble_number
+        following_marbles.order = number.marble_number
 
 
 def draw():
@@ -221,8 +221,7 @@ def draw():
             else:
                 for following_marbles.num in range(1, following_marbles.order + 1):
                     following_marbles.yellow_draw_down_f()
-    number.draw_score()
-    number.draw_marble_num()
+    number.draw()
     if choose_state.selected_character == 'sad':
         if run_sad.jump:
             if run_sad.UP:
@@ -294,19 +293,14 @@ def check_Crush():
                         i.eated = collide(170, 220, 360 + run_happy.height - 10, 360 + run_happy.height + 40,
                                           i.x - 15, i.x + 15, 310, 350)
                         if i.eated == True:
-                            number.total_marble_number += 1
-                            number.marble_number = number.total_marble_number
-                            number.update_marble()
+                            number.marble_number += 1
                 if type(i) == Tray:
                     if i.full == False:
                         i.full = collide(170, 220, 360 + run_happy.height - 10, 360 + run_happy.height + 40,
                                          i.x - 30, i.x + 30, 310, 400)
                         if i.full == True:
-                            number.total_score = number.total_marble_number
-                            number.score = number.total_score
-                            number.total_marble_number = 0
-                            number.update_score()
-                            number.update_marble()
+                            number.score = number.marble_number*1000
+                            number.marble_number = 0
 
 
     if run_happy.UP == False or run_sad.UP == False:
@@ -326,19 +320,14 @@ def check_Crush():
                         i.eated = collide(170, 220, 240 - run_happy.height - 40, 240 - run_happy.height + 10,
                                           i.x - 15, i.x + 15, 250, 290)
                         if i.eated == True:
-                            number.total_marble_number += 1
-                            number.marble_number = number.total_marble_number
-                            number.update_marble()
+                            number.marble_number += 1
                 if type(i) == Tray:
                     if i.full == False:
                         i.full = collide(170, 220, 240 - run_happy.height - 40, 240 - run_happy.height + 10,
                                          i.x - 30, i.x + 30, 200, 290)
                         if i.full == True:
-                            number.total_score += number.total_marble_number
-                            number.score = number.total_score
-                            number.total_marble_number = 0
-                            number.update_score()
-                            number.update_marble()
+                            number.score = number.marble_number*1000
+                            number.marble_number = 0
 
     if True == is_crush:
         game_framework.push_state(end_state)

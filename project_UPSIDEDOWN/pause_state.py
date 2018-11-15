@@ -8,7 +8,7 @@ image = None
 
 class Pause:
     def __init__(self):
-        self.image = load_image('pause360.png')
+        self.image = load_image('resources\\pause360.png')
 
     def draw(self):
         self.image.draw(450,350)
