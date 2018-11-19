@@ -48,6 +48,7 @@ def handle_events():
             game_framework.change_state(title_state)
         elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
             if selected_character != 'none':
+                game_world.clear()
                 game_framework.push_state(main_state)
         else:
             for game_object in game_world.all_objects():

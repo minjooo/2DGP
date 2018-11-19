@@ -2,10 +2,9 @@ from pico2d import *
 
 import game_world
 
-SPACE, DELETE, P = range(3)
+SPACE, DELETE = range(2)
 
 key_event_table = {
-    (SDL_KEYDOWN, SDLK_p): P,
     (SDL_KEYDOWN, SDLK_DELETE): DELETE,
     (SDL_KEYDOWN, SDLK_SPACE): SPACE
 }
@@ -113,34 +112,15 @@ class JumpDownState:
 
     @staticmethod
     def draw(sad):
-        sad.image_jump.clip_composite_draw(0, 0, 100, 100, 0, 'v', 200, 240 - self.height, 100, 100)
-
-
-class PauseState:
-
-    @staticmethod
-    def enter(sad, event):
-        pass
-
-    @staticmethod
-    def exit(sad, event):
-        pass
-
-    @staticmethod
-    def do(sad):
-        sad.run_frame = (sad.run_frame + 1) % 8
-
-    @staticmethod
-    def draw(sad):
-        sad.run_image.clip_composite_draw(sad.run_frame*100, 0, 100, 100, 0, '', 650, 300, 300, 300)
+        sad.image_jump.clip_composite_draw(0, 0, 100, 100, 0, 'v', 200, 240 - sad.height, 100, 100)
 
 
 
 next_state_table = {
-    RunUpState: {SPACE: JumpUpState, DELETE: RunDownState, P: PauseState},
-    RunDownState: {SPACE: JumpDownState, DELETE: RunUpState, P: PauseState},
-    JumpUpState: {SPACE: JumpUpState, DELETE: JumpUpState, P: PauseState},
-    JumpDownState: {SPACE: JumpDownState, DELETE: JumpDownState, P: PauseState}
+    RunUpState: {SPACE: JumpUpState, DELETE: RunDownState},
+    RunDownState: {SPACE: JumpDownState, DELETE: RunUpState},
+    JumpUpState: {SPACE: JumpUpState, DELETE: JumpUpState},
+    JumpDownState: {SPACE: JumpDownState, DELETE: JumpDownState}
 }
 
 class Run_sadness100:
