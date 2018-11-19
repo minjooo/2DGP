@@ -1,6 +1,6 @@
 from pico2d import *
 
-SPACE, DELETE = range(2)
+SPACE, DELETE, LANDING = range(3)
 
 key_event_table = {
     (SDL_KEYDOWN, SDLK_DELETE): DELETE,
@@ -12,7 +12,7 @@ class RunUpState:
 
     @staticmethod
     def enter(sad, event):
-        sad.frame = 0
+        pass
 
     @staticmethod
     def exit(sad, event):
@@ -31,7 +31,7 @@ class RunDownState:
 
     @staticmethod
     def enter(sad, event):
-        sad.frame = 0
+        pass
 
     @staticmethod
     def exit(sad, event):
@@ -50,10 +50,7 @@ class JumpUpState:
 
     @staticmethod
     def enter(sad, event):
-        sad.goup = True
-        sad.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
-        sad.count_jump_speed = -1
-        sad.height = 0
+        pass
 
     @staticmethod
     def exit(sad, event):
@@ -73,6 +70,7 @@ class JumpUpState:
                 sad.goup = True
                 sad.jump = False
                 sad.count_jump_speed = -1
+                sad.add_event(LANDING)
 
     @staticmethod
     def draw(sad):
@@ -83,10 +81,7 @@ class JumpDownState:
 
     @staticmethod
     def enter(sad, event):
-        sad.goup = True
-        sad.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
-        sad.count_jump_speed = -1
-        sad.height = 0
+        pass
 
     @staticmethod
     def exit(sad, event):
@@ -106,6 +101,7 @@ class JumpDownState:
                 sad.goup = True
                 sad.jump = False
                 sad.count_jump_speed = -1
+                sad.add_event(LANDING)
 
     @staticmethod
     def draw(sad):
@@ -115,13 +111,18 @@ class JumpDownState:
 next_state_table = {
     RunUpState: {SPACE: JumpUpState, DELETE: RunDownState},
     RunDownState: {SPACE: JumpDownState, DELETE: RunUpState},
-    JumpUpState: {SPACE: JumpUpState, DELETE: JumpUpState},
-    JumpDownState: {SPACE: JumpDownState, DELETE: JumpDownState}
+    JumpUpState: {SPACE: JumpUpState, DELETE: JumpUpState, LANDING: RunUpState},
+    JumpDownState: {SPACE: JumpDownState, DELETE: JumpDownState, LANDING: RunDownState}
 }
 
 
 class Run_sadness100:
     def __init__(self):
+        self.frame = 0
+        self.goup = True
+        self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
+        self.count_jump_speed = -1
+        self.height = 0
         self.image = load_image('resources\\run_sadness100.png')
         self.image_jump = load_image('resources\\run_sadness100_jump.png')
         self.event_que = []
