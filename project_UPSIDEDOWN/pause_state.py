@@ -1,6 +1,5 @@
 import game_framework
 import main_state
-import choose_state
 from pico2d import *
 
 name = 'pause_state'
@@ -9,7 +8,6 @@ image = None
 class Pause:
     def __init__(self):
         self.image = load_image('resources\\pause360.png')
-
     def draw(self):
         self.image.draw(450,350)
 
