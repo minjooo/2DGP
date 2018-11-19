@@ -66,6 +66,10 @@ def handle_events():
                 return
             elif event.key == SDLK_p:
                 game_framework.push_state(pause_state)
+            else:
+                for game_object in game_world.all_objects():
+                    game_object.handle_event(event)
+                return
 
 
 
