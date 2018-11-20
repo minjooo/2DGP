@@ -6,32 +6,26 @@ from pico2d import *
 from Cursor import Cursor
 from Big_start import Big_start
 from Small_start import Small_start
+from Background import StartBackground as Background
 
 name = 'title_state'
 image = None
 
-class Start_Background:
-    def __init__(self):
-        self.image = load_image('resources\\start_image.png')
-
-    def draw(self):
-        self.image.draw(450,350)
-
 
 def enter():
-    global start_select, cursor, start_bg, big_start, small_start
+    global start_select, cursor, background, big_start, small_start
     start_select = False
     cursor = Cursor()
-    start_bg = Start_Background()
+    background = Background()
     big_start = Big_start()
     small_start = Small_start()
     hide_cursor()
 
 def exit():
-    global start_select, cursor, start_bg, big_start, small_start
+    global start_select, cursor, background, big_start, small_start
     del(cursor)
     del(start_select)
-    del(start_bg)
+    del(background)
     del(big_start)
     del(small_start)
 
@@ -60,7 +54,7 @@ def update():
 
 def draw():
     clear_canvas()
-    start_bg.draw()
+    background.draw()
     if start_select:
         big_start.draw()
     else:

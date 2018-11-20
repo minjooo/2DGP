@@ -13,22 +13,15 @@ from SmallExit import SmallExit
 from SmallReplay import SmallReplay
 from BigReplay import BigReplay
 from BigExit import BigExit
+from Background import StartBackground as Background
 
 name = 'end_state'
 image = None
 
 
-class Ending:
-    def __init__(self):
-        self.image = load_image('resources\\gameover2.png')
-
-    def draw(self):
-        self.image.draw(450, 350)
-
-
 def enter():
-    global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
-    end = Ending()
+    global backgound, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
+    backgound = Background()
     smallReplay = SmallReplay()
     smallExit = SmallExit()
     bigReplay = BigReplay()
@@ -41,8 +34,8 @@ def enter():
     score.score = main_state.number.score
 
 def exit():
-    global end, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
-    del(end)
+    global backgound, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
+    del(backgound)
     del(smallExit)
     del(smallReplay)
     del(bigExit)
@@ -91,7 +84,7 @@ def update():
 
 def draw():
     clear_canvas()
-    end.draw()
+    backgound.draw()
     crying.draw()
     if chooseReplay == True:
         bigReplay.draw()
