@@ -25,8 +25,9 @@ def enter():
     happy = Choose_happiness300()
     selected_character = 'none'
 
-    game_world.add_object(happy, 0)
-    game_world.add_object(sad, 0)
+    game_world.add_object(background, 0)
+    game_world.add_object(happy, 1)
+    game_world.add_object(sad, 1)
     game_world.add_object(cursor, 1)
 
 
@@ -58,7 +59,6 @@ def update():
 
 def draw():
     clear_canvas()
-    background.draw()
     for game_object in game_world.all_objects():
         game_object.draw()
     update_canvas()

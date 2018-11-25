@@ -56,7 +56,7 @@ class JumpUpState:
 
     @staticmethod
     def enter(happy, event):
-        pass
+        happy.jump_sound.play()
 
     @staticmethod
     def exit(happy, event):
@@ -87,7 +87,7 @@ class JumpDownState:
 
     @staticmethod
     def enter(happy, event):
-        pass
+        happy.jump_sound.play()
 
     @staticmethod
     def exit(happy, event):
@@ -135,6 +135,12 @@ class Run_happiness100:
         self.cur_state = RunUpState
         self.cur_state.enter(self, None)
         self.position = 'up'
+        self.jump_sound = load_wav('resources\\jump.wav')
+        self.jump_sound.set_volume(64)
+        self.eat_sound = load_wav('resources\\eat.wav')
+        self.eat_sound.set_volume(70)
+        self.return_sound = load_wav('resources\\return.wav')
+        self.return_sound.set_volume(70)
 
     def add_event(self, event):
         self.event_que.insert(0, event)
@@ -194,12 +200,14 @@ class Run_happiness100:
                             i.eated = self.collide(170, 220, 360 + self.height - 10, 360 + self.height + 40,
                                               i.x - 15, i.x + 15, 310, 350)
                             if i.eated == True:
+                                self.eat_sound.play()
                                 main_state.number.marble_number += 1
                     if type(i) == P_map.Tray:
                         if i.full == False:
                             i.full = self.collide(170, 220, 360 + self.height - 10, 360 + self.height + 40,
                                              i.x - 30, i.x + 30, 310, 400)
                             if i.full == True:
+                                self.return_sound.play()
                                 main_state.number.score = main_state.number.marble_number * 1000
                                 main_state.number.marble_number = 0
 
@@ -220,12 +228,14 @@ class Run_happiness100:
                             i.eated = self.collide(170, 220, 240 - self.height - 40, 240 - self.height + 10,
                                               i.x - 15, i.x + 15, 250, 290)
                             if i.eated == True:
+                                self.eat_sound.play()
                                 main_state.number.marble_number += 1
                     if type(i) == P_map.Tray:
                         if i.full == False:
                             i.full = self.collide(170, 220, 240 - self.height - 40, 240 - self.height + 10,
                                              i.x - 30, i.x + 30, 200, 290)
                             if i.full == True:
+                                self.return_sound.play()
                                 main_state.number.score = main_state.number.marble_number * 1000
                                 main_state.number.marble_number = 0
 

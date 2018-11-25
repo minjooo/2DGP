@@ -5,6 +5,9 @@ class StartBackground:
 
     def __init__(self):
         self.image = load_image('resources\\start_image.png')
+        self.bgm = load_music('resources\\title.wav')
+        self.bgm.set_volume(64)
+        self.bgm.repeat_play()
 
     def draw(self):
         self.image.draw(450, 350)
@@ -20,6 +23,9 @@ class ChooseBackground:
 
     def __init__(self):
         self.image = load_image('resources\\choose.png')
+        self.bgm = load_music('resources\\choose.wav')
+        self.bgm.set_volume(50)
+        self.bgm.repeat_play()
 
     def draw(self):
         self.image.draw(450, 350)
@@ -34,6 +40,9 @@ class RunningBackground:
 
     def __init__(self):
         self.image = load_image('resources\\running_BG_bar.png')
+        self.bgm = load_music('resources\\main.wav')
+        self.bgm.set_volume(50)
+        self.bgm.repeat_play()
 
     def draw(self):
         self.image.draw(450, 350)
@@ -48,6 +57,9 @@ class RunningBackground:
 class EndingBackground:
     def __init__(self):
         self.image = load_image('resources\\gameover2.png')
+        self.bgm = load_music('resources\\end.wav')
+        self.bgm.set_volume(50)
+        self.bgm.repeat_play()
 
     def draw(self):
         self.image.draw(450, 350)

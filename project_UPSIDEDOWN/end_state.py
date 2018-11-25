@@ -33,9 +33,10 @@ def enter():
     score = Score()
     score.score = main_state.number.score
 
+    game_world.add_object(backgound, 0)
+
 def exit():
-    global backgound, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
-    del(backgound)
+    global smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
     del(smallExit)
     del(smallReplay)
     del(bigExit)
