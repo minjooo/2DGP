@@ -13,7 +13,7 @@ from SmallExit import SmallExit
 from SmallReplay import SmallReplay
 from BigReplay import BigReplay
 from BigExit import BigExit
-from Background import StartBackground as Background
+from Background import EndingBackground as Background
 
 name = 'end_state'
 image = None

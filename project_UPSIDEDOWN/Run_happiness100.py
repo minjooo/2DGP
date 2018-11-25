@@ -1,5 +1,6 @@
 from pico2d import *
 
+
 SPACE, DELETE, LANDING = range(3)
 
 key_event_table = {

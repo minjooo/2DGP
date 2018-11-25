@@ -1,7 +1,5 @@
 from pico2d import *
 
-import game_world
-
 
 class Card:
     image = None

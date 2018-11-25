@@ -1,6 +1,7 @@
 import game_framework
 import choose_state
 from pico2d import *
+import game_world
 
 
 from Cursor import Cursor
@@ -14,20 +15,21 @@ image = None
 
 def enter():
     global start_select, cursor, background, big_start, small_start
+    hide_cursor()
     start_select = False
     cursor = Cursor()
     background = Background()
     big_start = Big_start()
     small_start = Small_start()
-    hide_cursor()
+    game_world.add_object(background, 0)
+    game_world.add_object(big_start, 1)
+    game_world.add_object(small_start, 1)
+    game_world.add_object(cursor, 1)
 
 def exit():
-    global start_select, cursor, background, big_start, small_start
-    del(cursor)
+    global start_select
     del(start_select)
-    del(background)
-    del(big_start)
-    del(small_start)
+    game_world.clear()
 
 def handle_events():
     global start_select
@@ -36,6 +38,8 @@ def handle_events():
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
+        elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
+                game_framework.quit()
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
             if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
@@ -46,8 +50,9 @@ def handle_events():
             if start_select:
                 game_framework.change_state(choose_state)
         else:
-            if (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
-                game_framework.quit()
+            for game_object in game_world.all_objects():
+                game_object.handle_event(event)
+            return
 
 def update():
     pass

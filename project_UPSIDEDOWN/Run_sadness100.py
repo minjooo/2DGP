@@ -1,4 +1,10 @@
 from pico2d import *
+import end_state
+import game_framework
+
+import main_state
+
+import Map as P_map
 
 SPACE, DELETE, LANDING = range(3)
 
@@ -12,7 +18,7 @@ class RunUpState:
 
     @staticmethod
     def enter(sad, event):
-        pass
+        sad.position = 'up'
 
     @staticmethod
     def exit(sad, event):
@@ -31,7 +37,7 @@ class RunDownState:
 
     @staticmethod
     def enter(sad, event):
-        pass
+        sad.position = 'down'
 
     @staticmethod
     def exit(sad, event):
@@ -128,11 +134,13 @@ class Run_sadness100:
         self.event_que = []
         self.cur_state = RunUpState
         self.cur_state.enter(self, None)
+        self.position = 'up'
 
     def add_event(self, event):
         self.event_que.insert(0, event)
 
     def update(self):
+        self.check_Crush()
         self.cur_state.do(self)
         if len(self.event_que) > 0:
             event = self.event_que.pop()
@@ -147,3 +155,79 @@ class Run_sadness100:
         if (event.type, event.key) in key_event_table:
             key_event = key_event_table[(event.type, event.key)]
             self.add_event(key_event)
+
+    def collide(self, ch_x1, ch_x2, ch_y1, ch_y2, e_x1, e_x2, e_y1, e_y2):
+        if ch_x2 < e_x1:
+            return False
+        if e_x2 < ch_x1:
+            return False
+        if e_y2 < ch_y1:
+            return False
+        if ch_y2 < e_y1:
+            return False
+        return True
+
+    def check_Crush(self):
+        ups = main_state.map.Cards_up + main_state.map.Boyfriends_up + main_state.map.Brooms_up + main_state.map.Marbles_up + main_state.map.Tray_up
+        downs = main_state.map.Cards_down + main_state.map.Boyfriends_down + main_state.map.Brooms_down + main_state.map.Marbles_down + main_state.map.Tray_down
+        main_state.is_crush = False
+        for i in ups + downs:
+            if i.x < 300 and i.x > 100:
+                i.check = True
+            else:
+                i.check = False
+
+        if self.cur_state == RunUpState or self.cur_state == JumpUpState:
+            for i in ups:  # 충돌 계산 해줄곳 위
+                if i.check == True:
+                    if type(i) == P_map.Card:
+                        main_state.is_crush = self.collide(170, 220, 360 + self.height - 10, 360 + self.height + 40,
+                                           i.x - 25, i.x + 25, 310, 370)
+                    if type(i) == P_map.Boyfriend:
+                        main_state.is_crush = self.collide(170, 220, 360 + self.height - 10, 360 + self.height + 40,
+                                           i.x - 25, i.x + 25, 310, 510)
+                    if type(i) == P_map.Broom:
+                        main_state.is_crush = self.collide(170, 220, 360 + self.height - 10, 360 + self.height + 40,
+                                           i.x - 20, i.x + 20, 419, 610)
+                    if type(i) == P_map.Marble:
+                        if i.eated == False:
+                            i.eated = self.collide(170, 220, 360 + self.height - 10, 360 + self.height + 40,
+                                              i.x - 15, i.x + 15, 310, 350)
+                            if i.eated == True:
+                                main_state.number.marble_number += 1
+                    if type(i) == P_map.Tray:
+                        if i.full == False:
+                            i.full = self.collide(170, 220, 360 + self.height - 10, 360 + self.height + 40,
+                                             i.x - 30, i.x + 30, 310, 400)
+                            if i.full == True:
+                                main_state.number.score = main_state.number.marble_number * 1000
+                                main_state.number.marble_number = 0
+
+        if self.cur_state == RunDownState or self.cur_state == JumpDownState:
+            for i in downs:  # 충돌 계산 해줄곳 아래
+                if i.check == True:
+                    if type(i) == P_map.Card:
+                        main_state.is_crush = self.collide(170, 220, 240 - self.height - 40, 240 - self.height + 10,
+                                           i.x - 25, i.x + 25, 230, 290)
+                    if type(i) == P_map.Boyfriend:
+                        main_state.is_crush = self.collide(170, 220, 240 - self.height - 40, 240 - self.height + 10,
+                                           i.x - 25, i.x + 25, 140, 290)
+                    if type(i) == P_map.Broom:
+                        main_state.is_crush = self.collide(170, 220, 240 - self.height - 40, 240 - self.height + 10,
+                                           i.x - 20, i.x + 20, 0, 191)
+                    if type(i) == P_map.Marble:
+                        if i.eated == False:
+                            i.eated = self.collide(170, 220, 240 - self.height - 40, 240 - self.height + 10,
+                                              i.x - 15, i.x + 15, 250, 290)
+                            if i.eated == True:
+                                main_state.number.marble_number += 1
+                    if type(i) == P_map.Tray:
+                        if i.full == False:
+                            i.full = self.collide(170, 220, 240 - self.height - 40, 240 - self.height + 10,
+                                             i.x - 30, i.x + 30, 200, 290)
+                            if i.full == True:
+                                main_state.number.score = main_state.number.marble_number * 1000
+                                main_state.number.marble_number = 0
+
+        if True == main_state.is_crush:
+            game_framework.push_state(end_state)

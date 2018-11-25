@@ -1,6 +1,5 @@
 from pico2d import *
 
-import game_world
 
 class Numbers:
     image = None
@@ -13,6 +12,8 @@ class Numbers:
     def update(self):
         pass
 
+    def handle_event(self, event):
+        pass
 
     def draw(self):
         self.font.draw(200, 649, '%d'%self.score, (0,76,99))

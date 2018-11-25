@@ -1,7 +1,7 @@
 from pico2d import *
 
-import game_world
-
+import main_state
+import choose_state
 
 class FollowingMarbles:
     red_image_f = None
@@ -28,6 +28,10 @@ class FollowingMarbles:
             FollowingMarbles.yellow_image_f = load_image('resources\\yellow_marble30.png')
 
     def update(self):
+        if main_state.number.marble_number > 2:
+            self.order = 3
+        else:
+            self.order = main_state.number.marble_number
         if self.jump:
             if self.goup:
                 self.hight += self.jump_speed[self.count_jump_speed]
@@ -42,6 +46,23 @@ class FollowingMarbles:
                     self.jump = False
                     self.count_jump_speed = -1
 
+    def draw(self):
+        if self.order != 0:
+            if choose_state.selected_character == 'sad':
+                if main_state.character.position == 'up':
+                    for self.num in range(1, self.order + 1):
+                        self.blue_draw_up_f()
+                else:
+                    for self.num in range(1, self.order + 1):
+                        self.blue_draw_down_f()
+
+            elif choose_state.selected_character == 'happy':
+                if main_state.character.position == 'up':
+                    for self.num in range(1, self.order + 1):
+                        self.yellow_draw_up_f()
+                else:
+                    for self.num in range(1, self.order + 1):
+                        self.yellow_draw_down_f()
 
     def red_draw_up_f(self):
         self.red_image_f.draw(165 - (self.num * 45), 360 + self.hight)
@@ -60,3 +81,6 @@ class FollowingMarbles:
         self.purple_image_f.clip_composite_draw(0, 0, 30, 30, 0, 'v', 165 - (self.num * 45), 240 - self.hight, 30, 30)
     def yellow_draw_down_f(self):
         self.yellow_image_f.clip_composite_draw(0, 0, 30, 30, 0, 'v', 165 - (self.num * 45), 240 - self.hight, 30, 30)
+
+    def handle_event(self, event):
+        pass

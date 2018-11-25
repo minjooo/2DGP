@@ -10,3 +10,6 @@ class SmallExit:
 
     def draw(self):
         self.image.draw(450, 350)
+
+    def handle_event(self, event):
+        pass

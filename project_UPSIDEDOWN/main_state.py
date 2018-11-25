@@ -10,11 +10,6 @@ from Numbers import Numbers
 from Run_happiness100 import Run_happiness100
 from Run_sadness100 import Run_sadness100
 from Path import Path
-from Card import Card
-from Broom import Broom
-from Boyfriend import Boyfriend
-from Marble import Marble
-from Tray import Tray
 from FollowingMarbles import FollowingMarbles
 from Map import Map
 from Background import RunningBackground as Background
@@ -22,7 +17,10 @@ from Background import RunningBackground as Background
 name = 'main_state'
 image = None
 
-
+number = None
+map = None
+is_crush = None
+character = None
 
 def enter():
     global background, character, path, number, following_marbles, is_crush, map
@@ -39,15 +37,15 @@ def enter():
     game_world.add_object(background, 0)
     game_world.add_object(path, 1)
     game_world.add_object(map, 1)
+    game_world.add_object(number, 1)
     game_world.add_object(character, 1)
+    game_world.add_object(following_marbles, 1)
 
 
 
 def exit():
-    global number, following_marbles,  is_crush
-    del number
-    del following_marbles
-    del is_crush
+    global is_crush
+    del (is_crush)
     game_world.clear()
 
 def handle_events():
@@ -67,41 +65,35 @@ def handle_events():
                 return
 
 
-
 def update():
-    following_marbles.update()
-    #check_Crush()
-    if number.marble_number > 2:
-        following_marbles.order = 3
-    else:
-        following_marbles.order = number.marble_number
+   # if number.marble_number > 2:
+   #     following_marbles.order = 3
+   # else:
+   #     following_marbles.order = number.marble_number
     for game_object in game_world.all_objects():
         game_object.update()
 
 
 def draw():
     clear_canvas()
-    background.draw()
-    path.draw()
     for game_object in game_world.all_objects():
         game_object.draw()
-    if following_marbles.order != 0:
-        if choose_state.selected_character == 'sad':
-            if character.UP:
-                for following_marbles.num in range(1, following_marbles.order + 1):
-                    following_marbles.blue_draw_up_f()
-            else:
-                for following_marbles.num in range(1, following_marbles.order + 1):
-                    following_marbles.blue_draw_down_f()
-
-        elif choose_state.selected_character == 'happy':
-            if character.UP:
-                for following_marbles.num in range(1, following_marbles.order + 1):
-                    following_marbles.yellow_draw_up_f()
-            else:
-                for following_marbles.num in range(1, following_marbles.order + 1):
-                    following_marbles.yellow_draw_down_f()
-    number.draw()
+    #if following_marbles.order != 0:
+    #    if choose_state.selected_character == 'sad':
+    #        if character.position == 'up':
+    #            for following_marbles.num in range(1, following_marbles.order + 1):
+    #                following_marbles.blue_draw_up_f()
+    #        else:
+    #            for following_marbles.num in range(1, following_marbles.order + 1):
+    #                following_marbles.blue_draw_down_f()
+#
+    #    elif choose_state.selected_character == 'happy':
+    #        if character.position == 'up':
+    #            for following_marbles.num in range(1, following_marbles.order + 1):
+    #                following_marbles.yellow_draw_up_f()
+    #        else:
+    #            for following_marbles.num in range(1, following_marbles.order + 1):
+    #                following_marbles.yellow_draw_down_f()
     update_canvas()
 
 def pause():

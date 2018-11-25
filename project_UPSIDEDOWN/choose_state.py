@@ -13,7 +13,7 @@ from Background import ChooseBackground as Background
 name = 'choose_state'
 image = None
 
-
+selected_character = None
 
 
 
