@@ -9,4 +9,4 @@ class Score:
 
 
     def draw(self):
-        self.font.draw(500, 330, '%d000'%self.score, (255,110,0))
+        self.font.draw(500, 330, '%d'%self.score, (255, 110, 0))

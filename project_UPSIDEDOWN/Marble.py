@@ -1,6 +1,5 @@
 from pico2d import *
 
-import game_world
 
 class Marble:
     red_image = None
