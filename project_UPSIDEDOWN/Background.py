@@ -24,7 +24,7 @@ class ChooseBackground:
     def __init__(self):
         self.image = load_image('resources\\choose.png')
         self.bgm = load_music('resources\\choose.wav')
-        self.bgm.set_volume(65)
+        self.bgm.set_volume(70)
         self.bgm.repeat_play()
 
     def draw(self):

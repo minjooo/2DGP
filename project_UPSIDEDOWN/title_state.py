@@ -21,13 +21,14 @@ def enter():
     background = Background()
     big_start = Big_start()
     small_start = Small_start()
-    game_world.add_object(background, 0)
+    #game_world.add_object(background, 0)
     #game_world.add_object(big_start, 1)
     #game_world.add_object(small_start, 1)
-    game_world.add_object(cursor, 1)
+    game_world.add_object(cursor, 0)
 
 def exit():
-    global start_select
+    global start_select, background
+    del(background)
     del(start_select)
     game_world.clear()
 
@@ -59,12 +60,13 @@ def update():
 
 def draw():
     clear_canvas()
-    for game_object in game_world.all_objects():
-        game_object.draw()
+    background.draw()
     if start_select:
         big_start.draw()
     else:
         small_start.draw()
+    for game_object in game_world.all_objects():
+        game_object.draw()
     update_canvas()
 
 

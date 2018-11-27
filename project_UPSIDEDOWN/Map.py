@@ -51,7 +51,7 @@ class Map:
             elif n == 4:  # 구슬하고싶은데
                 self.Marbles_up.append(Marble())
                 self.Marbles_up[-1].x = i * 100
-                self.Marbles_up[-1].color = random.randint(1, 4 + 1)
+                self.Marbles_up[-1].color = random.randint(1, 4)
             elif n == 5:  # 트레이다
                 self.Tray_up.append(Tray())
                 self.Tray_up[-1].x = i * 100
@@ -72,7 +72,7 @@ class Map:
             elif n == 4:  # 구슬하고싶은데
                 self.Marbles_down.append(Marble())
                 self.Marbles_down[-1].x = i * 100
-                self.Marbles_down[-1].color = random.randint(1, 4 + 1)
+                self.Marbles_down[-1].color = random.randint(1, 4)
             elif n == 5:  # 트레이다
                 self.Tray_down.append(Tray())
                 self.Tray_down[-1].x = i * 100
