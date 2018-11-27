@@ -60,7 +60,7 @@ def update():
 def draw():
     clear_canvas()
     for game_object in game_world.all_objects():
-        game_object.draw()#
+        game_object.draw()
     if start_select:
         big_start.draw()
     else:

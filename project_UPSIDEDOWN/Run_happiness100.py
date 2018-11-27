@@ -208,7 +208,7 @@ class Run_happiness100:
                                              i.x - 30, i.x + 30, 310, 400)
                             if i.full == True:
                                 self.return_sound.play()
-                                main_state.number.score = main_state.number.marble_number * 1000
+                                main_state.number.score += main_state.number.marble_number * 1000
                                 main_state.number.marble_number = 0
 
         if self.cur_state == RunDownState or self.cur_state == JumpDownState:
@@ -236,7 +236,7 @@ class Run_happiness100:
                                              i.x - 30, i.x + 30, 200, 290)
                             if i.full == True:
                                 self.return_sound.play()
-                                main_state.number.score = main_state.number.marble_number * 1000
+                                main_state.number.score += main_state.number.marble_number * 1000
                                 main_state.number.marble_number = 0
 
         if True == main_state.is_crush:
