@@ -1,10 +1,15 @@
 from pico2d import *
 import end_state
 import game_framework
+import math
 
 import main_state
+from FollowingMarbles import FollowingMarbles
 
 import Map as P_map
+
+PIXEL_PER_CM = 10.0
+RUN_SPEED_PPS = 300.0
 
 TIME_PER_ACTION = 0.3
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
@@ -61,6 +66,7 @@ class JumpUpState:
     @staticmethod
     def enter(happy, event):
         happy.jump_sound.play()
+        FollowingMarbles.jump = True
 
     @staticmethod
     def exit(happy, event):
@@ -68,18 +74,18 @@ class JumpUpState:
 
     @staticmethod
     def do(happy):
-        if happy.goup:
-            happy.height += happy.jump_speed[happy.count_jump_speed]/3
-            happy.count_jump_speed -= 1
-            if happy.count_jump_speed == -31:
+        if happy.goup == True:
+            happy.height += (1 - math.sin(happy.angle * math.pi / 180)) * 21
+            happy.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
+            if happy.angle >= 90:
                 happy.goup = False
-        if happy.goup == False:
-            happy.height -= happy.jump_speed[happy.count_jump_speed]/3
-            happy.count_jump_speed += 1
-            if happy.count_jump_speed == 1:
+        else:
+            happy.height -= (1 - math.sin(happy.angle * math.pi / 180)) * 21
+            happy.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
+            if happy.angle >= 180:
                 happy.goup = True
-                happy.jump = False
-                happy.count_jump_speed = -1
+                happy.angle = 0
+                happy.height = 0
                 happy.add_event(LANDING)
 
     @staticmethod
@@ -92,6 +98,7 @@ class JumpDownState:
     @staticmethod
     def enter(happy, event):
         happy.jump_sound.play()
+        FollowingMarbles.jump = True
 
     @staticmethod
     def exit(happy, event):
@@ -99,18 +106,18 @@ class JumpDownState:
 
     @staticmethod
     def do(happy):
-        if happy.goup:
-            happy.height += happy.jump_speed[happy.count_jump_speed]/3
-            happy.count_jump_speed -= 1
-            if happy.count_jump_speed == -31:
+        if happy.goup == True:
+            happy.height += (1 - math.sin(happy.angle * math.pi / 180)) * 21
+            happy.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
+            if happy.angle >= 90:
                 happy.goup = False
-        if happy.goup == False:
-            happy.height -= happy.jump_speed[happy.count_jump_speed]/3
-            happy.count_jump_speed += 1
-            if happy.count_jump_speed == 1:
+        else:
+            happy.height -= (1 - math.sin(happy.angle * math.pi / 180)) * 21
+            happy.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
+            if happy.angle >= 180:
                 happy.goup = True
-                happy.jump = False
-                happy.count_jump_speed = -1
+                happy.angle = 0
+                happy.height = 0
                 happy.add_event(LANDING)
 
     @staticmethod
@@ -130,8 +137,7 @@ class Run_happiness100:
     def __init__(self):
         self.frame = 0
         self.goup = True
-        self.jump_speed = [n for n in range(0, 30 + 1)]
-        self.count_jump_speed = -1
+        self.angle = 0
         self.height = 0
         self.image = load_image('resources\\run_happiness100.png')
         self.image_jump = load_image('resources\\run_happiness100_jump.png')

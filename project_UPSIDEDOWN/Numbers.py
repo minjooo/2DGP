@@ -2,11 +2,12 @@ from pico2d import *
 
 
 class Numbers:
-    image = None
+    font = None
     def __init__(self):
         self.score = 0
         self.marble_number = 0
-        self.font = load_font('resources/OCRAStd.otf',  45)
+        if self.font == None:
+            self.font = load_font('resources/OCRAStd.otf',  45)
 
 
     def update(self):

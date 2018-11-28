@@ -1,11 +1,11 @@
 from pico2d import *
 
-import game_world
-
 
 class BigReplay:
+    image = None
     def __init__(self):
-        self.image = load_image('resources\\bigReplay.png')
+        if self.image == None:
+            self.image = load_image('resources/bigReplay.png')
 
     def draw(self):
         self.image.draw(450, 350)

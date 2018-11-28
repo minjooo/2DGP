@@ -1,12 +1,12 @@
 from pico2d import *
 
-import game_world
-
 
 class Path:
+    image = None
     def __init__(self):
         self.frame = 0
-        self.image = load_image('resources\\path1350_3.png')
+        if self.image == None:
+            self.image = load_image('resources\\path1350_3.png')
 
     def update(self):
         self.frame = (self.frame + 1) % 10

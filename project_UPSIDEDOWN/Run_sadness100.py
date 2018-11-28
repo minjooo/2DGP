@@ -1,10 +1,14 @@
 from pico2d import *
 import end_state
 import game_framework
+import math
 
 import main_state
 
 import Map as P_map
+
+PIXEL_PER_CM = 10.0
+RUN_SPEED_PPS = 300.0
 
 TIME_PER_ACTION = 0.3
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
@@ -69,18 +73,18 @@ class JumpUpState:
 
     @staticmethod
     def do(sad):
-        if sad.goup:
-            sad.height += sad.jump_speed[sad.count_jump_speed]/3
-            sad.count_jump_speed -= 1
-            if sad.count_jump_speed == -31:
+        if sad.goup == True:
+            sad.height += (1 - math.sin(sad.angle * math.pi / 180)) * 21
+            sad.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
+            if sad.angle >= 90:
                 sad.goup = False
-        if sad.goup == False:
-            sad.height -= sad.jump_speed[sad.count_jump_speed]/3
-            sad.count_jump_speed += 1
-            if sad.count_jump_speed == 1:
+        else:
+            sad.height -= (1 - math.sin(sad.angle * math.pi / 180)) * 21
+            sad.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
+            if sad.angle >= 180:
                 sad.goup = True
-                sad.jump = False
-                sad.count_jump_speed = -1
+                sad.angle = 0
+                sad.height = 0
                 sad.add_event(LANDING)
 
     @staticmethod
@@ -100,18 +104,18 @@ class JumpDownState:
 
     @staticmethod
     def do(sad):
-        if sad.goup:
-            sad.height += sad.jump_speed[sad.count_jump_speed]/3
-            sad.count_jump_speed -= 1
-            if sad.count_jump_speed == -31:
+        if sad.goup == True:
+            sad.height += (1 - math.sin(sad.angle * math.pi / 180)) * 21
+            sad.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
+            if sad.angle >= 90:
                 sad.goup = False
-        if sad.goup == False:
-            sad.height -= sad.jump_speed[sad.count_jump_speed]/3
-            sad.count_jump_speed += 1
-            if sad.count_jump_speed == 1:
+        else:
+            sad.height -= (1 - math.sin(sad.angle * math.pi / 180)) * 21
+            sad.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
+            if sad.angle >= 180:
                 sad.goup = True
-                sad.jump = False
-                sad.count_jump_speed = -1
+                sad.angle = 0
+                sad.height = 0
                 sad.add_event(LANDING)
 
     @staticmethod
@@ -130,9 +134,8 @@ next_state_table = {
 class Run_sadness100:
     def __init__(self):
         self.frame = 0
+        self.angle = 0
         self.goup = True
-        self.jump_speed = [n for n in range(0, 30 + 1)]
-        self.count_jump_speed = -1
         self.height = 0
         self.image = load_image('resources\\run_sadness100.png')
         self.image_jump = load_image('resources\\run_sadness100_jump.png')

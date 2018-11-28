@@ -28,7 +28,6 @@ class IdleState:
     @staticmethod
     def do(happy):
         happy.wait_frame = (happy.wait_frame + FRAMES_PER_ACTION_W * ACTION_PER_TIME * game_framework.frame_time) % FRAMES_PER_ACTION_W
-        #happy.wait_frame = (happy.wait_frame + 1) % 4
 
     @staticmethod
     def draw(happy):
