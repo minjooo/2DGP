@@ -2,9 +2,10 @@ from pico2d import *
 import game_framework
 import choose_state
 
-TIME_PER_ACTION = 0.5
+TIME_PER_ACTION = 0.3
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
-FRAMES_PER_ACTION = 4
+FRAMES_PER_ACTION_W = 4
+FRAMES_PER_ACTION_R = 8
 
 MOUSE_STUCK, MOUSE_UNSTUCK = range(2)
 
@@ -23,7 +24,7 @@ class IdleState:
 
     @staticmethod
     def do(happy):
-        happy.wait_frame = (int(happy.wait_frame) + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % FRAMES_PER_ACTION
+        happy.wait_frame = (happy.wait_frame + FRAMES_PER_ACTION_W * ACTION_PER_TIME * game_framework.frame_time) % FRAMES_PER_ACTION_W
         #happy.wait_frame = (happy.wait_frame + 1) % 4
 
     @staticmethod
@@ -43,11 +44,11 @@ class RunState:
 
     @staticmethod
     def do(happy):
-        happy.run_frame = (happy.run_frame + 1) % 8
+        happy.run_frame = (happy.run_frame + FRAMES_PER_ACTION_R * ACTION_PER_TIME * game_framework.frame_time) % FRAMES_PER_ACTION_R
 
     @staticmethod
     def draw(happy):
-        happy.run_image.clip_composite_draw(happy.run_frame*100, 0, 100, 100, 0, '', 300, 300, 300, 300)
+        happy.run_image.clip_composite_draw(int(happy.run_frame)*100, 0, 100, 100, 0, '', 300, 300, 300, 300)
 
 
 
