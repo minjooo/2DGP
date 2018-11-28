@@ -14,22 +14,21 @@ image = None
 
 
 def enter():
-    global start_select, cursor, background, big_start, small_start
     hide_cursor()
+    global start_select, cursor, background, big_start, small_start
     start_select = False
     cursor = Cursor()
     background = Background()
     big_start = Big_start()
     small_start = Small_start()
-    #game_world.add_object(background, 0)
-    #game_world.add_object(big_start, 1)
-    #game_world.add_object(small_start, 1)
     game_world.add_object(cursor, 0)
 
 def exit():
-    global start_select, background
+    global start_select, background, big_start, small_start
     del(background)
     del(start_select)
+    del(big_start)
+    del(small_start)
     game_world.clear()
 
 def handle_events():
@@ -55,8 +54,10 @@ def handle_events():
                 game_object.handle_event(event)
             return
 
+
 def update():
     pass
+
 
 def draw():
     clear_canvas()

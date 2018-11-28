@@ -1,5 +1,11 @@
 from pico2d import *
+import game_framework
 
+PIXEL_PER_CM = 10.0
+RUN_SPEED_PPS = 300.0
+
+TIME_PER_ACTION = 0.5
+ACTION_PER_TIME = 1.0 / 0.5
 
 class Marble:
     red_image = None
@@ -21,8 +27,10 @@ class Marble:
             Marble.yellow_image = load_image('resources\\yellow_marble40.png')
 
     def update(self):
-        self.x -= 12
-
+        #self.x -= 12
+        self.x += (-RUN_SPEED_PPS) * game_framework.frame_time
+        # print(game_framework.frame_time)
+        # delay(0.1)
     def red_draw_up(self):
         self.red_image.draw(self.x, 330)
     def blue_draw_up(self):

@@ -6,7 +6,7 @@ class Numbers:
     def __init__(self):
         self.score = 0
         self.marble_number = 0
-        self.font = load_font('resources\\OCRAStd.otf',45)
+        self.font = load_font('resources/OCRAStd.otf',45)
 
 
     def update(self):

@@ -42,11 +42,11 @@ def enter():
     game_world.add_object(following_marbles, 1)
 
 
-
 def exit():
     global is_crush
     del (is_crush)
     game_world.clear()
+
 
 def handle_events():
     events = get_events()

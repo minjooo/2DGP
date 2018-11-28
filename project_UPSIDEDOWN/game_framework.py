@@ -1,4 +1,7 @@
 from pico2d import *
+import time
+
+frame_time = 0.0
 
 class GameState:
     def __init__(self, state):
@@ -85,18 +88,20 @@ def quit():
 
 
 def run(start_state):
-    global running, stack, curTime, prTime
-    prTime = 0.0
+    global running, stack, frame_time
     running = True
     stack = [start_state]
     start_state.enter()
+
+    pre_time = time.time()
+
     while (running):
-        curTime = get_time()
+        current_time = time.time()
+        frame_time = current_time - pre_time
+        pre_time =current_time
         stack[-1].handle_events()
-        if curTime - prTime > 0.035:
-            stack[-1].update()
-            stack[-1].draw()
-            prTime = curTime
+        stack[-1].update()
+        stack[-1].draw()
     # repeatedly delete the top of the stack
     while (len(stack) > 0):
         stack[-1].exit()

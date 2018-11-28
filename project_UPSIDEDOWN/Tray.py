@@ -1,6 +1,11 @@
 from pico2d import *
+import game_framework
 
-import game_world
+PIXEL_PER_CM = 10.0
+RUN_SPEED_PPS = 300.0
+
+TIME_PER_ACTION = 0.5
+ACTION_PER_TIME = 1.0 / 0.5
 
 
 class Tray:
@@ -16,7 +21,8 @@ class Tray:
             Tray.full_image = load_image('resources\\tray100_full.png')
 
     def update(self):
-        self.x -= 12
+        #self.x -= 12
+        self.x += (-RUN_SPEED_PPS) * game_framework.frame_time
 
     def draw_empty_up(self):
         self.empty_image.draw(self.x, 360)

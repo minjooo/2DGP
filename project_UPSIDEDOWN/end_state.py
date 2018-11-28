@@ -20,8 +20,8 @@ image = None
 
 
 def enter():
-    global backgound, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
-    backgound = Background()
+    global background, smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
+    background = Background()
     smallReplay = SmallReplay()
     smallExit = SmallExit()
     bigReplay = BigReplay()
@@ -32,20 +32,21 @@ def enter():
     crying = Crying()
     score = Score()
     score.score = main_state.number.score
-
-    game_world.add_object(backgound, 0)
+    game_world.clear()
+    game_world.add_object(cursor, 0)
+    game_world.add_object(crying, 0)
+    game_world.add_object(score, 0)
 
 def exit():
-    global smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, cursor, crying, score
+    global smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, background
+    del(background)
     del(smallExit)
     del(smallReplay)
     del(bigExit)
     del(bigReplay)
     del(chooseExit)
     del(chooseReplay)
-    del(cursor)
-    del(crying)
-    del(score)
+    game_world.clear()
 
 def handle_events():
     global chooseReplay
@@ -80,13 +81,13 @@ def handle_events():
                 return
 
 def update():
-    crying.update()
-    delay(0.05)
+    for game_object in game_world.all_objects():
+        game_object.update()
+    # delay(0.05)
 
 def draw():
     clear_canvas()
-    backgound.draw()
-    crying.draw()
+    background.draw()
     if chooseReplay == True:
         bigReplay.draw()
     else:
@@ -95,8 +96,8 @@ def draw():
         bigExit.draw()
     else:
         smallExit.draw()
-    score.draw()
-    cursor.draw()
+    for game_object in game_world.all_objects():
+        game_object.draw()
     update_canvas()
 
 def pause():

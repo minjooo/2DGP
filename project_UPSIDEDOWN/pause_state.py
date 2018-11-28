@@ -5,15 +5,12 @@ from pico2d import *
 name = 'pause_state'
 image = None
 
-class Pause:
-    def __init__(self):
-        self.image = load_image('resources\\pause360.png')
-    def draw(self):
-        self.image.draw(450,350)
+
 
 def enter():
     global pause
     pause = Pause()
+    pause.pause_sound.play()
 
 def exit():
     global pause
@@ -44,3 +41,11 @@ def pause():
 
 def resume():
     pass
+
+class Pause:
+    def __init__(self):
+        self.image = load_image('resources\\pause360.png')
+        self.pause_sound = load_wav('resources\\pause.wav')
+        self.pause_sound.set_volume(64)
+    def draw(self):
+        self.image.draw(450,350)

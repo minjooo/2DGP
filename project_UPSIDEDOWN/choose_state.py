@@ -32,6 +32,8 @@ def enter():
 
 
 def exit():
+    global selected_character
+    del(selected_character)
     game_world.clear()
 
 def handle_events():
@@ -62,7 +64,7 @@ def draw():
     for game_object in game_world.all_objects():
         game_object.draw()
     update_canvas()
-    delay(0.05)
+    # delay(0.05)
 
 def pause():
     pass
