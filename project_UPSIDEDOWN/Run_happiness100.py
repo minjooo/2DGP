@@ -6,6 +6,10 @@ import main_state
 
 import Map as P_map
 
+TIME_PER_ACTION = 0.3
+ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
+FRAMES_PER_ACTION = 8
+
 SPACE, DELETE, LANDING = range(3)
 
 key_event_table = {
@@ -26,11 +30,11 @@ class RunUpState:
 
     @staticmethod
     def do(happy):
-        happy.frame = (happy.frame + 1) % 8
+        happy.frame = (happy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % FRAMES_PER_ACTION
 
     @staticmethod
     def draw(happy):
-        happy.image.clip_draw(happy.frame * 100, 0, 100, 100, 200, 360)
+        happy.image.clip_draw(int(happy.frame) * 100, 0, 100, 100, 200, 360)
 
 
 class RunDownState:
@@ -45,11 +49,11 @@ class RunDownState:
 
     @staticmethod
     def do(happy):
-        happy.frame = (happy.frame + 1) % 8
+        happy.frame = (happy.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % FRAMES_PER_ACTION
 
     @staticmethod
     def draw(happy):
-        happy.image.clip_composite_draw(happy.frame * 100, 0, 100, 100, 0, 'v', 200, 240, 100, 100)
+        happy.image.clip_composite_draw(int(happy.frame) * 100, 0, 100, 100, 0, 'v', 200, 240, 100, 100)
 
 
 class JumpUpState:
