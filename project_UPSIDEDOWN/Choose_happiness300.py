@@ -2,6 +2,9 @@ from pico2d import *
 import game_framework
 import choose_state
 
+PIXEL_PER_CM = 10.0
+RUN_SPEED_PPS = 300.0
+
 TIME_PER_ACTION = 0.3
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAMES_PER_ACTION_W = 4

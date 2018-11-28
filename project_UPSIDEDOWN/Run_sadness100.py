@@ -70,12 +70,12 @@ class JumpUpState:
     @staticmethod
     def do(sad):
         if sad.goup:
-            sad.height += sad.jump_speed[sad.count_jump_speed]
+            sad.height += sad.jump_speed[sad.count_jump_speed]/3
             sad.count_jump_speed -= 1
-            if sad.count_jump_speed == -8:
+            if sad.count_jump_speed == -31:
                 sad.goup = False
         if sad.goup == False:
-            sad.height -= sad.jump_speed[sad.count_jump_speed]
+            sad.height -= sad.jump_speed[sad.count_jump_speed]/3
             sad.count_jump_speed += 1
             if sad.count_jump_speed == 1:
                 sad.goup = True
@@ -101,12 +101,12 @@ class JumpDownState:
     @staticmethod
     def do(sad):
         if sad.goup:
-            sad.height += sad.jump_speed[sad.count_jump_speed]
+            sad.height += sad.jump_speed[sad.count_jump_speed]/3
             sad.count_jump_speed -= 1
-            if sad.count_jump_speed == -8:
+            if sad.count_jump_speed == -31:
                 sad.goup = False
         if sad.goup == False:
-            sad.height -= sad.jump_speed[sad.count_jump_speed]
+            sad.height -= sad.jump_speed[sad.count_jump_speed]/3
             sad.count_jump_speed += 1
             if sad.count_jump_speed == 1:
                 sad.goup = True
@@ -131,7 +131,7 @@ class Run_sadness100:
     def __init__(self):
         self.frame = 0
         self.goup = True
-        self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
+        self.jump_speed = [n for n in range(0, 30 + 1)]
         self.count_jump_speed = -1
         self.height = 0
         self.image = load_image('resources\\run_sadness100.png')

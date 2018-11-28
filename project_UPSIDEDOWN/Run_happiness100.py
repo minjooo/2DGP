@@ -69,12 +69,12 @@ class JumpUpState:
     @staticmethod
     def do(happy):
         if happy.goup:
-            happy.height += happy.jump_speed[happy.count_jump_speed]
+            happy.height += happy.jump_speed[happy.count_jump_speed]/3
             happy.count_jump_speed -= 1
-            if happy.count_jump_speed == -8:
+            if happy.count_jump_speed == -31:
                 happy.goup = False
         if happy.goup == False:
-            happy.height -= happy.jump_speed[happy.count_jump_speed]
+            happy.height -= happy.jump_speed[happy.count_jump_speed]/3
             happy.count_jump_speed += 1
             if happy.count_jump_speed == 1:
                 happy.goup = True
@@ -100,12 +100,12 @@ class JumpDownState:
     @staticmethod
     def do(happy):
         if happy.goup:
-            happy.height += happy.jump_speed[happy.count_jump_speed]
+            happy.height += happy.jump_speed[happy.count_jump_speed]/3
             happy.count_jump_speed -= 1
-            if happy.count_jump_speed == -8:
+            if happy.count_jump_speed == -31:
                 happy.goup = False
         if happy.goup == False:
-            happy.height -= happy.jump_speed[happy.count_jump_speed]
+            happy.height -= happy.jump_speed[happy.count_jump_speed]/3
             happy.count_jump_speed += 1
             if happy.count_jump_speed == 1:
                 happy.goup = True
@@ -130,7 +130,7 @@ class Run_happiness100:
     def __init__(self):
         self.frame = 0
         self.goup = True
-        self.jump_speed = [n for n in range(0, 35 + 1) if n % 5 == 0]
+        self.jump_speed = [n for n in range(0, 30 + 1)]
         self.count_jump_speed = -1
         self.height = 0
         self.image = load_image('resources\\run_happiness100.png')
