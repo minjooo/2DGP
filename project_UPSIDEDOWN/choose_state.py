@@ -45,6 +45,7 @@ def handle_events():
             game_framework.quit()
             return
         elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_ESCAPE):
+            game_world.clear()
             game_framework.change_state(title_state)
         elif (event.type, event.button) == (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT):
             if selected_character != 'none':

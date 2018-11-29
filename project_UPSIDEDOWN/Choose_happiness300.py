@@ -61,11 +61,15 @@ next_state_table = {
 }
 
 class Choose_happiness300:
+    run_image = None
+    wait_image = None
     def __init__(self):
         self.run_frame = 0
         self.wait_frame = 0
-        self.run_image = load_image('resources\\run_happiness100.png')
-        self.wait_image = load_image('resources\\wait_happiness300.png')
+        if self.run_image == None:
+            self.run_image = load_image('resources\\run_happiness100.png')
+        if self.wait_image == None:
+            self.wait_image = load_image('resources\\wait_happiness300.png')
         self.event_que = []
         self.cur_state = IdleState
         self.cur_state.enter(self, None)

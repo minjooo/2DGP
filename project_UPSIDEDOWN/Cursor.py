@@ -5,9 +5,11 @@ import game_world
 
 
 class Cursor:
+    image = None
     def __init__(self):
         self.x, self.y = 0, 0
-        self.image = load_image('resources\\cursor80.png')
+        if self.image == None:
+            self.image = load_image('resources\\cursor80.png')
 
     def update(self):
         pass

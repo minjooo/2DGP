@@ -1,10 +1,8 @@
 import game_framework
 import choose_state
 import pause_state
-import end_state
 from pico2d import *
 import game_world
-import random
 
 from Numbers import Numbers
 from Run_happiness100 import Run_happiness100
@@ -21,6 +19,7 @@ number = None
 map = None
 is_crush = None
 character = None
+inputJump = None
 
 def enter():
     global background, character, path, number, following_marbles, is_crush, map
@@ -76,8 +75,10 @@ def draw():
         game_object.draw()
     update_canvas()
 
+
 def pause():
     pass
+
 
 def resume():
     pass

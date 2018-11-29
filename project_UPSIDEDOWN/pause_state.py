@@ -43,8 +43,10 @@ def resume():
     pass
 
 class Pause:
+    image = None
     def __init__(self):
-        self.image = load_image('resources\\pause360.png')
+        if self.image == None:
+            self.image = load_image('resources\\pause360.png')
         self.pause_sound = load_wav('resources\\pause.wav')
         self.pause_sound.set_volume(64)
     def draw(self):

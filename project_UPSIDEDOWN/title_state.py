@@ -48,6 +48,7 @@ def handle_events():
                 start_select = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if start_select:
+                game_world.clear()
                 game_framework.change_state(choose_state)
         else:
             for game_object in game_world.all_objects():

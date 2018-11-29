@@ -14,10 +14,10 @@ TIME_PER_ACTION = 0.3
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAMES_PER_ACTION = 8
 
-SPACE, DELETE, LANDING = range(3)
+SPACE, ENTER, LANDING = range(3)
 
 key_event_table = {
-    (SDL_KEYDOWN, SDLK_DELETE): DELETE,
+    (SDL_KEYDOWN, 13): ENTER,
     (SDL_KEYDOWN, SDLK_SPACE): SPACE
 }
 
@@ -74,12 +74,12 @@ class JumpUpState:
     @staticmethod
     def do(sad):
         if sad.goup == True:
-            sad.height += (1 - math.sin(sad.angle * math.pi / 180)) * 21
+            sad.height += (1 - math.sin(sad.angle * math.pi / 180)) * 36
             sad.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
             if sad.angle >= 90:
                 sad.goup = False
         else:
-            sad.height -= (1 - math.sin(sad.angle * math.pi / 180)) * 21
+            sad.height -= (1 - math.sin(sad.angle * math.pi / 180)) * 36
             sad.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
             if sad.angle >= 180:
                 sad.goup = True
@@ -105,12 +105,12 @@ class JumpDownState:
     @staticmethod
     def do(sad):
         if sad.goup == True:
-            sad.height += (1 - math.sin(sad.angle * math.pi / 180)) * 21
+            sad.height += (1 - math.sin(sad.angle * math.pi / 180)) * 36
             sad.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
             if sad.angle >= 90:
                 sad.goup = False
         else:
-            sad.height -= (1 - math.sin(sad.angle * math.pi / 180)) * 21
+            sad.height -= (1 - math.sin(sad.angle * math.pi / 180)) * 36
             sad.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
             if sad.angle >= 180:
                 sad.goup = True
@@ -124,21 +124,25 @@ class JumpDownState:
 
 
 next_state_table = {
-    RunUpState: {SPACE: JumpUpState, DELETE: RunDownState},
-    RunDownState: {SPACE: JumpDownState, DELETE: RunUpState},
-    JumpUpState: {SPACE: JumpUpState, DELETE: JumpUpState, LANDING: RunUpState},
-    JumpDownState: {SPACE: JumpDownState, DELETE: JumpDownState, LANDING: RunDownState}
+    RunUpState: {SPACE: JumpUpState, ENTER: RunDownState},
+    RunDownState: {SPACE: JumpDownState, ENTER: RunUpState},
+    JumpUpState: {SPACE: JumpUpState, ENTER: JumpUpState, LANDING: RunUpState},
+    JumpDownState: {SPACE: JumpDownState, ENTER: JumpDownState, LANDING: RunDownState}
 }
 
 
 class Run_sadness100:
+    image = None
+    image_jump = None
     def __init__(self):
         self.frame = 0
         self.angle = 0
         self.goup = True
         self.height = 0
-        self.image = load_image('resources\\run_sadness100.png')
-        self.image_jump = load_image('resources\\run_sadness100_jump.png')
+        if self.image == None:
+            self.image = load_image('resources\\run_sadness100.png')
+        if self.image_jump == None:
+            self.image_jump = load_image('resources\\run_sadness100_jump.png')
         self.event_que = []
         self.cur_state = RunUpState
         self.cur_state.enter(self, None)
