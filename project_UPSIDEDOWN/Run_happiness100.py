@@ -74,12 +74,12 @@ class JumpUpState:
     @staticmethod
     def do(happy):
         if happy.goup == True:
-            happy.height += (1 - math.sin(happy.angle * math.pi / 180)) * 36
+            happy.height += (1 - math.sin(happy.angle * math.pi / 180)) * 32
             happy.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
             if happy.angle >= 90:
                 happy.goup = False
         else:
-            happy.height -= (1 - math.sin(happy.angle * math.pi / 180)) * 36
+            happy.height -= (1 - math.sin(happy.angle * math.pi / 180)) * 32
             happy.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
             if happy.angle >= 180:
                 happy.goup = True
@@ -106,12 +106,12 @@ class JumpDownState:
     @staticmethod
     def do(happy):
         if happy.goup == True:
-            happy.height += (1 - math.sin(happy.angle * math.pi / 180)) * 36
+            happy.height += (1 - math.sin(happy.angle * math.pi / 180)) * 32
             happy.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
             if happy.angle >= 90:
                 happy.goup = False
         else:
-            happy.height -= (1 - math.sin(happy.angle * math.pi / 180)) * 36
+            happy.height -= (1 - math.sin(happy.angle * math.pi / 180)) * 32
             happy.angle += 1.5 * RUN_SPEED_PPS * game_framework.frame_time
             if happy.angle >= 180:
                 happy.goup = True
