@@ -54,6 +54,7 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_ESCAPE:
+                game_world.clear()
                 game_framework.change_state(choose_state)
                 return
             elif event.key == SDLK_p:

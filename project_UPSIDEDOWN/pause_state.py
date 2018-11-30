@@ -1,10 +1,9 @@
 import game_framework
-import main_state
+import game_world
 from pico2d import *
 
 name = 'pause_state'
 image = None
-
 
 
 def enter():
@@ -32,7 +31,8 @@ def update():
 
 def draw():
     clear_canvas()
-    main_state.draw()
+    for game_object in game_world.all_objects():
+        game_object.draw()
     pause.draw()
     update_canvas()
 
@@ -46,8 +46,9 @@ class Pause:
     image = None
     def __init__(self):
         if self.image == None:
-            self.image = load_image('resources\\pause360.png')
-        self.pause_sound = load_wav('resources\\pause.wav')
+            self.image = load_image('resources/pause360.png')
+        self.pause_sound = load_wav('resources/pause.wav')
         self.pause_sound.set_volume(64)
+
     def draw(self):
-        self.image.draw(450,350)
+        self.image.draw(450, 350)
