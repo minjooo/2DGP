@@ -5,7 +5,6 @@ from pico2d import *
 import game_world
 
 from Cursor import Cursor
-import Choose_happiness300
 from Choose_happiness300 import Choose_happiness300
 from Choose_sadness300 import Choose_sadness300
 from Background import ChooseBackground as Background
@@ -15,7 +14,7 @@ image = None
 
 selected_character = None
 
-
+cursor = None
 
 def enter():
     global cursor, background, sad, happy, selected_character
@@ -28,7 +27,7 @@ def enter():
     game_world.add_object(background, 0)
     game_world.add_object(happy, 1)
     game_world.add_object(sad, 1)
-    game_world.add_object(cursor, 1)
+    game_world.add_object(cursor, 2)
 
 
 def exit():

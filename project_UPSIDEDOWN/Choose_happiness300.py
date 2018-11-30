@@ -19,7 +19,8 @@ class IdleState:
 
     @staticmethod
     def enter(happy, event):
-        pass
+        if choose_state.selected_character != 'sad':
+            choose_state.selected_character = 'none'
 
     @staticmethod
     def exit(happy, event):
@@ -38,11 +39,13 @@ class RunState:
 
     @staticmethod
     def enter(happy, event):
+        if choose_state.selected_character != 'happy':
+            choose_state.cursor.playSound()
         choose_state.selected_character = 'happy'
 
     @staticmethod
     def exit(happy, event):
-        choose_state.selected_character = 'none'
+        pass
 
     @staticmethod
     def do(happy):

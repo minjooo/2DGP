@@ -33,9 +33,9 @@ def enter():
     score = Score()
     score.score = main_state.number.score
     game_world.clear()
-    game_world.add_object(cursor, 0)
     game_world.add_object(crying, 0)
     game_world.add_object(score, 0)
+    game_world.add_object(cursor, 1)
 
 def exit():
     global smallReplay, smallExit, bigReplay, bigExit, chooseExit, chooseReplay, background
@@ -60,10 +60,14 @@ def handle_events():
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
             if 150 < event.x < 450 and 50 < (700 - 1 - event.y) < 150:
+                if chooseReplay == False:
+                    cursor.playSound()
                 chooseReplay = True
             else:
                 chooseReplay = False
             if 600 < event.x < 800 and 50 < (700 - 1 - event.y) < 150:
+                if chooseExit == False:
+                    cursor.playSound()
                 chooseExit = True
             else:
                 chooseExit = False

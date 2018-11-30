@@ -1,15 +1,19 @@
 from pico2d import *
 
-import game_world
-
-
 
 class Cursor:
     image = None
+    sound = None
     def __init__(self):
         self.x, self.y = 0, 0
         if self.image == None:
-            self.image = load_image('resources\\cursor80.png')
+            self.image = load_image('resources/cursor80.png')
+        if self.sound == None:
+            self.sound = load_wav('resources/cursor.wav')
+            self.sound.set_volume(64)
+
+    def playSound(self):
+        self.sound.play()
 
     def update(self):
         pass

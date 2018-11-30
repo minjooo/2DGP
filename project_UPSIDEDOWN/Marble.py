@@ -17,20 +17,17 @@ class Marble:
         self.color = 0
         self.eated = False
         self.check = False
-        if Marble.red_image == None:
-            Marble.red_image = load_image('resources\\red_marble40.png')
-        if Marble.blue_image == None:
-            Marble.blue_image = load_image('resources\\blue_marble40.png')
-        if Marble.purple_image == None:
-            Marble.purple_image = load_image('resources\\purple_marble40.png')
-        if Marble.yellow_image == None:
-            Marble.yellow_image = load_image('resources\\yellow_marble40.png')
+        if self.red_image == None:
+            self.red_image = load_image('resources/red_marble40.png')
+        if self.blue_image == None:
+            self.blue_image = load_image('resources/blue_marble40.png')
+        if self.purple_image == None:
+            self.purple_image = load_image('resources/purple_marble40.png')
+        if self.yellow_image == None:
+            self.yellow_image = load_image('resources/yellow_marble40.png')
 
     def update(self):
-        #self.x -= 12
         self.x += (-RUN_SPEED_PPS) * game_framework.frame_time
-        # print(game_framework.frame_time)
-        # delay(0.1)
     def red_draw_up(self):
         self.red_image.draw(self.x, 330)
     def blue_draw_up(self):

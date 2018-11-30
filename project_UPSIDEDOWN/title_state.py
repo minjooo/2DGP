@@ -43,11 +43,14 @@ def handle_events():
         elif event.type == SDL_MOUSEMOTION:
             cursor.x, cursor.y = event.x, 700 - 1 - event.y
             if 415 < event.x < 695 and 150 < (700 - 1 - event.y) < 260:
+                if start_select == False:
+                    cursor.playSound()
                 start_select = True
             else:
                 start_select = False
         elif event.type == SDL_MOUSEBUTTONDOWN and event.button == SDL_BUTTON_LEFT:
             if start_select:
+                #cursor.playSound()
                 game_world.clear()
                 game_framework.change_state(choose_state)
         else:
