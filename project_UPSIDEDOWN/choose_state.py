@@ -16,6 +16,7 @@ selected_character = None
 
 cursor = None
 
+
 def enter():
     global cursor, background, sad, happy, selected_character
     cursor = Cursor()
@@ -34,6 +35,7 @@ def exit():
     global selected_character
     del(selected_character)
     game_world.clear()
+
 
 def handle_events():
     global cursor
@@ -55,9 +57,11 @@ def handle_events():
                 game_object.handle_event(event)
             return
 
+
 def update():
     for game_object in game_world.all_objects():
         game_object.update()
+
 
 def draw():
     clear_canvas()

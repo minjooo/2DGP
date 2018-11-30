@@ -64,7 +64,6 @@ class JumpUpState:
 
     @staticmethod
     def enter(sad, event):
-        sad.jump_sound.play()
         pass
 
     @staticmethod
@@ -96,7 +95,7 @@ class JumpDownState:
 
     @staticmethod
     def enter(sad, event):
-        sad.jump_sound.play()
+        pass
 
     @staticmethod
     def exit(sad, event):
@@ -173,6 +172,10 @@ class Run_sadness100:
         if (event.type, event.key) in key_event_table:
             key_event = key_event_table[(event.type, event.key)]
             self.add_event(key_event)
+            if event.type == SDL_KEYDOWN and event.key == SDLK_SPACE:
+                if self.cur_state == RunUpState or self.cur_state == RunDownState:
+                    self.jump_sound.play()
+
 
     def collide(self, ch_x1, ch_x2, ch_y1, ch_y2, e_x1, e_x2, e_y1, e_y2):
         if ch_x2 < e_x1:
